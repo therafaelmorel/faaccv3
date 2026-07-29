@@ -1,34 +1,35 @@
-# Design QA — FasAct Admin Dashboard
+# Design QA — FasAct Admin Projects
 
-- Source visual truth: `/workspace/scratch/2d5bf4c80ece/generated_images/call_pQi5g06EYvteQ07SPJuiI63W.png`
+- Source visual truth: `/workspace/scratch/2d5bf4c80ece/upload/ChatGPT Image Jul 29, 2026, 11_33_11 AM.png`
 - Implementation URL: https://faaccv3.vercel.app/
-- Reference size: 1774 × 887 px
+- Reference size: 2048 × 1082 px
 - Browser QA viewport: 1347 × 927 CSS px
-- State: Admin dashboard
-- Primary interactions tested: role selector, Week/Month chart toggle, New project modal, Cancel
+- State: Admin → Projects → All
 
 ## Visual comparison
 
-The deployed Admin screen was opened in a cloud browser and compared with the selected first dashboard concept. The final implementation preserves the concept's information hierarchy:
+The deployed Admin Projects screen was compared with the selected go-live portfolio timeline concept. The final implementation preserves its hierarchy and presentation:
 
-- compact greeting and date header with a primary New project action;
-- four KPI metrics in a single quiet rail;
-- one dominant activation-progress chart;
-- task-health donut with a 14-task total and five status categories;
-- paired Needs attention and Upcoming milestones lists;
-- compact projects table with status, progress, and go-live data;
-- existing sidebar and top demo selector.
+- project title, subtitle, status filters with counts, search, and New project action;
+- one contained white portfolio surface instead of separate project cards;
+- summary metrics for project count, total budget, and average progress;
+- upcoming projects ordered by go-live date on a continuous timeline;
+- compact columns for tasks, progress, budget, and project actions;
+- completed work separated into a dedicated timeline section;
+- existing FasAct sidebar and top demo selector.
 
-The title clears the floating selector, all chart labels remain visible, and the dashboard uses whitespace and restrained borders instead of the earlier card-heavy composition.
+The responsive layout keeps the timeline readable at the smaller browser viewport while maintaining the selected concept's spacing, typography, borders, and red/black visual system.
 
 ## Interaction and runtime checks
 
-- Admin remains the active red selector tab.
-- Week and Month controls both redraw the progress chart.
-- New project opens the existing project form.
-- Cancel closes the form without changing dashboard data.
-- Task-health values reconcile to the 14-task KPI total.
-- No application-origin console errors were observed. Browser-extension metadata errors were excluded.
+- Admin Projects loads with all five projects and the 24-day East Tower countdown.
+- Search narrows the timeline to the matching project.
+- Status filters show the correct project subsets and hide empty timeline sections.
+- New project opens the existing form and Cancel closes it.
+- Clicking a project opens its existing detail screen.
+- Edit and delete actions remain available on every row.
+- The Project Team selector still switches to the team workspace.
+- No application-origin console errors or framework overlays were observed. Browser-extension metadata errors were excluded.
 - The bundled template parses as valid JSON and the embedded component JavaScript passes `node --check`.
 
 ## Findings
@@ -36,4 +37,3 @@ The title clears the floating selector, all chart labels remain visible, and the
 No blocking or material visual defects remain.
 
 final result: passed
-
