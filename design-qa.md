@@ -1,4 +1,4 @@
-# Design QA — FasAct Admin Projects
+# Design QA — FACT Admin Projects
 
 - Source visual truth: `/workspace/scratch/2d5bf4c80ece/upload/ChatGPT Image Jul 29, 2026, 11_33_11 AM.png`
 - Implementation URL: https://faaccv3.vercel.app/
@@ -16,7 +16,7 @@ The deployed Admin Projects screen was compared with the selected go-live portfo
 - upcoming projects ordered by go-live date on a continuous timeline;
 - compact columns for tasks, progress, budget, and project actions;
 - completed work separated into a dedicated timeline section;
-- existing FasAct sidebar and top demo selector.
+- existing FACT sidebar and top demo selector.
 
 The responsive layout keeps the timeline readable at the smaller browser viewport while maintaining the selected concept's spacing, typography, borders, and red/black visual system.
 
