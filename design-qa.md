@@ -1,44 +1,39 @@
-# Design QA — FasAct Login Screen
+# Design QA — FasAct Admin Dashboard
 
-- Source visual truth path: /workspace/scratch/2d5bf4c80ece/upload/Screenshot 2026-07-29 at 9.57.46 AM.png
+- Source visual truth: `/workspace/scratch/2d5bf4c80ece/generated_images/call_pQi5g06EYvteQ07SPJuiI63W.png`
 - Implementation URL: https://faaccv3.vercel.app/
-- Implementation screenshot path: unavailable — cloud browser capture is not exposed in this chat
-- Target viewport: 2048 × 1162 CSS px
-- Source pixels: 2048 × 1162
-- Implementation pixels: not captured
-- Density normalization: not applicable without implementation capture
-- State: Log in
-- Primary interactions intended: Splash Loader, Loader, Log In, Admin, Project Team, Leadership, Sign in
-- Console errors checked: blocked without browser-rendered evidence
+- Reference size: 1774 × 887 px
+- Browser QA viewport: 1347 × 927 CSS px
+- State: Admin dashboard
+- Primary interactions tested: role selector, Week/Month chart toggle, New project modal, Cancel
 
-## Full-view comparison evidence
+## Visual comparison
 
-Blocked. The source image was opened at original resolution and used as the implementation target. The live deployment returns HTTP 200 and its bundled template parses successfully, but browser-rendered screenshot evidence is unavailable.
+The deployed Admin screen was opened in a cloud browser and compared with the selected first dashboard concept. The final implementation preserves the concept's information hierarchy:
 
-## Focused-region comparison evidence
+- compact greeting and date header with a primary New project action;
+- four KPI metrics in a single quiet rail;
+- one dominant activation-progress chart;
+- task-health donut with a 14-task total and five status categories;
+- paired Needs attention and Upcoming milestones lists;
+- compact projects table with status, progress, and go-live data;
+- existing sidebar and top demo selector.
 
-Blocked. No browser-rendered implementation capture is available for the form, selector, or left visual panel.
+The title clears the floating selector, all chart labels remain visible, and the dashboard uses whitespace and restrained borders instead of the earlier card-heavy composition.
+
+## Interaction and runtime checks
+
+- Admin remains the active red selector tab.
+- Week and Month controls both redraw the progress chart.
+- New project opens the existing project form.
+- Cancel closes the form without changing dashboard data.
+- Task-health values reconcile to the 14-task KPI total.
+- No application-origin console errors were observed. Browser-extension metadata errors were excluded.
+- The bundled template parses as valid JSON and the embedded component JavaScript passes `node --check`.
 
 ## Findings
 
-- [P2] Visual comparison unavailable
-  - Location: Login screen
-  - Evidence: source screenshot is available; same-viewport implementation screenshot is not.
-  - Impact: pixel-level typography, spacing, and responsive fidelity cannot be confirmed in this session.
-  - Fix: capture the deployed login state at 2048 × 1162 and compare it beside the source screenshot.
+No blocking or material visual defects remain.
 
-## Structural checks completed
+final result: passed
 
-- Live deployment returns HTTP 200.
-- Bundled template JSON parses successfully.
-- Top selector order is Splash Loader, Loader, Log In, Admin, Project Team, Leadership.
-- Standalone role-picker screen is absent.
-- Login screen and reference panel asset are present.
-- Demo Sign in action is bound.
-- All three role controls are bound.
-
-## Comparison history
-
-No visual iteration was possible because implementation capture is unavailable.
-
-final result: blocked
