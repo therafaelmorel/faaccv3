@@ -1,0 +1,15 @@
+{
+  "name": "fact-prototype",
+  "private": true,
+  "scripts": {
+    "extract": "node scripts/extract-template.mjs",
+    "build": "node scripts/build-template.mjs",
+    "check": "node scripts/check-template.mjs",
+    "dev": "wrangler pages dev . --d1 DB=fact-prototype --kv FACT_COMMENTS",
+    "db:migrate:local": "wrangler d1 migrations apply fact-prototype --local",
+    "db:migrate:remote": "wrangler d1 migrations apply fact-prototype --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
