@@ -1529,7 +1529,7 @@ class Component extends DCLogic {
     this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, projects: P, tasks: T, notes: N };
     this.draft = {};
   }
-  componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; if (m !== this.state.isMobile) this.setState({ isMobile: m }); }; window.addEventListener('resize', this._rs); this._chartResize = () => this.drawAdminCharts(); window.addEventListener('resize', this._chartResize); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); if (this.state.role) this.loadPageComments(); }
+  componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; if (m !== this.state.isMobile) this.setState({ isMobile: m }); }; window.addEventListener('resize', this._rs); this._chartResize = () => this.drawAdminCharts(); window.addEventListener('resize', this._chartResize); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); this._commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':'); if (this.state.role) this.loadPageComments(); }
   componentWillUnmount() { window.removeEventListener('resize', this._rs); window.removeEventListener('resize', this._chartResize); clearTimeout(this._t1); clearTimeout(this._t2); clearTimeout(this._loaderT); }
   scheduleSplashExit() { clearTimeout(this._t1); clearTimeout(this._t2); this._t1 = setTimeout(() => this.skipSplash(), 2200); }
   skipSplash() { if (!this.state.splash) return; clearTimeout(this._t1); clearTimeout(this._t2); this.setState({ splashLeaving: true }); this._t2 = setTimeout(() => this.setState({ splash: false }), 480); }
@@ -1627,11 +1627,13 @@ class Component extends DCLogic {
       onDelete: () => this.setState({ modal: 'delT', delId: t.id })
     };
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     if (this.state.role === 'admin' && this.state.screen === 'adash') {
       requestAnimationFrame(() => this.drawAdminCharts());
     }
-    if (prevState.role !== this.state.role || prevState.screen !== this.state.screen || prevState.projectId !== this.state.projectId) {
+    const commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':');
+    if (this._commentContext !== commentContext) {
+      this._commentContext = commentContext;
       if (this.state.role) this.loadPageComments();
     }
   }
