@@ -37,6 +37,10 @@ export async function onRequestPost({ request, env }) {
     FROM users WHERE email = ? AND status = 'active'
   `).bind(email).first();
 
+  if (!user && (!env.BOOTSTRAP_ADMIN_EMAIL || !env.BOOTSTRAP_ADMIN_CODE)) {
+    return json({ error: 'Admin access is not fully configured in Cloudflare.' }, 503);
+  }
+
   if (!user || await sha256(accessCode) !== user.accessCodeHash) {
     return json({ error: 'The email or access code is incorrect.' }, 401);
   }
