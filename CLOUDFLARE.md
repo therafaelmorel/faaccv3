@@ -31,6 +31,8 @@ After the Admin signs in, the Team page can generate tester access codes and ass
 
 `keep_vars` is enabled in `wrangler.jsonc` so Git-connected deployments preserve the bootstrap values managed in the Cloudflare dashboard.
 
+For first-time recovery, the Worker also contains a one-time bootstrap-code hash. It can create exactly one Admin only while the `users` table is empty; after the first Admin is created, this recovery path closes automatically. The access code itself is never stored in the repository.
+
 ## Production cutoff
 
 After client approval, change the following values in `wrangler.jsonc` and redeploy:

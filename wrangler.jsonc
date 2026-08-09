@@ -21,7 +21,9 @@
   "vars": {
     "BUILD_MODE": "true",
     "FEEDBACK_ENABLED": "true",
-    "ADMIN_ROLE_PREVIEW_ENABLED": "true"
+    "ADMIN_ROLE_PREVIEW_ENABLED": "true",
+    "BOOTSTRAP_ADMIN_NAME": "Rafael Morel",
+    "BOOTSTRAP_ADMIN_SETUP_HASH": "3bef9145b68c984d04da03b62cac50b2c688c0e3cc498c66b52d88e122050acc"
   },
   "observability": {
     "enabled": true

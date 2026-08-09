@@ -17,19 +17,24 @@ export async function onRequestPost({ request, env }) {
   const email = normalizeEmail(input.email);
   const accessCode = String(input.accessCode || '').trim();
   if (!email || !accessCode) return json({ error: 'Email and access code are required.' }, 400);
+  if (!email.includes('@')) return json({ error: 'Enter a valid email address.' }, 400);
 
   const now = new Date().toISOString();
-  const isBootstrapAdmin = env.BOOTSTRAP_ADMIN_EMAIL && env.BOOTSTRAP_ADMIN_CODE &&
+  const accessCodeHash = await sha256(accessCode);
+  const configuredBootstrapAdmin = env.BOOTSTRAP_ADMIN_EMAIL && env.BOOTSTRAP_ADMIN_CODE &&
     email === normalizeEmail(env.BOOTSTRAP_ADMIN_EMAIL) && accessCode === env.BOOTSTRAP_ADMIN_CODE;
+  const existingUserCount = await env.DB.prepare('SELECT COUNT(*) AS count FROM users').first();
+  const databaseIsEmpty = Number(existingUserCount?.count || 0) === 0;
+  const oneTimeBootstrapAdmin = databaseIsEmpty && env.BOOTSTRAP_ADMIN_SETUP_HASH &&
+    accessCodeHash === env.BOOTSTRAP_ADMIN_SETUP_HASH;
 
-  if (isBootstrapAdmin) {
-    const codeHash = await sha256(accessCode);
+  if (configuredBootstrapAdmin || oneTimeBootstrapAdmin) {
     await env.DB.prepare(`
       INSERT INTO users (id, email, name, role, access_code_hash, can_preview_roles, status, created_at, updated_at)
       VALUES (?, ?, ?, 'admin', ?, 1, 'active', ?, ?)
       ON CONFLICT(email) DO UPDATE SET name = excluded.name, role = 'admin', access_code_hash = excluded.access_code_hash,
         can_preview_roles = 1, status = 'active', updated_at = excluded.updated_at
-    `).bind(crypto.randomUUID(), email, env.BOOTSTRAP_ADMIN_NAME || 'Client Administrator', codeHash, now, now).run();
+    `).bind(crypto.randomUUID(), email, env.BOOTSTRAP_ADMIN_NAME || 'Rafael Morel', accessCodeHash, now, now).run();
   }
 
   const user = await env.DB.prepare(`
@@ -37,11 +42,7 @@ export async function onRequestPost({ request, env }) {
     FROM users WHERE email = ? AND status = 'active'
   `).bind(email).first();
 
-  if (!user && (!env.BOOTSTRAP_ADMIN_EMAIL || !env.BOOTSTRAP_ADMIN_CODE)) {
-    return json({ error: 'Admin access is not fully configured in Cloudflare.' }, 503);
-  }
-
-  if (!user || await sha256(accessCode) !== user.accessCodeHash) {
+  if (!user || accessCodeHash !== user.accessCodeHash) {
     return json({ error: 'The email or access code is incorrect.' }, 401);
   }
 
