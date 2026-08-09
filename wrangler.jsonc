@@ -1,5 +1,5 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "faaccv3",
   "main": "./src/worker.js",
   "compatibility_date": "2026-08-09",
@@ -13,7 +13,7 @@
     {
       "binding": "DB",
       "database_name": "fact-prototype",
-      "database_id": "REPLACE_WITH_CLOUDFLARE_D1_DATABASE_ID",
+      "database_id": "0de54027-2db4-4c48-9f90-da699607fd06",
       "migrations_dir": "./migrations"
     }
   ],
@@ -21,5 +21,8 @@
     "BUILD_MODE": "true",
     "FEEDBACK_ENABLED": "true",
     "ADMIN_ROLE_PREVIEW_ENABLED": "true"
+  },
+  "observability": {
+    "enabled": true
   }
 }

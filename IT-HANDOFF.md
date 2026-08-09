@@ -3,8 +3,8 @@
 ## Source and ownership
 
 - Transfer the GitHub repository to the client organization or mirror the complete commit history into an IT-owned repository.
-- Recreate the Cloudflare Pages project in the client account from the transferred repository.
-- Copy `wrangler.example.jsonc` to `wrangler.jsonc` and replace the D1 database identifier.
+- Recreate the Cloudflare Worker in the client account from the transferred repository.
+- Update the Worker name and client-owned D1 database identifier in `wrangler.jsonc`.
 - Give IT ownership of the production domain and DNS records.
 
 ## Data

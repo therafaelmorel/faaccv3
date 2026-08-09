@@ -1,10 +1,10 @@
-# FACT on Cloudflare Pages
+# FACT on Cloudflare Workers
 
-FACT is a zero-framework static frontend with Cloudflare Pages Functions for configuration, sign-in, invitations and shared page feedback.
+FACT is a zero-framework static frontend with a Cloudflare Worker API for configuration, sign-in, invitations and shared page feedback. Static files are served from `public/`; only `/api/*` requests run through the Worker.
 
-## Required bindings
+## Version-controlled bindings
 
-Create a D1 database named `fact-prototype`, then add it to the Pages project with the binding name `DB`.
+The production `wrangler.jsonc` declares the existing `faaccv3` Worker, the `DB` binding and the `fact-prototype` database ID. Do not add the D1 binding manually in the dashboard; every Git deployment recreates it from this file.
 
 Apply the database migration:
 
@@ -12,17 +12,17 @@ Apply the database migration:
 npx wrangler d1 migrations apply fact-prototype --remote
 ```
 
-The earlier KV-based comment store remains an optional fallback. If it is retained, bind it as `FACT_COMMENTS`.
+The earlier KV-based comment store remains an optional fallback, but D1 is the primary shared store.
 
 ## Development variables
 
-Configure these variables in the Cloudflare Pages project:
+The first three variables are committed in `wrangler.jsonc` while the platform is in development. Configure the bootstrap Admin values in **Worker → Settings → Variables and Secrets**:
 
 | Variable | Development value | Purpose |
 |---|---|---|
-| `BUILD_MODE` | `true` | Shows the temporary Build Dashboard and invitation tools |
-| `FEEDBACK_ENABLED` | `true` | Enables shared page comments |
-| `ADMIN_ROLE_PREVIEW_ENABLED` | `true` | Lets an authorized Admin preview other roles |
+| `BUILD_MODE` | `true` | Already configured; shows the temporary Build Dashboard and invitation tools |
+| `FEEDBACK_ENABLED` | `true` | Already configured; enables shared page comments |
+| `ADMIN_ROLE_PREVIEW_ENABLED` | `true` | Already configured; lets an authorized Admin preview other roles |
 | `BOOTSTRAP_ADMIN_EMAIL` | Client Admin email | Creates or restores the first Admin at sign-in |
 | `BOOTSTRAP_ADMIN_NAME` | Client Admin name | Display name for the first Admin |
 | `BOOTSTRAP_ADMIN_CODE` | Secret access code | Initial Admin sign-in code; store as a secret |
@@ -31,7 +31,7 @@ After the Admin signs in, the Team page can generate tester access codes and ass
 
 ## Production cutoff
 
-After client approval, set the following variables and redeploy:
+After client approval, change the following values in `wrangler.jsonc` and redeploy:
 
 ```text
 BUILD_MODE=false
@@ -50,4 +50,10 @@ npm run build
 npm run check
 ```
 
-`index.html` is the Cloudflare deployment artifact. The source is retained separately so the client IT team does not need to edit a serialized one-line bundle.
+`public/index.html` is the Worker static-asset artifact. `index.html` is kept for direct static preview, and the editable source remains in `src/fact-app.html` so client IT does not need to edit a serialized one-line bundle.
+
+Validate the complete Worker package before publishing:
+
+```bash
+npm run deploy:check
+```
