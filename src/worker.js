@@ -3,6 +3,8 @@ import { onRequestPost as login } from '../functions/api/auth/login.js';
 import { onRequestDelete as logout, onRequestGet as session } from '../functions/api/auth/session.js';
 import { onRequestGet as getComments, onRequestPost as addComment } from '../functions/api/comments.js';
 import { onRequestGet as getConfig } from '../functions/api/config.js';
+import { onRequestGet as getData, onRequestPost as mutateData } from '../functions/api/data.js';
+import { onRequestGet as getUsers } from '../functions/api/admin/users.js';
 import { json } from '../functions/_lib/auth.js';
 
 const routes = new Map([
@@ -12,7 +14,10 @@ const routes = new Map([
   ['DELETE /api/auth/session', logout],
   ['GET /api/comments', getComments],
   ['POST /api/comments', addComment],
-  ['POST /api/admin/invites', createInvite]
+  ['POST /api/admin/invites', createInvite],
+  ['GET /api/admin/users', getUsers],
+  ['GET /api/data', getData],
+  ['POST /api/data', mutateData]
 ]);
 
 export default {

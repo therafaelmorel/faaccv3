@@ -698,12 +698,13 @@
 </sc-if>
 
 <main style="flex:1;padding:30px 34px 120px;max-width:1140px;width:100%;margin:0 auto;box-sizing:border-box">
+<sc-if value="{{hasDataError}}"><div style="margin-bottom:18px;padding:12px 14px;border:1px solid rgba(200,16,46,.2);border-radius:12px;background:#fff3f5;color:#9f1239;font-size:12.5px;font-weight:650;display:flex;align-items:center;gap:12px"><span style="flex:1">{{dataError}}</span><button sc-camel-on-click="{{onDismissDataError}}" style="border:0;background:none;color:#9f1239;font-weight:800;cursor:pointer">Dismiss</button></div></sc-if>
 
 <sc-if value="{{sADash}}">
 <div data-screen-label="Admin · Dashboard" class="pulse-dashboard">
 <div class="pulse-header">
 <div class="pulse-title-line">
-<h1>Good afternoon, Sandra</h1>
+<h1>Good afternoon, {{dashboardFirstName}}</h1>
 <span>{{lAsOf}}</span>
 </div>
 <button sc-camel-on-click="{{onNewProject}}" class="pulse-primary-button" style-hover="background:#a50d26">
@@ -906,7 +907,7 @@ New project
 </sc-if>
 
 <sc-if value="{{noFilteredProjects}}">
-<div class="portfolio-empty"><strong>No matching projects</strong><span>Try a different status or search term.</span></div>
+<div class="portfolio-empty"><strong>{{projectEmptyTitle}}</strong><span>{{projectEmptyMessage}}</span></div>
 </sc-if>
 </section>
 </div>
@@ -1039,6 +1040,7 @@ New project
 <span style="font-size:11.5px;color:#6f6f78;font-weight:600;flex:none;width:90px;text-align:right">{{m.taskLabel}}</span>
 </div>
 </sc-for>
+<sc-if value="{{membersEmpty}}"><div style="padding:34px 22px;text-align:center;color:#6f6f78;font-size:13px">No team members have been invited yet.</div></sc-if>
 </div>
 </div>
 </sc-if>
@@ -1385,7 +1387,7 @@ Comments
 <div style="position:relative;background:#fff;border-radius:20px;width:100%;max-width:480px;max-height:84vh;overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.3);font-family:'Inter',system-ui,sans-serif">
 <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 26px;border-bottom:1px solid #f1f1f4;position:sticky;top:0;background:#fff;z-index:1"><h2 style="margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em">{{mProjectTitle}}</h2><button sc-camel-on-click="{{onClose}}" style="border:none;background:#f1f1f4;border-radius:99px;color:#6f6f78;cursor:pointer;padding:7px;display:flex" style-hover="color:#101014"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></div>
 <div style="padding:22px 26px;display:flex;flex-direction:column;gap:15px">
-<div><label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px">Project name *</label><input sc-camel-default-value="{{dfName}}" sc-camel-on-change="{{odName}}" placeholder="e.g. Northside Medical Office Activation" style="width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid #ececf1;border-radius:12px;font-size:13.5px;background:#f8f8fa" style-focus="outline:2px solid rgba(200,16,46,.2);border-color:#c8102e;background:#fff"></div>
+<div><label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px">Project name *</label><input sc-camel-default-value="{{dfName}}" sc-camel-on-change="{{odName}}" placeholder="e.g. New Facility Activation" style="width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid #ececf1;border-radius:12px;font-size:13.5px;background:#f8f8fa" style-focus="outline:2px solid rgba(200,16,46,.2);border-color:#c8102e;background:#fff"></div>
 <div><label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px">Location</label><input sc-camel-default-value="{{dfLoc}}" sc-camel-on-change="{{odLoc}}" placeholder="e.g. Building A, Floor 3" style="width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid #ececf1;border-radius:12px;font-size:13.5px;background:#f8f8fa" style-focus="outline:2px solid rgba(200,16,46,.2);border-color:#c8102e;background:#fff"></div>
 <div><label style="display:block;font-size:12px;font-weight:700;margin-bottom:6px">Description</label><textarea sc-camel-default-value="{{dfDesc}}" sc-camel-on-change="{{odDesc}}" rows="3" placeholder="Brief description of the activation..." style="width:100%;box-sizing:border-box;padding:11px 13px;border:1px solid #ececf1;border-radius:12px;font-size:13.5px;resize:none;background:#f8f8fa" style-focus="outline:2px solid rgba(200,16,46,.2);border-color:#c8102e;background:#fff"></textarea></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px">
@@ -1487,46 +1489,14 @@ class Component extends DCLogic {
     this.PS = { planning: ['Planning', '#2563eb'], active: ['Active', '#1f9d55'], on_hold: ['On hold', '#f59e0b'], completed: ['Completed', '#c1c1c9'] };
     this.PR = { low: ['Low', '#a5a5ad'], medium: ['Medium', '#b45309'], high: ['High', '#e05e00'], critical: ['Critical', '#c8102e'] };
     this.IC = { dash: 'M3 3h8v8H3zM13 3h8v5h-8zM13 12h8v9h-8zM3 15h8v6H3z', folder: 'M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z', check: 'M9 11l3 3L22 4M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11', users: 'M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', chart: 'M3 3v18h18M8 17v-6M13 17V7M18 17v-4', build: 'M4 21h16M6 21V8l6-5 6 5v13M9 21v-7h6v7', clip: 'M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 3h6v4H9z' };
-    this.USERS = [
-      { name: 'Sandra Ortiz', role: 'admin', dept: 'Activation Program Admin' },
-      { name: 'Robert Chen', role: 'leadership', dept: 'VP, Facilities' },
-      { name: 'Marcus Lee', role: 'team', dept: 'IT & Low Voltage' },
-      { name: 'Dana Whitfield', role: 'team', dept: 'Regulatory PM' },
-      { name: 'Priya Nair', role: 'team', dept: 'Clinical Operations' },
-      { name: 'James Carter', role: 'team', dept: 'Facilities' },
-      { name: 'Alicia Gomez', role: 'team', dept: 'Biomedical Engineering' }];
-    const P = [
-      { id: 'p1', name: 'Northside Medical Office Activation', location: '4200 Northside Pkwy, Bldg 2', priority: 'high', goLive: '2026-09-14', budget: 1250000, desc: 'Full activation of the new medical office building ahead of construction turnover.' },
-      { id: 'p3', name: 'East Tower ICU Expansion', location: 'Main Campus, East Tower L4', priority: 'critical', goLive: '2026-08-21', budget: 2100000, desc: '12-bed ICU expansion. Activation checklist must be complete before construction phase 2 begins.' },
-      { id: 'p2', name: 'Riverside Outpatient Clinic', location: '88 Riverside Dr', priority: 'medium', goLive: '2026-11-02', budget: 640000, desc: 'Pre-construction activation checklist for the outpatient clinic fit-out.' },
-      { id: 'p4', name: 'Lakewood Dialysis Center', location: '310 Lakewood Ave', priority: 'high', goLive: '2026-10-09', budget: 880000, desc: 'Activation paused pending revised water treatment plan approval.' },
-      { id: 'p5', name: 'Central Sterile Processing Upgrade', location: 'Main Campus, B1', priority: 'medium', goLive: '2026-06-30', budget: 420000, desc: 'Completed activation of the upgraded sterile processing department.' }];
-    const T = [
-      { id: 't1', projectId: 'p3', title: 'Install & test nurse call system', phase: 'IT & Low Voltage', priority: 'critical', due: '2026-08-05', pct: 60, status: 'in_progress', assignees: ['Marcus Lee', 'IT Dept'], attach: 2, desc: 'Head-end install, room devices, and end-to-end testing for all 12 ICU beds.' },
-      { id: 't3', projectId: 'p3', title: 'Fire marshal inspection', phase: 'Regulatory & Licensing', priority: 'critical', due: '2026-07-24', pct: 80, status: 'needs_review', assignees: ['Dana Whitfield'], attach: 3, desc: 'Coordinate final life-safety walkthrough and obtain signed inspection report.' },
-      { id: 't2', projectId: 'p3', title: 'Med gas outlet certification', phase: 'Life Safety', priority: 'high', due: '2026-08-08', pct: 0, status: 'not_started', assignees: ['James Carter', 'Facilities'], attach: 1, desc: 'Third-party certification of all medical gas outlets and alarms.' },
-      { id: 't4', projectId: 'p3', title: 'ICU staff competency training', phase: 'Staffing & Training', priority: 'high', due: '2026-08-14', pct: 30, status: 'in_progress', assignees: ['Priya Nair', 'Clinical Ops'], attach: 0, desc: 'Equipment competencies and unit orientation for the first nursing cohort.' },
-      { id: 't7', projectId: 'p1', title: 'Network drops & Wi-Fi survey', phase: 'IT & Low Voltage', priority: 'high', due: '2026-08-12', pct: 70, status: 'in_progress', assignees: ['Marcus Lee', 'IT Dept'], attach: 1, desc: 'Verify all data drops, run AP survey, and remediate dead zones.' },
-      { id: 't6', projectId: 'p1', title: 'Deliver & install exam room furniture', phase: 'Equipment & Furniture', priority: 'medium', due: '2026-08-28', pct: 45, status: 'in_progress', assignees: ['James Carter', 'Facilities'], attach: 2, desc: 'Receive, stage, and install casework and exam tables for rooms 1-12.' },
-      { id: 't8', projectId: 'p1', title: 'State licensure application', phase: 'Regulatory & Licensing', priority: 'high', due: '2026-09-01', pct: 20, status: 'in_progress', assignees: ['Dana Whitfield'], attach: 4, desc: 'Compile and submit the state licensure package with floor plans.' },
-      { id: 't5', projectId: 'p1', title: 'Badge access provisioning', phase: 'IT & Low Voltage', priority: 'medium', due: '2026-07-20', pct: 100, status: 'completed', assignees: ['Marcus Lee'], attach: 1, desc: 'Program door controllers and issue badges for opening-day staff.' },
-      { id: 't9', projectId: 'p1', title: 'Terminal cleaning & first stock', phase: 'Utilities & Facilities', priority: 'low', due: '2026-09-10', pct: 0, status: 'not_started', assignees: ['Facilities'], attach: 0, desc: 'Terminal clean all clinical spaces and stock supply rooms to par.' },
-      { id: 't10', projectId: 'p2', title: 'Space planning sign-off', phase: 'Equipment & Furniture', priority: 'medium', due: '2026-08-30', pct: 10, status: 'in_progress', assignees: ['Priya Nair'], attach: 1, desc: 'Confirm room-by-room equipment layout with clinic leadership.' },
-      { id: 't11', projectId: 'p2', title: 'Low-voltage rough-in review', phase: 'IT & Low Voltage', priority: 'medium', due: '2026-09-15', pct: 0, status: 'not_started', assignees: ['Marcus Lee', 'IT Dept'], attach: 0, desc: 'Review low-voltage rough-in drawings before walls close.' },
-      { id: 't12', projectId: 'p4', title: 'Water treatment system spec', phase: 'Utilities & Facilities', priority: 'high', due: '2026-08-18', pct: 25, status: 'on_hold', assignees: ['James Carter', 'Biomed'], attach: 2, desc: 'Finalize RO water spec; on hold pending Infection Prevention approval.' },
-      { id: 't13', projectId: 'p4', title: 'Dialysis equipment procurement', phase: 'Equipment & Furniture', priority: 'high', due: '2026-09-05', pct: 15, status: 'on_hold', assignees: ['Alicia Gomez', 'Biomed'], attach: 1, desc: 'PO issuance for dialysis machines and water loop components.' },
-      { id: 't14', projectId: 'p5', title: 'Sterilizer validation runs', phase: 'Equipment & Furniture', priority: 'medium', due: '2026-06-20', pct: 100, status: 'completed', assignees: ['Alicia Gomez'], attach: 2, desc: 'Three consecutive successful biological indicator runs per sterilizer.' }];
-    const N = [
-      { id: 'n1', taskId: 't1', author: 'Marcus Lee', date: '2026-07-27', content: 'Head-end equipment installed. Testing rooms 401-406 tomorrow.' },
-      { id: 'n2', taskId: 't3', author: 'Dana Whitfield', date: '2026-07-26', content: 'Inspection completed. Awaiting the signed report from the fire marshal\'s office.' },
-      { id: 'n3', taskId: 't6', author: 'James Carter', date: '2026-07-25', content: 'Casework for exam rooms 1-8 delivered. Install crew scheduled Monday.' },
-      { id: 'n4', taskId: 't12', author: 'James Carter', date: '2026-07-24', content: 'On hold until the revised RO water spec is approved by Infection Prevention.' },
-      { id: 'n5', taskId: 't7', author: 'Marcus Lee', date: '2026-07-23', content: 'Wi-Fi survey complete. Three additional APs needed on the north wing.' },
-      { id: 'n6', taskId: 't4', author: 'Priya Nair', date: '2026-07-22', content: 'Training curriculum approved. First cohort scheduled for Aug 3.' }];
+    this.USERS = [];
+    const P = [];
+    const T = [];
+    const N = [];
     const rmap = { admin: 'adash', team: 'ttasks', leadership: 'ldash' };
-    const accountNames = { admin: 'Sandra Ortiz', team: 'Marcus Lee', leadership: 'Robert Chen' };
+    const accountNames = { admin: 'Administrator', team: 'Project Team', leadership: 'Leadership' };
     const sr = props.startRole && props.startRole !== 'picker' ? props.startRole : null;
-    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, projects: P, tasks: T, notes: N };
+    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, dataLoading: false, dataError: '', members: [], pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, projects: P, tasks: T, notes: N };
     this.draft = {};
   }
   componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; if (m !== this.state.isMobile) this.setState({ isMobile: m }); }; window.addEventListener('resize', this._rs); this._chartResize = () => this.drawAdminCharts(); window.addEventListener('resize', this._chartResize); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); this._commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':'); if (this.state.role) this.loadPageComments(); }
@@ -1538,7 +1508,10 @@ class Component extends DCLogic {
   showLogin() { clearTimeout(this._loaderT); clearTimeout(this._t1); clearTimeout(this._t2); this.setState({ demoLoader: false, splash: false, splashLeaving: false, login: true, loginPassword: '', loginError: '', accountRole: null, accountUserName: '', accountCanPreviewRoles: false, role: null, projectId: null, modal: null }); }
   applySignedInUser(user) {
     const homes = { admin: 'adash', team: 'ttasks', leadership: 'ldash' };
-    this.setState({ login: false, splash: false, demoLoader: false, loginBusy: false, loginError: '', loginPassword: '', accountRole: user.role, accountUserName: user.name, accountCanPreviewRoles: !!user.canPreviewRoles, role: user.role, screen: homes[user.role] || 'adash', projectId: null, modal: null });
+    this.setState({ login: false, splash: false, demoLoader: false, loginBusy: false, loginError: '', loginPassword: '', accountRole: user.role, accountUserName: user.name, accountCanPreviewRoles: !!user.canPreviewRoles, role: user.role, screen: homes[user.role] || 'adash', projectId: null, modal: null }, () => {
+      this.loadOperationalData();
+      if (user.role === 'admin') this.loadMembers();
+    });
   }
   restoreSession() {
     fetch('/api/auth/session', { headers: { Accept: 'application/json' } })
@@ -1567,8 +1540,25 @@ class Component extends DCLogic {
     this.setState({ inviteBusy: true, inviteError: '' });
     fetch('/api/admin/invites', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, role: this.state.inviteRole, canPreviewRoles: this.state.inviteRole === 'admin' }) })
       .then(async response => { const data = await response.json().catch(() => ({})); if (!response.ok) throw new Error(data.error || 'Unable to create the invitation.'); return data; })
-      .then(data => this.setState({ inviteBusy: false, inviteResult: data.invitation }))
+      .then(data => { this.setState({ inviteBusy: false, inviteResult: data.invitation }); this.loadMembers(); })
       .catch(error => this.setState({ inviteBusy: false, inviteError: error.message || 'Unable to create the invitation.' }));
+  }
+  loadMembers() {
+    fetch('/api/admin/users', { headers: { Accept: 'application/json' } })
+      .then(response => { if (!response.ok) throw new Error('Team list unavailable'); return response.json(); })
+      .then(data => { const members = Array.isArray(data.users) ? data.users : []; this.USERS = members; this.setState({ members }); })
+      .catch(() => this.setState({ members: [] }));
+  }
+  loadOperationalData() {
+    this.setState({ dataLoading: true, dataError: '' });
+    fetch('/api/data', { headers: { Accept: 'application/json' } })
+      .then(response => { if (!response.ok) throw new Error('Unable to load app data.'); return response.json(); })
+      .then(data => this.setState({ projects: Array.isArray(data.projects) ? data.projects : [], tasks: Array.isArray(data.tasks) ? data.tasks : [], notes: Array.isArray(data.notes) ? data.notes : [], dataLoading: false, dataError: '' }))
+      .catch(error => this.setState({ dataLoading: false, dataError: error.message || 'Unable to load app data.' }));
+  }
+  mutateData(payload) {
+    return fetch('/api/data', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+      .then(async response => { const data = await response.json().catch(() => ({})); if (!response.ok) throw new Error(data.error || 'Unable to save the change.'); return data; });
   }
   loadAppConfig() {
     fetch('/api/config', { headers: { Accept: 'application/json' } })
@@ -1586,7 +1576,7 @@ class Component extends DCLogic {
   ptasks(p) { return this.state.tasks.filter(t => t.projectId === p.id); }
   prog(p) { const ts = this.ptasks(p); if (!ts.length) return 0; return Math.round(ts.reduce((a, t) => a + t.pct, 0) / ts.length); }
   derSt(p) { const ts = this.ptasks(p); if (!ts.length) return 'planning'; if (ts.every(t => t.status === 'completed')) return 'completed'; const open = ts.filter(t => t.status !== 'completed'); if (open.length && open.every(t => t.status === 'on_hold')) return 'on_hold'; if (ts.some(t => t.status !== 'not_started')) return 'active'; return 'planning'; }
-  isMine(t) { return t.assignees.some(a => a === 'Marcus Lee' || a === 'IT Dept'); }
+  isMine(t) { const name = (this.state.accountUserName || '').trim().toLowerCase(); return !!name && t.assignees.some(a => String(a || '').trim().toLowerCase() === name); }
   abbr(name) { return name.split(' ').filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase(); }
   decP(p) {
     const ts = this.ptasks(p);
@@ -1621,7 +1611,7 @@ class Component extends DCLogic {
       pct: t.pct, attach: t.attach || 0, hasAttach: (t.attach || 0) > 0,
       assignees: t.assignees.join(', '), mine, notMine: !mine,
       notesCount: this.state.notes.filter(n => n.taskId === t.id).length,
-      onStatusChange: (e) => { const v = e.target.value; this.setState(s => ({ tasks: s.tasks.map(x => x.id === t.id ? { ...x, status: v, pct: v === 'completed' ? 100 : x.pct } : x) })); },
+      onStatusChange: (e) => { const v = e.target.value; const pct = v === 'completed' ? 100 : t.pct; this.mutateData({ resource: 'task', action: 'status', id: t.id, data: { status: v, pct } }).then(() => this.setState(s => ({ tasks: s.tasks.map(x => x.id === t.id ? { ...x, status: v, pct } : x) }))).catch(error => this.setState({ dataError: error.message })); },
       onNote: () => this.setState({ modal: 'note', noteTaskId: t.id, noteDraft: '' }),
       onEdit: () => { this.draft = { title: t.title, projectId: t.projectId, phase: t.phase, priority: t.priority, status: t.status, due: t.due || '', pct: t.pct, assign: t.assignees.join(', '), desc: t.desc || '' }; this.setState({ modal: 'task', editId: t.id }); },
       onDelete: () => this.setState({ modal: 'delT', delId: t.id })
@@ -1652,11 +1642,16 @@ class Component extends DCLogic {
       ctx.clearRect(0, 0, width, height);
       const left = 39, right = 30, top = 18, bottom = 30;
       const chartW = width - left - right, chartH = height - top - bottom;
-      const weekly = this.state.chartRange !== 'month';
-      const labels = weekly ? ['Jun 3–9','Jun 10–16','Jun 17–23','Jun 24–30','Jul 1–7','Jul 8–14','Jul 15–21','Jul 22–28'] : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'];
-      const overall = weekly ? [28,30,32,34,37,40,44,47] : [17,21,25,29,34,39,43,47];
-      const completed = weekly ? [18,20,21,23,25,28,31,34] : [10,13,17,20,24,28,31,34];
-      const target = weekly ? [30,40,50,60,70,80,90,100] : [18,30,42,54,66,78,90,100];
+      const chartProjects = this.state.projects.slice(0, 8);
+      if (!chartProjects.length) {
+        ctx.fillStyle = '#9696a0'; ctx.font = '12px Inter, system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText('Create a project to begin tracking progress.', width / 2, height / 2);
+        return;
+      }
+      const labels = chartProjects.map(project => this.abbr(project.name));
+      const overall = chartProjects.map(project => this.prog(project));
+      const completed = chartProjects.map(project => { const tasks = this.ptasks(project); return tasks.length ? Math.round(tasks.filter(task => task.status === 'completed').length / tasks.length * 100) : 0; });
+      const target = chartProjects.map(() => 100);
       ctx.font = '9px Inter, system-ui, sans-serif';
       ctx.textBaseline = 'middle';
       [0,25,50,75,100].forEach(v => {
@@ -1666,7 +1661,7 @@ class Component extends DCLogic {
         ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(width - right, y); ctx.stroke();
         ctx.fillStyle = '#9696a0'; ctx.textAlign = 'right'; ctx.fillText(v + '%', left - 7, y);
       });
-      const points = values => values.map((v, i) => ({ x: left + chartW * i / (values.length - 1), y: top + chartH - chartH * v / 100, v }));
+      const points = values => values.map((v, i) => ({ x: left + (values.length === 1 ? chartW / 2 : chartW * i / (values.length - 1)), y: top + chartH - chartH * v / 100, v }));
       const drawLine = (values, color, dashed, labelsOn) => {
         const pts = points(values);
         ctx.strokeStyle = color; ctx.lineWidth = dashed ? 1.2 : 1.8; ctx.setLineDash(dashed ? [5,4] : []);
@@ -1700,14 +1695,15 @@ class Component extends DCLogic {
       const notStarted = this.state.tasks.filter(t => t.status === 'not_started').length;
       const values = [complete, progress, hold, review, notStarted];
       const colors = ['#1f9d55','#3377db','#f4b21b','#8b5cf6','#b9bac2'];
-      const total = values.reduce((a,b) => a + b, 0) || 1;
+      const actualTotal = values.reduce((a,b) => a + b, 0);
+      const total = actualTotal || 1;
       let angle = -Math.PI / 2;
       values.forEach((value,i) => {
         const next = angle + Math.PI * 2 * value / total;
         ctx.beginPath(); ctx.arc(90,90,64,angle,next); ctx.strokeStyle = colors[i]; ctx.lineWidth = 26; ctx.stroke();
         angle = next;
       });
-      ctx.fillStyle = '#101014'; ctx.font = '800 22px Inter, system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(total),90,84);
+      ctx.fillStyle = '#101014'; ctx.font = '800 22px Inter, system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(actualTotal),90,84);
       ctx.fillStyle = '#777781'; ctx.font = '10px Inter, system-ui, sans-serif'; ctx.fillText('Total tasks',90,106);
     }
   }
@@ -1765,7 +1761,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const s = this.state, role = s.role;
-    const roleMeta = { admin: ['Administrator', 'Sandra Ortiz'], team: ['Project Team', 'Marcus Lee'], leadership: ['Leadership', 'Robert Chen'] };
+    const roleMeta = { admin: ['Administrator', s.accountUserName || 'Administrator'], team: ['Project Team', s.accountUserName || 'Project Team'], leadership: ['Leadership', s.accountUserName || 'Leadership'] };
     const rm = roleMeta[role] || ['', ''];
     const pageComments = (s.pageComments || []).map(comment => {
       const author = comment.author || 'Reviewer';
@@ -1887,7 +1883,7 @@ class Component extends DCLogic {
     const in14 = new Date(now.getTime() + 14 * 864e5);
     const dueSoonRaw = rawTasks.filter(t => t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < in14).sort((a, b) => a.due.localeCompare(b.due));
     const dueSoon = dueSoonRaw.slice(0, 4).map(t => { const p = s.projects.find(x => x.id === t.projectId); const overdue = new Date(t.due + 'T23:59:59') < now; const dd = new Date(t.due + 'T12:00:00'); return { title: t.title, sub: (p ? p.name : '') + ' · ' + t.assignees.join(', '), mon: dd.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(), day: dd.getDate(), tileBg: overdue ? '#c8102e' : '#101014', overdue, notOverdue: !overdue }; });
-    const teamUsers = this.USERS.filter(u => u.role === 'team');
+    const teamUsers = (s.members || []).filter(u => u.role === 'team');
     const wCounts = teamUsers.map(u => rawTasks.filter(t => t.assignees.includes(u.name) && t.status !== 'completed').length);
     const wMax = Math.max(1, ...wCounts);
     const workload = teamUsers.map((u, i) => { const av = avatarColors[(i + 2) % avatarColors.length]; return { name: u.name, initial: u.name.charAt(0), avatarBg: av[0], avatarColor: av[1], cnt: wCounts[i], pct: Math.round(wCounts[i] / wMax * 100) }; });
@@ -1895,6 +1891,7 @@ class Component extends DCLogic {
     const myDue = myRaw.filter(t => t.due && t.status !== 'completed' && new Date(t.due) < monthEnd).length;
     return {
       hasRole: !!role && !s.login, loginShow: s.login && !s.splash && !s.demoLoader,
+      hasDataError: !!s.dataError, dataError: s.dataError, onDismissDataError: () => this.setState({ dataError: '' }), dashboardFirstName: (s.accountUserName || 'Administrator').split(' ')[0],
       loaderShow: s.demoLoader, onShowLoader: () => this.showLoader(), onShowSplash: () => this.showSplash(), onShowLogin: () => this.showLogin(),
       splashShow: s.splash, splashOpacity: s.splashLeaving ? 0 : 1, onSkipSplash: () => this.skipSplash(), isDesktop: !!role && !s.login && !s.isMobile, isMobileNav: !!role && !s.login && s.isMobile,
       loginEmail: s.loginEmail, loginPassword: s.loginPassword, loginError: s.loginError, hasLoginError: !!s.loginError, signInLabel: s.loginBusy ? 'Signing in…' : 'Sign in', onLoginEmail: (e) => this.setState({ loginEmail: e.target.value }), onLoginPassword: (e) => this.setState({ loginPassword: e.target.value }), onSignInDemo: () => this.signInDemo(),
@@ -1928,6 +1925,7 @@ class Component extends DCLogic {
       pFilters: mkFilter([['all', 'All ' + projects.length], ['planning', 'Planning ' + projects.filter(p => p.stKey === 'planning').length], ['active', 'Active ' + projects.filter(p => p.stKey === 'active').length], ['on_hold', 'On hold ' + projects.filter(p => p.stKey === 'on_hold').length], ['completed', 'Completed ' + projects.filter(p => p.stKey === 'completed').length]], pf, 'pFilter'),
       projectSearch: s.pSearch || '', onProjectSearch: (e) => this.setState({ pSearch: e.target.value }),
       upcomingProjects, completedProjects, hasUpcomingProjects: upcomingProjects.length > 0, hasCompletedProjects: completedProjects.length > 0, noFilteredProjects: fProjects.length === 0,
+      projectEmptyTitle: s.projects.length === 0 ? 'No projects yet' : 'No matching projects', projectEmptyMessage: s.projects.length === 0 ? 'Create the first facility activation to begin.' : 'Try a different status or search term.',
       projectBudgetTotal, folderIcon: this.IC.folder, chartIcon: this.IC.chart,
       fProjects, allProjects: projects, taskHealth, goTasks: () => this.setState({ screen: 'atasks' }), onChartWeek: () => this.setState({ chartRange: 'week' }), onChartMonth: () => this.setState({ chartRange: 'month' }), weekBg: s.chartRange === 'week' ? '#fff' : '#fff', weekColor: s.chartRange === 'week' ? '#c8102e' : '#6f6f78', weekBorder: s.chartRange === 'week' ? '#c8102e' : '#dedee4', monthBg: '#fff', monthColor: s.chartRange === 'month' ? '#c8102e' : '#6f6f78', monthBorder: s.chartRange === 'month' ? '#c8102e' : '#dedee4',
       dp: dpRaw ? this.decP(dpRaw) : {}, dpTasks: dpRaw ? s.tasks.filter(t => t.projectId === dpRaw.id).map(t => this.decT(t)) : [],
@@ -1942,7 +1940,7 @@ class Component extends DCLogic {
       teamTaskProjects: teamTaskWorkspace.projectItems, teamTaskStatuses: teamTaskWorkspace.statusItems, teamTaskTitle: teamTaskWorkspace.title,
       teamAttentionTasks: teamTaskWorkspace.attention, teamUpcomingTasks: teamTaskWorkspace.upcoming, teamAttentionCount: teamTaskWorkspace.attention.length, teamUpcomingCount: teamTaskWorkspace.upcoming.length, teamHasAttention: teamTaskWorkspace.attention.length > 0, teamHasUpcoming: teamTaskWorkspace.upcoming.length > 0, teamNoTasks: teamTaskWorkspace.empty,
       onNewTask: () => { this.draft = { title: '', projectId: s.projects[0] ? s.projects[0].id : '', phase: 'Regulatory & Licensing', priority: 'medium', status: 'not_started', due: '', pct: 0, assign: '', desc: '' }; this.setState({ modal: 'task', editId: null }); },
-      members: this.USERS.map((u, i) => { const b = badge[u.role]; const av = avatarColors[i % avatarColors.length]; const cnt = rawTasks.filter(t => t.assignees.includes(u.name) && t.status !== 'completed').length; return { name: u.name, initial: u.name.charAt(0), dept: u.dept, roleLabel: b[0], badgeBg: b[1], badgeColor: b[2], avatarBg: av[0], avatarColor: av[1], taskLabel: u.role === 'team' ? cnt + ' open task' + (cnt === 1 ? '' : 's') : '—' }; }),
+      members: (s.members || []).map((u, i) => { const b = badge[u.role] || badge.team; const av = avatarColors[i % avatarColors.length]; const cnt = rawTasks.filter(t => t.assignees.includes(u.name) && t.status !== 'completed').length; return { name: u.name, initial: u.name.charAt(0), dept: u.email, roleLabel: b[0], badgeBg: b[1], badgeColor: b[2], avatarBg: av[0], avatarColor: av[1], taskLabel: u.role === 'team' ? cnt + ' open task' + (cnt === 1 ? '' : 's') : '—' }; }), membersEmpty: (s.members || []).length === 0,
       myInProg: myRaw.filter(t => t.status === 'in_progress').length, myDone: myRaw.filter(t => t.status === 'completed').length,
       tFilters: mkFilter([['all', 'All'], ['active', 'Active'], ['in_progress', 'In Progress'], ['on_hold', 'On Hold'], ['needs_review', 'Needs Review'], ['completed', 'Complete']], tf, 'tFilter'),
       myTasks,
@@ -1957,12 +1955,12 @@ class Component extends DCLogic {
       mDelT: s.modal === 'delT', mDelTName: (s.tasks.find(t => t.id === s.delId) || {}).title || '',
       mNote: s.modal === 'note', mNoteTitle: noteTask ? noteTask.title : '', mNoteNotes: noteNotes, noNotes: noteNotes.length === 0, noteDraft: s.noteDraft,
       onNoteInput: (e) => this.setState({ noteDraft: e.target.value }),
-      onAddNote: () => { const c = s.noteDraft.trim(); if (!c) return; const author = rm[1] || 'User'; this.setState(st => ({ notes: [{ id: 'n' + Date.now(), taskId: st.noteTaskId, author, date: new Date().toISOString().slice(0, 10), content: c }, ...st.notes], noteDraft: '' })); },
+      onAddNote: () => { const c = s.noteDraft.trim(); if (!c) return; this.mutateData({ resource: 'note', action: 'create', data: { taskId: s.noteTaskId, content: c } }).then(data => this.setState(st => ({ notes: [data.note, ...st.notes], noteDraft: '' }))).catch(error => this.setState({ dataError: error.message })); },
       onClose: () => this.setState({ modal: null, editId: null, delId: null, noteTaskId: null }),
-      onSaveProject: () => { const d = this.draft; if (!d.name || !d.name.trim()) return; this.setState(st => { const base = { name: d.name.trim(), location: d.location, desc: d.desc, priority: d.priority || 'medium', goLive: d.goLive, budget: d.budget ? +d.budget : null }; if (st.editId) return { projects: st.projects.map(p => p.id === st.editId ? { ...p, ...base } : p), modal: null, editId: null }; return { projects: [{ id: 'p' + Date.now(), ...base }, ...st.projects], modal: null, editId: null }; }); },
-      onSaveTask: () => { const d = this.draft; if (!d.title || !d.title.trim()) return; this.setState(st => { const base = { title: d.title.trim(), projectId: d.projectId, phase: d.phase, priority: d.priority || 'medium', status: d.status || 'not_started', due: d.due, pct: Math.max(0, Math.min(100, +d.pct || 0)), assignees: (d.assign || '').split(',').map(x => x.trim()).filter(Boolean), desc: d.desc }; if (st.editId) return { tasks: st.tasks.map(t => t.id === st.editId ? { ...t, ...base } : t), modal: null, editId: null }; return { tasks: [{ id: 't' + Date.now(), attach: 0, ...base }, ...st.tasks], modal: null, editId: null }; }); },
-      onDelP: () => this.setState(st => ({ projects: st.projects.filter(p => p.id !== st.delId), tasks: st.tasks.filter(t => t.projectId !== st.delId), modal: null, delId: null, screen: (st.screen === 'adetail' || st.screen === 'tdetail' || st.screen === 'ldetail') && st.projectId === st.delId ? 'aprojects' : st.screen, projectId: st.projectId === st.delId ? null : st.projectId })),
-      onDelT: () => this.setState(st => ({ tasks: st.tasks.filter(t => t.id !== st.delId), notes: st.notes.filter(n => n.taskId !== st.delId), modal: null, delId: null })),
+      onSaveProject: () => { const d = this.draft; if (!d.name || !d.name.trim()) return; const editing = s.editId; const base = { name: d.name.trim(), location: d.location, desc: d.desc, priority: d.priority || 'medium', goLive: d.goLive, budget: d.budget ? +d.budget : null }; this.mutateData({ resource: 'project', action: editing ? 'update' : 'create', id: editing, data: base }).then(data => this.setState(st => ({ projects: editing ? st.projects.map(p => p.id === editing ? data.project : p) : [data.project, ...st.projects], modal: null, editId: null }))).catch(error => this.setState({ dataError: error.message })); },
+      onSaveTask: () => { const d = this.draft; if (!d.title || !d.title.trim() || !d.projectId) return; const editing = s.editId; const base = { title: d.title.trim(), projectId: d.projectId, phase: d.phase, priority: d.priority || 'medium', status: d.status || 'not_started', due: d.due, pct: Math.max(0, Math.min(100, +d.pct || 0)), assignees: (d.assign || '').split(',').map(x => x.trim()).filter(Boolean), attach: editing ? ((s.tasks.find(t => t.id === editing) || {}).attach || 0) : 0, desc: d.desc }; this.mutateData({ resource: 'task', action: editing ? 'update' : 'create', id: editing, data: base }).then(data => this.setState(st => ({ tasks: editing ? st.tasks.map(t => t.id === editing ? data.task : t) : [data.task, ...st.tasks], modal: null, editId: null }))).catch(error => this.setState({ dataError: error.message })); },
+      onDelP: () => { const id = s.delId; this.mutateData({ resource: 'project', action: 'delete', id }).then(() => this.setState(st => ({ projects: st.projects.filter(p => p.id !== id), tasks: st.tasks.filter(t => t.projectId !== id), modal: null, delId: null, screen: (st.screen === 'adetail' || st.screen === 'tdetail' || st.screen === 'ldetail') && st.projectId === id ? 'aprojects' : st.screen, projectId: st.projectId === id ? null : st.projectId }))).catch(error => this.setState({ dataError: error.message })); },
+      onDelT: () => { const id = s.delId; this.mutateData({ resource: 'task', action: 'delete', id }).then(() => this.setState(st => ({ tasks: st.tasks.filter(t => t.id !== id), notes: st.notes.filter(n => n.taskId !== id), modal: null, delId: null }))).catch(error => this.setState({ dataError: error.message })); },
       projectOptions: s.projects.map(p => ({ id: p.id, name: p.name })),
       dfName: this.draft.name || '', dfLoc: this.draft.location || '', dfDesc: this.draft.desc || '', dfPrio: this.draft.priority || 'medium', dfGoLive: this.draft.goLive || '', dfBudget: this.draft.budget || '',
       dfTitle: this.draft.title || '', dfProject: this.draft.projectId || '', dfPhase: this.draft.phase || 'Regulatory & Licensing', dfTPrio: this.draft.priority || 'medium', dfTStatus: this.draft.status || 'not_started', dfDue: this.draft.due || '', dfPct: this.draft.pct != null ? this.draft.pct : 0, dfAssign: this.draft.assign || '', dfTDesc: this.draft.desc || '',
