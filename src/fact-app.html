@@ -594,95 +594,151 @@
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap">
 <style>
-/* Admin dashboard — Figma "CRM Admin Dashboard" 52:68, fixed 1811x1732 frame */
-.crm-screen{position:fixed;inset:0;z-index:5;background:#f5f5f7;overflow-x:hidden;overflow-y:auto}
-.crm-fit{position:relative;width:100%}
-.crm-stage{position:absolute;left:0;top:0;width:1811px;height:1732px;transform-origin:0 0;font-family:'Poppins','Inter',system-ui,sans-serif;color:#000;letter-spacing:normal;text-align:left}
-.crm-stage *{box-sizing:border-box}
-.crm-stage p,.crm-stage h1,.crm-stage h2{margin:0;font-weight:inherit}
-.crm-stage button{padding:0;font:inherit;color:inherit;cursor:pointer}
-.crm-mona{font-family:'Mona Sans','Inter',system-ui,sans-serif;font-weight:400}
+/* Admin dashboard — CRM design, responsive and driven by live project/task state */
+.crm-dash{font-family:'Poppins','Inter',system-ui,sans-serif;color:#21293b;letter-spacing:normal}
+.crm-dash *{box-sizing:border-box}
+.crm-dash p,.crm-dash h1,.crm-dash h2{margin:0}
+.crm-dash button{font:inherit;cursor:pointer}
 .crm-ssp{font-family:'Source Sans 3','Source Sans Pro','Inter',system-ui,sans-serif}
-.crm-trim{text-box-trim:trim-both;text-box-edge:cap alphabetic;text-box:trim-both cap alphabetic}
-.crm-card{position:absolute;background:#fff;border:1px solid #ff4c38}
-
-/* Sidebar */
-.crm-logo{position:absolute;left:31px;top:75px;width:54px;height:54px;border-radius:50%;background:#ff4c38;display:flex;align-items:center;justify-content:center;font-family:'Source Sans 3','Source Sans Pro','Inter',system-ui,sans-serif;font-weight:600;font-size:13.6px;line-height:17.68px;letter-spacing:.1133px;color:#fff}
-.crm-rail{position:absolute;left:23px;top:314px;width:70px;height:465px;background:#fff;border:1px solid #ff4c38;border-radius:20px}
-.crm-nav{position:absolute;left:31px;width:54px;height:54px;border-radius:50%;background:#fff;border:1px solid #ff4c38;color:#ff4c38;display:flex;align-items:center;justify-content:center}
-.crm-nav-on{background:#ff4c38;border-color:#ff4c38;color:#fff}
+.crm-card{background:#fff;border:1px solid #ffd7d1;border-radius:20px}
 
 /* Header */
-.crm-welcome{position:absolute;left:128px;top:88px;font-size:40px;line-height:1.3;color:#000;white-space:nowrap}
-.crm-welcome span{color:#ff4c38}
-.crm-date{position:absolute;left:128px;top:126px;height:26px;font-size:20px;line-height:26px;font-weight:600;color:#333539;letter-spacing:.1667px;white-space:nowrap}
-.crm-newproject{position:absolute;left:1590px;top:102px;width:161px;height:53px;border-radius:20px;background:#ff4c38;border:1px solid #fff}
-.crm-newproject svg{position:absolute;left:13px;top:14px}
-.crm-newproject span{position:absolute;left:54px;top:20px;font-size:16px;line-height:1.3;color:#fff;white-space:nowrap}
+.crm-top{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;padding-top:26px;margin-bottom:22px}
+.crm-welcome{font-size:23px;font-weight:500;line-height:1.25;letter-spacing:-.01em}
+.crm-welcome span{color:#ff4c38;font-weight:600}
+.crm-date{margin-top:4px;font-size:13px;font-weight:600;color:#6f7480}
+.crm-newproject{margin-left:auto;display:flex;align-items:center;gap:7px;height:42px;padding:0 18px 0 14px;border:none;border-radius:14px;background:#ff4c38;color:#fff;font-size:13.5px;font-weight:600}
+.crm-newproject:hover{background:#e63a26}
+.crm-newproject svg{flex:none}
+
+/* Section head + range chip */
+.crm-section-head{display:flex;align-items:center;gap:12px;margin-bottom:11px}
+.crm-section-title{font-size:16px;font-weight:600;color:#333539}
+.crm-chip{display:flex;align-items:center;gap:8px;height:34px;padding:0 13px;background:#fff;border:1px solid #e3e3e7;border-radius:10px;font-size:12.5px;font-weight:600;color:#ff4c38;white-space:nowrap}
+.crm-chip:hover{border-color:#ff4c38}
+.crm-chip svg{flex:none}
+.crm-chip-end{margin-left:auto}
 
 /* Overview */
-.crm-ov-title{position:absolute;left:130px;top:191.5px;height:33px;font-size:25.036px;line-height:32.547px;font-weight:600;color:#333539;letter-spacing:.2086px}
-.crm-week{position:absolute;left:1137.7px;top:189px;width:133.94px;height:37.55px;background:#fff;border:1px solid #e3e3e7;border-radius:8px}
-.crm-week p{position:absolute;left:16.27px;top:8.76px;height:20.03px;font-size:15.022px;line-height:20.03px;color:#ff4c38;letter-spacing:.0787px}
-.crm-week svg{position:absolute;left:110px;top:16.3px}
-.crm-ov-card{position:absolute;left:125px;top:239.07px;width:1145.4px;height:123.93px;background:#fff;border:1.252px solid #ff4c38;border-radius:20.029px}
-.crm-ov-num{position:absolute;height:38px;font-size:30.043px;line-height:38px;font-weight:600;color:#000;letter-spacing:.3755px;white-space:nowrap}
-.crm-ov-label{position:absolute;height:25px;font-size:20.029px;line-height:25px;color:#000;letter-spacing:.5007px;white-space:nowrap}
-.crm-bar{position:absolute;background:#ff4c38}
-.crm-ov-rule{position:absolute;width:1.25px;background:#dededf}
+.crm-ov-card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#fff;border:1px solid #ffd7d1;border-radius:20px;overflow:hidden;margin-bottom:18px}
+.crm-ov-item{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:19px 22px;background:none;border:none;border-right:1px solid #f0f0f2;text-align:left}
+.crm-ov-item:last-child{border-right:none}
+.crm-ov-item:hover{background:#fffaf9}
+.crm-ov-item strong{display:block;font-size:26px;font-weight:600;line-height:1.1;color:#101014;font-variant-numeric:tabular-nums}
+.crm-ov-item small{display:block;margin-top:5px;font-size:13px;color:#555a63}
+.crm-ov-bars{display:flex;align-items:flex-end;gap:5px;height:42px;flex:none}
+.crm-ov-bars i{display:block;width:9px;border-radius:3px;background:#ff4c38}
 
-/* Performance */
-.crm-perf{left:121px;top:388px;width:1160px;height:466px;border-radius:24px}
-.crm-perf h2{position:absolute;left:36px;top:36px;height:36px;font-size:24px;line-height:36px;font-weight:600;color:#21293b;white-space:nowrap}
-.crm-perf-note{position:absolute;left:957px;top:100px;width:167px;height:21px;font-size:14px;line-height:21px;color:#93979c;text-align:right;white-space:nowrap}
-.crm-range{position:absolute;left:987px;top:36px;width:137px;height:48px;border:1px solid #e5e7e7;border-radius:30px;display:flex;align-items:center;gap:8px;padding:0 16px 0 24px}
-.crm-range p{font-size:14px;font-weight:500;color:#4c5158;white-space:nowrap}
-.crm-key{position:absolute;height:21px;font-size:14px;line-height:21px;color:#21293b;white-space:nowrap}
-.crm-key-dot{position:absolute;top:102px;width:16px;height:16px;border-radius:50%}
-.crm-chart{position:absolute;left:0;top:0;width:1160px;height:466px;overflow:visible}
-.crm-axis-y{position:absolute;width:60px;height:21px;font-size:14px;line-height:21px;color:#93979c;text-align:right;white-space:nowrap}
-.crm-axis-x{position:absolute;top:409px;width:120px;height:21px;font-size:14px;line-height:21px;color:#21293b;text-align:center;white-space:nowrap}
-.crm-tip{position:absolute;left:825px;top:157px;width:67px;height:24px;border-radius:30px;background:#081226;font-size:12px;line-height:24px;color:#fff;text-align:center}
+/* Layout */
+.crm-grid{display:grid;grid-template-columns:minmax(0,1fr) 328px;gap:18px;align-items:start}
+.crm-col{display:flex;flex-direction:column;gap:18px;min-width:0}
+
+/* Performance chart */
+.crm-card-head{display:flex;align-items:center;gap:12px;padding:19px 22px 0;flex-wrap:wrap}
+.crm-card-head h2{font-size:15px;font-weight:600;color:#21293b}
+.crm-legend{display:flex;gap:18px;flex-wrap:wrap;padding:11px 22px 0;font-size:12px;color:#4c5158}
+.crm-legend span{display:flex;align-items:center;gap:7px}
+.crm-legend i{width:9px;height:9px;border-radius:50%;flex:none}
+.crm-chart-wrap{position:relative;margin:14px 22px 0;padding-left:32px}
+.crm-plot{position:relative;height:208px}
+.crm-plot svg{display:block;width:100%;height:100%;overflow:visible}
+.crm-axis-y{position:absolute;left:-32px;width:26px;text-align:right;font-size:11px;color:#93979c;transform:translateY(-50%);font-variant-numeric:tabular-nums}
+.crm-axis-row{position:relative;height:17px;margin-top:7px}
+.crm-axis-x{position:absolute;top:0;font-size:11px;color:#4c5158;transform:translateX(-50%);white-space:nowrap}
+.crm-marker{position:absolute;width:10px;height:10px;border-radius:50%;background:#4a54c8;border:2px solid #fff;transform:translate(-50%,-50%);box-shadow:0 0 0 3px rgba(74,84,200,.16)}
+.crm-tip{position:absolute;transform:translate(-50%,-190%);padding:3px 9px;border-radius:30px;background:#081226;color:#fff;font-size:11px;font-weight:600;white-space:nowrap}
+.crm-note{padding:12px 22px 18px;font-size:11.5px;color:#93979c}
 
 /* Projects table */
-.crm-table{left:120px;top:889px;width:1160px;height:768px;border-width:1.37px;border-radius:32.869px;overflow:hidden}
-.crm-table h2{position:absolute;left:49.3px;top:49.3px;height:49px;font-size:32.869px;line-height:49px;font-weight:500;color:#060606;white-space:nowrap}
-.crm-thead{position:absolute;left:1.37px;top:131.48px;width:1157.26px;height:65.74px;background:#f8f8f8}
-.crm-rule{position:absolute;left:0;width:1160px;height:1.37px;background:#ececec}
-.crm-th{position:absolute;height:25px;font-size:16.434px;line-height:25px;font-weight:500;color:#555;white-space:nowrap}
-.crm-td{position:absolute;height:29px;font-size:19.174px;line-height:29px;font-weight:500;color:#060606;white-space:nowrap}
-.crm-td-active{font-weight:600;color:#13ae85}
-.crm-icon-circle{position:absolute;left:65.55px;width:49.3px;height:49.3px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff}
-.crm-cell{position:absolute;left:136.77px}
-.crm-cell strong{display:block;height:29px;font-size:19.174px;line-height:29px;font-weight:600;color:#060606;white-space:nowrap}
-.crm-cell small{display:block;height:25px;font-size:16.434px;line-height:25px;font-weight:400;color:#555;white-space:nowrap}
+.crm-link{margin-left:auto;display:flex;align-items:center;gap:5px;background:none;border:none;padding:0;font-size:12.5px;font-weight:600;color:#ff4c38;white-space:nowrap}
+.crm-link:hover{text-decoration:underline}
+.crm-table{overflow:hidden}
+.crm-thead,.crm-row{display:grid;grid-template-columns:minmax(0,1.7fr) 88px minmax(96px,1fr) 84px 88px;align-items:center;gap:12px;width:100%;text-align:left}
+.crm-thead{margin-top:14px;padding:10px 22px;background:#f8f8f8;border-top:1px solid #f0f0f2;border-bottom:1px solid #f0f0f2;font-size:10.5px;font-weight:600;letter-spacing:.06em;color:#7b7f88}
+.crm-row{padding:12px 22px;background:none;border:none;border-bottom:1px solid #f4f4f6}
+.crm-row:last-child{border-bottom:none}
+.crm-row:hover{background:#fffaf9}
+.crm-row-name{display:flex;align-items:center;gap:11px;min-width:0}
+.crm-avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:600;color:#fff;flex:none}
+.crm-row-name span{min-width:0}
+.crm-row-name strong{display:block;font-size:13px;font-weight:600;color:#060606;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crm-row-name small{display:block;margin-top:2px;font-size:11.5px;color:#7b7f88;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crm-cellv{font-size:12.5px;font-weight:500;color:#3f444d;font-variant-numeric:tabular-nums}
+.crm-meter{display:flex;align-items:center;gap:9px}
+.crm-meter b{flex:none;width:30px;font-size:11.5px;font-weight:600;color:#3f444d;font-variant-numeric:tabular-nums}
+.crm-meter span{flex:1;min-width:34px;height:6px;border-radius:99px;background:#f1f1f4;overflow:hidden}
+.crm-meter i{display:block;height:100%;border-radius:99px;background:#ff4c38}
+.crm-status{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.crm-status i{width:7px;height:7px;border-radius:50%;flex:none}
 
 /* Calendar */
-.crm-cal{position:absolute;left:1309px;top:228px;width:479px;height:399px;border-radius:30px;background:#ff4c38}
-.crm-cal-title{position:absolute;left:1340px;top:260.6px;height:37px;font-size:23.192px;line-height:37px;color:#fff;white-space:nowrap}
-.crm-cal-pill{position:absolute;left:1614.83px;top:257.5px;width:133.36px;height:45.5px;border-radius:22.75px;background:rgba(255,255,255,.64)}
-.crm-cal-month{position:absolute;left:1650.77px;top:272.19px;width:36px;height:14px;font-size:18.554px;line-height:1.3;color:#fff;text-align:center;white-space:nowrap}
-.crm-cal-drop{position:absolute;left:1707.59px;top:266.39px;width:27.83px;height:27.83px;color:#fff}
-.crm-cal-dow{position:absolute;top:326.69px;width:24.35px;height:23.24px;font-size:18.554px;line-height:23.24px;color:#fff;text-align:center}
-.crm-cal-day{position:absolute;width:24.35px;height:13.92px;font-size:18.554px;line-height:1.3;color:#fff;text-align:center}
-.crm-cal-today{position:absolute;left:1522px;top:364px;width:55.33px;height:55.33px;border-radius:50%;background:#fff}
+.crm-cal{background:#ff4c38;border-radius:20px;padding:17px 18px 15px;color:#fff}
+.crm-cal-head{display:flex;align-items:center;gap:8px;margin-bottom:13px}
+.crm-cal-head h2{font-size:15px;font-weight:500;color:#fff}
+.crm-cal-nav{margin-left:auto;display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.22);border-radius:99px;padding:3px}
+.crm-cal-nav button{width:24px;height:24px;border:none;border-radius:50%;background:none;color:#fff;display:flex;align-items:center;justify-content:center}
+.crm-cal-nav button:hover{background:rgba(255,255,255,.28)}
+.crm-cal-nav p{min-width:74px;text-align:center;font-size:12px;font-weight:600}
+.crm-cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px}
+.crm-cal-dow{height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,.7)}
+.crm-cal-pad{height:34px}
+.crm-cal-day{position:relative;height:34px;border:none;background:none;border-radius:11px;color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;padding:0}
+.crm-cal-day:hover{background:rgba(255,255,255,.2)}
+.crm-cal-today{background:#fff;color:#ff4c38;font-weight:600}
+.crm-cal-today:hover{background:#fff}
+.crm-cal-sel{box-shadow:inset 0 0 0 1.5px #fff}
+.crm-cal-dot{position:absolute;left:50%;bottom:5px;width:4px;height:4px;border-radius:50%;background:#fff;transform:translateX(-50%)}
+.crm-cal-today .crm-cal-dot{background:#ff4c38}
+.crm-cal-foot{margin-top:13px;padding-top:11px;border-top:1px solid rgba(255,255,255,.28)}
+.crm-cal-foot p{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.85)}
+.crm-cal-task{display:block;width:100%;margin-top:6px;padding:8px 10px;border:none;border-radius:11px;background:rgba(255,255,255,.15);color:#fff;text-align:left}
+.crm-cal-task:hover{background:rgba(255,255,255,.26)}
+.crm-cal-task strong{display:block;font-size:12px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crm-cal-task small{display:block;margin-top:2px;font-size:10.5px;color:rgba(255,255,255,.75);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* Project health */
-.crm-health{left:1308px;top:652px;width:479.19px;height:543.69px;border-width:1.16px;border-radius:27.846px}
-.crm-health h2{position:absolute;left:41.77px;top:41.77px;height:42px;font-size:27.846px;line-height:42px;font-weight:500;color:#060606;white-space:nowrap}
-.crm-health-dots{position:absolute;left:395.65px;top:41.89px;width:41.77px;height:41.77px;color:#060606}
-.crm-health-item{position:absolute;left:41.77px;width:395.65px}
-.crm-health-item p{position:absolute;left:0;top:2px;height:24px;font-size:16.244px;line-height:24px;color:#555;white-space:pre}
-.crm-health-item strong{position:absolute;right:0;top:0;height:28px;font-size:18.564px;line-height:28px;font-weight:600;color:#060606;text-align:right;white-space:nowrap}
-.crm-health-item svg{position:absolute;left:0;top:37.28px}
+.crm-health-item{display:block;width:100%;padding:12px 18px;background:none;border:none;border-top:1px solid #f0f0f2;text-align:left}
+.crm-health-item:hover{background:#fffaf9}
+.crm-health-top{display:flex;align-items:baseline;gap:10px}
+.crm-health-top p{flex:1;min-width:0;font-size:12.5px;color:#555a63;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crm-health-top strong{flex:none;font-size:12.5px;font-weight:600}
+.crm-health-sub{margin-top:2px;font-size:11px;color:#a2a6ad}
+.crm-spark{display:block;width:100%;height:40px;margin-top:6px;overflow:visible}
 
 /* Needs attention */
-.crm-attn{left:1308px;top:1204px;width:452px;height:452px;border-radius:39.882px;overflow:hidden}
-.crm-attn h2{position:absolute;left:39.88px;top:39.88px;height:60px;font-size:39.882px;line-height:60px;font-weight:600;color:#21293b;white-space:nowrap}
-.crm-attn-dot{position:absolute;left:40px;width:26.59px;height:26.59px;border-radius:50%;background:#ff4c38}
-.crm-attn-tail{position:absolute;left:51.5px;width:3.6px;background:repeating-linear-gradient(#ff4c38 0 3.6px,transparent 3.6px 9.3px)}
-.crm-attn-title{position:absolute;left:90px;height:35px;font-size:23.265px;line-height:35px;font-weight:600;color:#21293b;white-space:pre}
-.crm-attn-sub{position:absolute;left:90px;height:30px;font-size:19.941px;line-height:30px;color:#93979c;white-space:nowrap}
+.crm-attn-item{display:flex;gap:12px;width:100%;padding:12px 18px;background:none;border:none;border-top:1px solid #f0f0f2;text-align:left}
+.crm-attn-item:hover{background:#fffaf9}
+.crm-attn-mark{flex:none;display:flex;flex-direction:column;align-items:center;align-self:stretch;padding-top:3px}
+.crm-attn-mark i{width:11px;height:11px;border-radius:50%;flex:none}
+.crm-attn-mark em{flex:1;width:2px;margin-top:5px;background:repeating-linear-gradient(#ffb7ae 0 3px,transparent 3px 7px)}
+.crm-attn-text{min-width:0}
+.crm-attn-text strong{display:block;font-size:13px;font-weight:600;color:#21293b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crm-attn-text small{display:block;margin-top:3px;font-size:11.5px;color:#93979c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crm-empty{padding:16px 18px 18px;font-size:12px;color:#93979c}
+.crm-count{flex:none;padding:3px 9px;border-radius:99px;background:#fff0ee;color:#ff4c38;font-size:11.5px;font-weight:600}
+
+@media(max-width:1040px){.crm-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:820px){
+.crm-welcome{font-size:22px}
+.crm-newproject{margin-left:0}
+.crm-ov-card{grid-template-columns:minmax(0,1fr)}
+.crm-ov-item{border-right:none;border-bottom:1px solid #f0f0f2}
+.crm-ov-item:last-child{border-bottom:none}
+.crm-thead,.crm-row{grid-template-columns:minmax(0,1fr) 96px 84px;gap:10px;padding-left:16px;padding-right:16px}
+.crm-hide-sm{display:none}
+.crm-plot{height:172px}
+.crm-axis-x:first-child{transform:translateX(0)}
+}
+@media(max-width:620px){
+.crm-axis-x-alt{display:none}
+.crm-legend{gap:12px}
+}
+@media(max-width:540px){
+.crm-thead,.crm-row{grid-template-columns:minmax(0,1fr) 84px}
+.crm-hide-xs{display:none}
+.crm-ov-item{padding:16px 18px}
+.crm-cal-day,.crm-cal-pad{height:31px}
+}
 </style>
 </helmet>
 <div style="font-family:'Inter',system-ui,sans-serif;color:#101014;min-height:100vh;display:flex;background:#f5f5f7;letter-spacing:-.01em">
@@ -792,197 +848,155 @@
 <main style="flex:1;padding:30px 34px 120px;max-width:1140px;width:100%;margin:0 auto;box-sizing:border-box">
 
 <sc-if value="{{sADash}}">
-<div data-screen-label="Admin · Dashboard" class="crm-screen">
-<div class="crm-fit" style="height:{{crmFitHeight}}px">
-<div class="crm-stage" style="transform:scale({{crmScale}})">
+<div data-screen-label="Admin · Dashboard" class="crm-dash">
 
-<div class="crm-logo crm-ssp">LOGO</div>
-<div class="crm-rail"></div>
-<button sc-camel-on-click="{{crmGoDash}}" class="crm-nav crm-nav-on" style="top:322px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"></rect><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"></rect><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"></rect><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"></rect></svg></button>
-<button class="crm-nav" style="top:388px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-1.8a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V21"></path><circle cx="9" cy="7.5" r="3.5"></circle><path d="M17 3.2a4 4 0 0 1 0 7.7M21 21v-1.8a4 4 0 0 0-3-3.85"></path></svg></button>
-<button sc-camel-on-click="{{crmGoProjects}}" class="crm-nav" style="top:454px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 1h8l4 4v18H6z"></path><path d="M14 1v4h4"></path><path d="M9 12h6M9 16h4"></path></svg></button>
-<button sc-camel-on-click="{{crmGoTasks}}" class="crm-nav" style="top:520px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 12V3a9 9 0 0 1 9 9z"></path></svg></button>
-<button sc-camel-on-click="{{crmGoTeam}}" class="crm-nav" style="top:586px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"></circle><path d="M5.5 10.5a2.5 2.5 0 1 0 0-5M18.5 10.5a2.5 2.5 0 1 0 0-5"></path><path d="M7 20v-1.5a5 5 0 0 1 5-5 5 5 0 0 1 5 5V20"></path></svg></button>
-<button class="crm-nav" style="top:652px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"></circle><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 9 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 9a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"></path></svg></button>
-<button sc-camel-on-click="{{crmSignOut}}" class="crm-nav" style="top:718px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"></path><path d="M9 16l-4-4 4-4M5 12h10"></path></svg></button>
+<div class="crm-top">
+<div>
+<h1 class="crm-welcome">Welcome,<span> {{crmFirstName}}!</span></h1>
+<p class="crm-date crm-ssp">{{crmToday}}</p>
+</div>
+<button sc-camel-on-click="{{onNewProject}}" class="crm-newproject"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 6v12M6 12h12"></path></svg>New Project</button>
+</div>
 
-<h1 class="crm-welcome crm-mona crm-trim">Welcome,<span> Admin! </span></h1>
-<p class="crm-date crm-ssp">Wednesday, August 04 </p>
-<button sc-camel-on-click="{{onNewProject}}" class="crm-newproject"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 7v10M7 12h10"></path></svg><span class="crm-mona crm-trim">New Project</span></button>
+<div class="crm-section-head">
+<p class="crm-section-title crm-ssp">Overview</p>
+<button sc-camel-on-click="{{crmToggleRange}}" class="crm-chip crm-chip-end crm-ssp" title="Switch the range">{{crmRangeLabel}}<svg width="9" height="6" sc-camel-view-box="0 0 8 5"><path d="M0 0h8L4 5z" fill="#ff4c38"></path></svg></button>
+</div>
 
-<p class="crm-ov-title crm-ssp">Overview</p>
-<div class="crm-week"><p class="crm-ssp">This Week</p><svg width="7.87" height="5.01" sc-camel-view-box="0 0 8 5"><path d="M0 0h8L4 5z" fill="#ff4c38"></path></svg></div>
+<div class="crm-ov-card">
+<sc-for list="{{crmStats}}" as="st" hint-placeholder-count="3">
+<button sc-camel-on-click="{{st.onClick}}" class="crm-ov-item" title="{{st.hint}}">
+<span><strong class="crm-ssp">{{st.value}}</strong><small class="crm-ssp">{{st.label}}</small></span>
+<span class="crm-ov-bars"><i style="height:{{st.b1}}" title="{{st.t1}}"></i><i style="height:{{st.b2}}" title="{{st.t2}}"></i><i style="height:{{st.b3}}" title="{{st.t3}}"></i></span>
+</button>
+</sc-for>
+</div>
 
-<div class="crm-ov-card"></div>
-<p class="crm-ov-num crm-ssp" style="left:147.53px;top:266.61px">100</p>
-<p class="crm-ov-label crm-ssp" style="left:147.53px;top:310.42px">Total Projects</p>
-<i class="crm-bar" style="left:424.18px;top:322.94px;width:12.52px;height:12.52px"></i>
-<i class="crm-bar" style="left:442.95px;top:279.13px;width:12.52px;height:56.33px"></i>
-<i class="crm-bar" style="left:461.73px;top:291.65px;width:12.5px;height:43.81px"></i>
-<i class="crm-ov-rule" style="left:493.65px;top:277.88px;height:56.33px"></i>
-<p class="crm-ov-num crm-ssp" style="left:515.56px;top:266.61px">10</p>
-<p class="crm-ov-label crm-ssp" style="left:515.56px;top:310.42px">Active Now</p>
-<i class="crm-bar" style="left:814.74px;top:310.42px;width:12.51px;height:25.04px"></i>
-<i class="crm-bar" style="left:833.5px;top:302.92px;width:12.54px;height:32.54px"></i>
-<i class="crm-bar" style="left:852.31px;top:291.65px;width:12.51px;height:43.81px"></i>
-<i class="crm-ov-rule" style="left:884.21px;top:277.88px;height:55.08px"></i>
-<p class="crm-ov-num crm-ssp" style="left:904.87px;top:266.61px">3</p>
-<p class="crm-ov-label crm-ssp" style="left:904.87px;top:310.42px">Need Attention</p>
-<i class="crm-bar" style="left:1202.79px;top:320.44px;width:12.53px;height:15.02px"></i>
-<i class="crm-bar" style="left:1221.58px;top:302.92px;width:12.5px;height:32.54px"></i>
-<i class="crm-bar" style="left:1240.34px;top:310.42px;width:12.53px;height:25.04px"></i>
+<div class="crm-grid">
+<div class="crm-col">
 
-<div class="crm-card crm-perf">
+<section class="crm-card">
+<div class="crm-card-head">
 <h2>Performance</h2>
-<div class="crm-range"><p>08-12 May</p><svg width="16" height="16" sc-camel-view-box="0 0 16 16" fill="none" stroke="#4c5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5 8 10.5 12 6.5"></path></svg></div>
-<p class="crm-perf-note">Data update every hour</p>
-<i class="crm-key-dot" style="left:36px;background:#ff4c38"></i>
-<p class="crm-key" style="left:60px;top:100px">Overall Completion</p>
-<i class="crm-key-dot" style="left:243px;background:#4a54c8"></i>
-<p class="crm-key" style="left:267px;top:100px">Tasks Completed</p>
-<svg class="crm-chart" sc-camel-view-box="0 0 1160 466" fill="none" preserveAspectRatio="none">
-<g stroke="#e5e7e7" stroke-width="1.6" stroke-dasharray="6 6"><path d="M73 169H1124"></path><path d="M73 225H1124"></path><path d="M73 281H1124"></path><path d="M73 337H1124"></path><path d="M73 393H1124"></path></g>
-<path d="M94 277C170 290 250 337 330 336C420 335 500 290 604 277C700 266 780 392 862 392C960 392 1020 300 1104 194" stroke="#ff4c38" stroke-width="4" stroke-linecap="round"></path>
-<path d="M98 393C180 392 250 192 349 191C450 190 520 356 606 357C710 358 790 222 858 202C920 184 950 183 1000 197C1040 208 1070 228 1107 245" stroke="#4a54c8" stroke-width="4" stroke-linecap="round"></path>
-<path d="M858 202V392" stroke="#4a54c8" stroke-width="2" stroke-dasharray="6 5"></path>
-<path d="M852.8 181h10.4L858 190z" fill="#081226"></path>
-<circle cx="858.5" cy="201.5" r="7.5" fill="#4a54c8"></circle>
+<button sc-camel-on-click="{{crmToggleRange}}" class="crm-chip crm-chip-end">{{crmSpanLabel}}<svg width="14" height="14" sc-camel-view-box="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5 8 10.5 12 6.5"></path></svg></button>
+</div>
+<div class="crm-legend">
+<span><i style="background:#ff4c38"></i>Scheduled to date</span>
+<span><i style="background:#4a54c8"></i>Completed</span>
+</div>
+<div class="crm-chart-wrap">
+<div class="crm-plot">
+<svg sc-camel-view-box="0 0 600 220" sc-camel-preserve-aspect-ratio="none" fill="none">
+<g stroke="#e9eaec" stroke-width="1.4" stroke-dasharray="6 6" vector-effect="non-scaling-stroke">
+<path d="M0 16H600" vector-effect="non-scaling-stroke"></path>
+<path d="M0 61H600" vector-effect="non-scaling-stroke"></path>
+<path d="M0 106H600" vector-effect="non-scaling-stroke"></path>
+<path d="M0 151H600" vector-effect="non-scaling-stroke"></path>
+<path d="M0 196H600" vector-effect="non-scaling-stroke"></path>
+</g>
+<path d="{{crmAreaPath}}" fill="rgba(255,76,56,.07)"></path>
+<path d="{{crmSchedPath}}" stroke="#ff4c38" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+<path d="{{crmDonePath}}" stroke="#4a54c8" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
 </svg>
-<p class="crm-axis-y" style="left:0;top:159px;width:45px">4</p>
-<p class="crm-axis-y" style="left:0;top:215px;width:45px">3</p>
-<p class="crm-axis-y" style="left:0;top:270px;width:45px">2</p>
-<p class="crm-axis-y" style="left:0;top:326px;width:43px">1</p>
-<p class="crm-axis-y" style="left:0;top:382px;width:45px">0</p>
-<p class="crm-axis-x" style="left:35px">Mon</p>
-<p class="crm-axis-x" style="left:289px">Tue</p>
-<p class="crm-axis-x" style="left:544px">Wed</p>
-<p class="crm-axis-x" style="left:799px">Thu</p>
-<p class="crm-axis-x" style="left:1046px">Fri</p>
-<p class="crm-tip">3h 23m</p>
+<sc-for list="{{crmYTicks}}" as="y" hint-placeholder-count="5">
+<span class="crm-axis-y" style="top:{{y.pos}}%">{{y.label}}</span>
+</sc-for>
+<i class="crm-marker" style="left:{{crmMarkerX}}%;top:{{crmMarkerY}}%"></i>
+<span class="crm-tip" style="left:{{crmMarkerX}}%;top:{{crmMarkerY}}%">{{crmMarkerLabel}}</span>
 </div>
+<div class="crm-axis-row">
+<sc-for list="{{crmXTicks}}" as="x" hint-placeholder-count="7">
+<span class="crm-axis-x {{x.cls}}" style="left:{{x.pos}}%">{{x.label}}</span>
+</sc-for>
+</div>
+</div>
+<p class="crm-note">{{crmChartNote}}</p>
+</section>
 
-<div class="crm-card crm-table">
+<section class="crm-card crm-table">
+<div class="crm-card-head">
 <h2>Projects</h2>
-<i class="crm-thead"></i>
-<i class="crm-rule" style="top:131.48px"></i>
-<p class="crm-th" style="left:120.52px;top:152.02px">PROJECT NAME</p>
-<p class="crm-th" style="left:446.47px;top:152.02px">CODE</p>
-<p class="crm-th" style="left:624.51px;top:152.02px">STOCKS ID</p>
-<p class="crm-th" style="left:842.27px;top:152.02px">AMOUNT</p>
-<p class="crm-th" style="left:1032.63px;top:152.02px">STATUS</p>
-
-<div class="crm-icon-circle" style="top:232.43px;background:#ff4c38"><svg width="21.91" height="21.91" sc-camel-view-box="0 0 22 22" fill="currentColor"><rect x="5.4" y="2.6" width="4.2" height="16.8" rx="2.1"></rect><rect x="12.4" y="2.6" width="4.2" height="16.8" rx="2.1"></rect></svg></div>
-<div class="crm-cell" style="top:230.08px"><strong>ED S9 - EXPANSION</strong><small>Star Hospital</small></div>
-<p class="crm-td" style="left:446.28px;top:242.41px">BBCA</p>
-<p class="crm-td" style="left:624.32px;top:242.41px">STCBBCA-123</p>
-<p class="crm-td" style="left:842.08px;top:242.41px">$1,449.00</p>
-<p class="crm-td crm-td-active" style="left:1032.45px;top:242.41px">Active</p>
-<i class="crm-rule" style="top:316.95px"></i>
-
-<div class="crm-icon-circle" style="top:352.17px;background:#13ae85"><svg width="21.91" height="21.91" sc-camel-view-box="0 0 22 22" fill="currentColor"><path d="M8.2 2.6h6.3a2.1 2.1 0 0 1 0 4.2h-2.1v3.1H8.2a2.1 2.1 0 0 1 0-4.2h2.1V2.6z"></path><path d="M13.8 19.4H7.5a2.1 2.1 0 0 1 0-4.2h2.1v-3.1h4.2a2.1 2.1 0 0 1 0 4.2h-2.1v3.1z"></path></svg></div>
-<div class="crm-cell" style="top:349.82px"><strong>P7 - PEDIATRICS</strong><small>CALBER HOSPITAL</small></div>
-<p class="crm-td" style="left:446.28px;top:362.15px">BBCA</p>
-<p class="crm-td" style="left:624.32px;top:362.15px">STCBBCA-123</p>
-<p class="crm-td" style="left:842.08px;top:362.15px">$1,449.00</p>
-<p class="crm-td crm-td-active" style="left:1032.45px;top:362.15px">Active</p>
-<i class="crm-rule" style="top:436.69px"></i>
-
-<div class="crm-icon-circle" style="top:471.91px;background:#13ae85"><svg width="21.91" height="21.91" sc-camel-view-box="0 0 22 22" fill="currentColor"><path d="M8.4 2.6h5.2v2.1H8.4zM8.9 6.1h4.2v6.2c0 2.4 1.7 3.4 1.7 5.1 0 1.4-1.2 2-2.6 2H9.9c-1.6 0-2.7-.8-2.7-2.2 0-1.5 1.7-2.6 1.7-4.9V6.1z"></path></svg></div>
-<div class="crm-cell" style="top:469.56px"><strong>W1 - ROOMS RENO</strong><small>CALBER HOSPITAL</small></div>
-<p class="crm-td" style="left:446.28px;top:481.88px">BBCA</p>
-<p class="crm-td" style="left:624.32px;top:481.88px">STCBBCA-123</p>
-<p class="crm-td" style="left:842.08px;top:481.88px">$1,449.00</p>
-<p class="crm-td crm-td-active" style="left:1032.45px;top:481.88px">Active</p>
-<i class="crm-rule" style="top:556.43px"></i>
-
-<div class="crm-icon-circle" style="top:591.65px;background:#13ae85"><svg width="21.91" height="21.91" sc-camel-view-box="0 0 22 22" fill="currentColor"><path d="M8.4 2.6h5.2v2.1H8.4zM8.9 6.1h4.2v6.2c0 2.4 1.7 3.4 1.7 5.1 0 1.4-1.2 2-2.6 2H9.9c-1.6 0-2.7-.8-2.7-2.2 0-1.5 1.7-2.6 1.7-4.9V6.1z"></path></svg></div>
-<div class="crm-cell" style="top:589.3px"><strong>W1 - ROOMS RENO</strong><small>CALBER HOSPITAL</small></div>
-<p class="crm-td" style="left:446.28px;top:601.62px">BBCA</p>
-<p class="crm-td" style="left:624.32px;top:601.62px">STCBBCA-123</p>
-<p class="crm-td" style="left:842.08px;top:601.62px">$1,449.00</p>
-<p class="crm-td crm-td-active" style="left:1032.45px;top:601.62px">Active</p>
-<i class="crm-rule" style="top:676.17px"></i>
+<button sc-camel-on-click="{{goProjects}}" class="crm-link">View all<svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
 </div>
-
-<div class="crm-cal"></div>
-<p class="crm-cal-title crm-mona">Calender</p>
-<i class="crm-cal-pill"></i>
-<p class="crm-cal-month crm-mona crm-trim">Aug</p>
-<svg class="crm-cal-drop" sc-camel-view-box="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.4 11.9 14 17.5l5.6-5.6"></path></svg>
-<p class="crm-cal-dow crm-mona" style="left:1355.07px">S</p>
-<p class="crm-cal-dow crm-mona" style="left:1415.37px">M</p>
-<p class="crm-cal-dow crm-mona" style="left:1476.83px">T</p>
-<p class="crm-cal-dow crm-mona" style="left:1535.97px">W</p>
-<p class="crm-cal-dow crm-mona" style="left:1596.27px">T</p>
-<p class="crm-cal-dow crm-mona" style="left:1656.68px">F</p>
-<p class="crm-cal-dow crm-mona" style="left:1716.98px">S</p>
-<i class="crm-cal-today"></i>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1355.07px;top:384.67px">01</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1415.37px;top:384.67px">02</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1476.83px;top:384.67px">03</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1535.97px;top:384.67px;color:#000">04</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1596.27px;top:384.67px">05</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1656.68px;top:384.67px">06</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1716.98px;top:384.67px">07</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1355.07px;top:444.97px">08</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1415.37px;top:444.97px">09</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1476.83px;top:444.97px">10</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1535.97px;top:444.97px">11</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1596.27px;top:444.97px">12</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1656.68px;top:444.97px">13</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1716.98px;top:444.97px">14</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1355.07px;top:506.43px">15</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1415.37px;top:506.43px">16</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1476.83px;top:506.43px">17</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1535.97px;top:506.43px">18</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1596.27px;top:506.43px">19</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1656.68px;top:506.43px">20</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1716.98px;top:506.43px">21</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1355.07px;top:566.73px">22</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1415.37px;top:566.73px">23</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1476.83px;top:566.73px">24</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1535.97px;top:566.73px">25</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1596.27px;top:566.73px">26</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1656.68px;top:566.73px">27</p>
-<p class="crm-cal-day crm-mona crm-trim" style="left:1716.98px;top:566.73px">28</p>
-
-<div class="crm-card crm-health">
-<h2>Project Health</h2>
-<svg class="crm-health-dots" sc-camel-view-box="0 0 42 42" fill="currentColor"><circle cx="12" cy="21" r="2.6"></circle><circle cx="21" cy="21" r="2.6"></circle><circle cx="30" cy="21" r="2.6"></circle></svg>
-<div class="crm-health-item" style="top:125.54px"><p>ED S9 Expansion </p><strong>On Track</strong>
-<svg width="395.65" height="69.62" sc-camel-view-box="0 0 395.65 69.62" fill="none" preserveAspectRatio="none">
-<path d="M0 55C12.2 55 18 40 30 40C42 40 48 48 60 48C72 48 78 30 90 30C102 30 108 45 120 45C132 45 138 22 150 22C162 22 168 42 180 42C192 42 198 36 210 36C222 36 228 30 240 30C252 30 258 34 270 34C282 34 288 20 300 20C312 20 318 26 330 26C344 26 351 8 365 8C377.2 8 383.4 30 395.65 30V69.62H0z" fill="#e9f6f0"></path>
-<path d="M0 55C12.2 55 18 40 30 40C42 40 48 48 60 48C72 48 78 30 90 30C102 30 108 45 120 45C132 45 138 22 150 22C162 22 168 42 180 42C192 42 198 36 210 36C222 36 228 30 240 30C252 30 258 34 270 34C282 34 288 20 300 20C312 20 318 26 330 26C344 26 351 8 365 8C377.2 8 383.4 30 395.65 30" stroke="#12ae85" stroke-width="2.6" stroke-linecap="round"></path>
-</svg></div>
-<div class="crm-health-item" style="top:260.28px"><p>P7 -  Renovation</p><strong>At Risk</strong>
-<svg width="395.65" height="69.62" sc-camel-view-box="0 0 395.65 69.62" fill="none" preserveAspectRatio="none">
-<path d="M0 28C12.2 28 18 34 30 34C42 34 48 30 60 30C72 30 78 36 90 36C102 36 108 28 120 28C132 28 138 16 150 16C162 16 168 6 180 6C192 6 198 4 210 4C222 4 228 14 240 14C252 14 258 34 270 34C282 34 288 54 300 54C312 54 318 58 330 58C342 58 348 44 360 44C374.4 44 381.2 62 395.65 62V69.62H0z" fill="#fdeeec"></path>
-<path d="M0 28C12.2 28 18 34 30 34C42 34 48 30 60 30C72 30 78 36 90 36C102 36 108 28 120 28C132 28 138 16 150 16C162 16 168 6 180 6C192 6 198 4 210 4C222 4 228 14 240 14C252 14 258 34 270 34C282 34 288 54 300 54C312 54 318 58 330 58C342 58 348 44 360 44C374.4 44 381.2 62 395.65 62" stroke="#ff4c38" stroke-width="2.6" stroke-linecap="round"></path>
-</svg></div>
-<div class="crm-health-item" style="top:395.03px"><p>W1 - Urology </p><strong>Caution</strong>
-<svg width="395.65" height="69.62" sc-camel-view-box="0 0 395.65 69.62" fill="none" preserveAspectRatio="none">
-<path d="M0 2C12.2 2 18 30 30 30C42 30 48 40 60 40C72 40 78 34 90 34C102 34 108 26 120 26C132 26 138 22 150 22C162 22 168 26 180 26C192 26 198 20 210 20C222 20 228 28 240 28C252 28 258 42 270 42C282 42 288 58 300 58C312 58 318 64 330 64C342 64 348 52 360 52C374.4 52 381.2 64 395.65 64V69.62H0z" fill="#fef5da"></path>
-<path d="M0 2C12.2 2 18 30 30 30C42 30 48 40 60 40C72 40 78 34 90 34C102 34 108 26 120 26C132 26 138 22 150 22C162 22 168 26 180 26C192 26 198 20 210 20C222 20 228 28 240 28C252 28 258 42 270 42C282 42 288 58 300 58C312 58 318 64 330 64C342 64 348 52 360 52C374.4 52 381.2 64 395.65 64" stroke="#f7c544" stroke-width="2.6" stroke-linecap="round"></path>
-</svg></div>
+<div class="crm-thead">
+<span>PROJECT NAME</span>
+<span class="crm-hide-sm">GO-LIVE</span>
+<span class="crm-hide-xs">PROGRESS</span>
+<span class="crm-hide-sm">BUDGET</span>
+<span>STATUS</span>
 </div>
+<sc-for list="{{crmProjects}}" as="p" hint-placeholder-count="5">
+<button sc-camel-on-click="{{p.onOpen}}" class="crm-row" title="Open {{p.name}}">
+<span class="crm-row-name"><i class="crm-avatar" style="background:{{p.statusColor}}">{{p.abbr}}</i><span><strong>{{p.name}}</strong><small>{{p.location}}</small></span></span>
+<span class="crm-cellv crm-hide-sm">{{p.goLiveLabel}}</span>
+<span class="crm-meter crm-hide-xs"><b>{{p.progressLabel}}</b><span><i style="width:{{p.progressWidth}};background:{{p.statusColor}}"></i></span></span>
+<span class="crm-cellv crm-hide-sm">{{p.budgetText}}</span>
+<span class="crm-status" style="color:{{p.statusColor}}"><i style="background:{{p.statusColor}}"></i>{{p.statusLabel}}</span>
+</button>
+</sc-for>
+<sc-if value="{{crmNoProjects}}"><p class="crm-empty">No projects yet. Create the first one to get started.</p></sc-if>
+</section>
 
-<div class="crm-card crm-attn">
-<h2>Needs Attention</h2>
-<i class="crm-attn-dot" style="top:137px"></i>
-<i class="crm-attn-tail" style="top:163.59px;height:68.41px"></i>
-<i class="crm-attn-dot" style="top:240px"></i>
-<i class="crm-attn-tail" style="top:266.59px;height:68.41px"></i>
-<i class="crm-attn-dot" style="top:343px"></i>
-<p class="crm-attn-title" style="top:133px">ED S9 - Biomed Task</p>
-<p class="crm-attn-sub" style="top:167.9px">Issues Description</p>
-<p class="crm-attn-title" style="top:237.69px">ED S9  Biomed task</p>
-<p class="crm-attn-sub" style="top:272.59px">Issues Description</p>
-<p class="crm-attn-title" style="top:340.38px">Client Office</p>
-<p class="crm-attn-sub" style="top:375.28px">Issues Description</p>
+<section class="crm-card">
+<div class="crm-card-head"><h2>Needs Attention</h2><span class="crm-count crm-chip-end">{{crmAttnCount}}</span></div>
+<sc-for list="{{crmAttn}}" as="a" hint-placeholder-count="3">
+<button sc-camel-on-click="{{a.onOpen}}" class="crm-attn-item" title="Open in Tasks">
+<span class="crm-attn-mark"><i style="background:{{a.dot}}"></i><sc-if value="{{a.notLast}}"><em></em></sc-if></span>
+<span class="crm-attn-text"><strong>{{a.title}}</strong><small>{{a.sub}}</small></span>
+</button>
+</sc-for>
+<sc-if value="{{crmNoAttn}}"><p class="crm-empty">Nothing needs attention right now.</p></sc-if>
+</section>
+
 </div>
+<div class="crm-col">
+
+<section class="crm-cal">
+<div class="crm-cal-head">
+<h2>Calendar</h2>
+<div class="crm-cal-nav">
+<button sc-camel-on-click="{{crmCalPrev}}" title="Previous month"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+<p class="crm-ssp">{{crmCalLabel}}</p>
+<button sc-camel-on-click="{{crmCalNext}}" title="Next month"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
+</div>
+</div>
+<div class="crm-cal-grid">
+<sc-for list="{{crmCalDow}}" as="d" hint-placeholder-count="7">
+<span class="crm-cal-dow">{{d.label}}</span>
+</sc-for>
+<sc-for list="{{crmCalPad}}" as="b" hint-placeholder-count="3">
+<span class="crm-cal-pad"></span>
+</sc-for>
+<sc-for list="{{crmCalDays}}" as="d" hint-placeholder-count="31">
+<button sc-camel-on-click="{{d.onClick}}" class="crm-cal-day {{d.cls}}" title="{{d.hint}}">{{d.label}}<sc-if value="{{d.hasMark}}"><i class="crm-cal-dot"></i></sc-if></button>
+</sc-for>
+</div>
+<div class="crm-cal-foot">
+<p class="crm-ssp">{{crmCalFootLabel}}</p>
+<sc-for list="{{crmCalItems}}" as="c" hint-placeholder-count="2">
+<button sc-camel-on-click="{{c.onOpen}}" class="crm-cal-task"><strong>{{c.title}}</strong><small>{{c.sub}}</small></button>
+</sc-for>
+</div>
+</section>
+
+<section class="crm-card">
+<div class="crm-card-head"><h2>Project Health</h2></div>
+<sc-for list="{{crmHealth}}" as="h" hint-placeholder-count="3">
+<button sc-camel-on-click="{{h.onOpen}}" class="crm-health-item" title="Open {{h.name}}">
+<span class="crm-health-top"><p>{{h.name}}</p><strong style="color:{{h.color}}">{{h.label}}</strong></span>
+<p class="crm-health-sub">{{h.sub}}</p>
+<svg class="crm-spark" sc-camel-view-box="0 0 300 40" sc-camel-preserve-aspect-ratio="none" fill="none">
+<path d="{{h.area}}" fill="{{h.fill}}"></path>
+<path d="{{h.line}}" stroke="{{h.color}}" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>
+</button>
+</sc-for>
+<sc-if value="{{crmNoProjects}}"><p class="crm-empty">Project health appears once projects exist.</p></sc-if>
+</section>
 
 </div>
 </div>
+
 </div>
 </sc-if>
 
@@ -1703,11 +1717,11 @@ class Component extends DCLogic {
     const rmap = { admin: 'adash', team: 'ttasks', leadership: 'ldash' };
     const accountNames = { admin: 'Sandra Ortiz', team: 'Marcus Lee', leadership: 'Robert Chen' };
     const sr = props.startRole && props.startRole !== 'picker' ? props.startRole : null;
-    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, viewportWidth: 1811, projects: P, tasks: T, notes: N };
+    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, calOffset: 0, calSel: '', projects: P, tasks: T, notes: N };
     this.draft = {};
   }
-  componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; const w = Math.max(320, window.innerWidth); const patch = {}; if (m !== this.state.isMobile) patch.isMobile = m; if (w !== this.state.viewportWidth) patch.viewportWidth = w; if (Object.keys(patch).length) this.setState(patch); }; window.addEventListener('resize', this._rs); this._chartResize = () => this.drawAdminCharts(); window.addEventListener('resize', this._chartResize); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); this._commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':'); if (this.state.role) this.loadPageComments(); }
-  componentWillUnmount() { window.removeEventListener('resize', this._rs); window.removeEventListener('resize', this._chartResize); clearTimeout(this._t1); clearTimeout(this._t2); clearTimeout(this._loaderT); }
+  componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; if (m !== this.state.isMobile) this.setState({ isMobile: m }); }; window.addEventListener('resize', this._rs); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); this._commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':'); if (this.state.role) this.loadPageComments(); }
+  componentWillUnmount() { window.removeEventListener('resize', this._rs); clearTimeout(this._t1); clearTimeout(this._t2); clearTimeout(this._loaderT); }
   scheduleSplashExit() { clearTimeout(this._t1); clearTimeout(this._t2); this._t1 = setTimeout(() => this.skipSplash(), 2200); }
   skipSplash() { if (!this.state.splash) return; clearTimeout(this._t1); clearTimeout(this._t2); this.setState({ splashLeaving: true }); this._t2 = setTimeout(() => this.setState({ splash: false }), 480); }
   showLoader() { clearTimeout(this._loaderT); clearTimeout(this._t1); clearTimeout(this._t2); this.setState({ demoLoader: true, splash: false, splashLeaving: false, login: false }); }
@@ -1805,87 +1819,10 @@ class Component extends DCLogic {
     };
   }
   componentDidUpdate() {
-    if (this.state.role === 'admin' && this.state.screen === 'adash') {
-      requestAnimationFrame(() => this.drawAdminCharts());
-    }
     const commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':');
     if (this._commentContext !== commentContext) {
       this._commentContext = commentContext;
       if (this.state.role) this.loadPageComments();
-    }
-  }
-  drawAdminCharts() {
-    const lineCanvas = document.getElementById('admin-progress-chart');
-    const donutCanvas = document.getElementById('admin-task-health-chart');
-    if (lineCanvas) {
-      const rect = lineCanvas.getBoundingClientRect();
-      const ratio = window.devicePixelRatio || 1;
-      const width = Math.max(560, Math.round(rect.width || 700));
-      const height = Math.max(160, Math.round(rect.height || 170));
-      lineCanvas.width = width * ratio;
-      lineCanvas.height = height * ratio;
-      const ctx = lineCanvas.getContext('2d');
-      ctx.scale(ratio, ratio);
-      ctx.clearRect(0, 0, width, height);
-      const left = 39, right = 30, top = 18, bottom = 30;
-      const chartW = width - left - right, chartH = height - top - bottom;
-      const weekly = this.state.chartRange !== 'month';
-      const labels = weekly ? ['Jun 3–9','Jun 10–16','Jun 17–23','Jun 24–30','Jul 1–7','Jul 8–14','Jul 15–21','Jul 22–28'] : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'];
-      const overall = weekly ? [28,30,32,34,37,40,44,47] : [17,21,25,29,34,39,43,47];
-      const completed = weekly ? [18,20,21,23,25,28,31,34] : [10,13,17,20,24,28,31,34];
-      const target = weekly ? [30,40,50,60,70,80,90,100] : [18,30,42,54,66,78,90,100];
-      ctx.font = '9px Inter, system-ui, sans-serif';
-      ctx.textBaseline = 'middle';
-      [0,25,50,75,100].forEach(v => {
-        const y = top + chartH - chartH * v / 100;
-        ctx.strokeStyle = '#ececf1';
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(width - right, y); ctx.stroke();
-        ctx.fillStyle = '#9696a0'; ctx.textAlign = 'right'; ctx.fillText(v + '%', left - 7, y);
-      });
-      const points = values => values.map((v, i) => ({ x: left + chartW * i / (values.length - 1), y: top + chartH - chartH * v / 100, v }));
-      const drawLine = (values, color, dashed, labelsOn) => {
-        const pts = points(values);
-        ctx.strokeStyle = color; ctx.lineWidth = dashed ? 1.2 : 1.8; ctx.setLineDash(dashed ? [5,4] : []);
-        ctx.beginPath(); pts.forEach((p,i) => i ? ctx.lineTo(p.x,p.y) : ctx.moveTo(p.x,p.y)); ctx.stroke(); ctx.setLineDash([]);
-        if (!dashed) pts.forEach(p => {
-          ctx.fillStyle = color; ctx.beginPath(); ctx.arc(p.x,p.y,3.3,0,Math.PI*2); ctx.fill();
-          if (labelsOn) { ctx.font = '700 9px Inter, system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.v + '%', p.x, p.y - 11); }
-        });
-      };
-      const fillPts = points(overall);
-      ctx.fillStyle = 'rgba(200,16,46,.055)';
-      ctx.beginPath(); ctx.moveTo(fillPts[0].x, top + chartH); fillPts.forEach(p => ctx.lineTo(p.x,p.y)); ctx.lineTo(fillPts[fillPts.length-1].x, top + chartH); ctx.closePath(); ctx.fill();
-      drawLine(target, '#9b9ca4', true, false);
-      drawLine(completed, '#2f3339', false, false);
-      drawLine(overall, '#c8102e', false, true);
-      ctx.font = '8.5px Inter, system-ui, sans-serif'; ctx.fillStyle = '#777781'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-      labels.forEach((label,i) => ctx.fillText(label, left + chartW * i / (labels.length - 1), height - bottom + 9));
-    }
-    if (donutCanvas) {
-      const ratio = window.devicePixelRatio || 1;
-      const size = 180;
-      donutCanvas.width = size * ratio;
-      donutCanvas.height = size * ratio;
-      const ctx = donutCanvas.getContext('2d');
-      ctx.scale(ratio, ratio);
-      ctx.clearRect(0,0,size,size);
-      const complete = this.state.tasks.filter(t => t.status === 'completed').length;
-      const progress = this.state.tasks.filter(t => t.status === 'in_progress').length;
-      const hold = this.state.tasks.filter(t => t.status === 'on_hold').length;
-      const review = this.state.tasks.filter(t => t.status === 'needs_review').length;
-      const notStarted = this.state.tasks.filter(t => t.status === 'not_started').length;
-      const values = [complete, progress, hold, review, notStarted];
-      const colors = ['#1f9d55','#3377db','#f4b21b','#8b5cf6','#b9bac2'];
-      const total = values.reduce((a,b) => a + b, 0) || 1;
-      let angle = -Math.PI / 2;
-      values.forEach((value,i) => {
-        const next = angle + Math.PI * 2 * value / total;
-        ctx.beginPath(); ctx.arc(90,90,64,angle,next); ctx.strokeStyle = colors[i]; ctx.lineWidth = 26; ctx.stroke();
-        angle = next;
-      });
-      ctx.fillStyle = '#101014'; ctx.font = '800 22px Inter, system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(total),90,84);
-      ctx.fillStyle = '#777781'; ctx.font = '10px Inter, system-ui, sans-serif'; ctx.fillText('Total tasks',90,106);
     }
   }
   commentPageKey() {
@@ -2070,6 +2007,118 @@ class Component extends DCLogic {
     const workload = teamUsers.map((u, i) => { const av = avatarColors[(i + 2) % avatarColors.length]; return { name: u.name, initial: u.name.charAt(0), avatarBg: av[0], avatarColor: av[1], cnt: wCounts[i], pct: Math.round(wCounts[i] / wMax * 100) }; });
     const monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 1);
     const myDue = myRaw.filter(t => t.due && t.status !== 'completed' && new Date(t.due) < monthEnd).length;
+    /* Admin dashboard (CRM design) — every value below is derived from the live project and task state */
+    const crmWeekly = s.chartRange !== 'month';
+    const crmDayMs = 864e5;
+    const crmDueTasks = rawTasks.filter(t => t.due);
+    const crmBuckets = [];
+    if (crmWeekly) {
+      const weekStart = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
+      for (let i = 6; i >= 0; i--) {
+        const start = new Date(weekStart.getTime() - i * 7 * crmDayMs);
+        const end = new Date(start.getTime() + 6 * crmDayMs); end.setHours(23, 59, 59, 999);
+        crmBuckets.push({ end, label: start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) });
+      }
+    } else {
+      for (let i = 6; i >= 0; i--) {
+        const start = new Date(now.getFullYear(), now.getMonth() - i, 1);
+        crmBuckets.push({ end: new Date(now.getFullYear(), now.getMonth() - i + 1, 0, 23, 59, 59), label: start.toLocaleDateString('en-US', { month: 'short' }) });
+      }
+    }
+    const crmCum = (list, end) => list.filter(t => new Date(t.due + 'T12:00:00') <= end).length;
+    const crmSched = crmBuckets.map(b => crmCum(crmDueTasks, b.end));
+    const crmDone = crmBuckets.map(b => crmCum(crmDueTasks.filter(t => t.status === 'completed'), b.end));
+    const crmStep = Math.max(1, Math.ceil(Math.max(1, ...crmSched, ...crmDone) / 4));
+    const crmTopVal = crmStep * 4;
+    const crmX = i => crmBuckets.length > 1 ? i * (600 / (crmBuckets.length - 1)) : 300;
+    const crmY = v => 196 - (v / crmTopVal) * 180;
+    const crmCurve = (pts, width) => {
+      if (!pts.length) return '';
+      if (pts.length === 1) return 'M0 ' + pts[0][1].toFixed(1) + 'H' + width;
+      let d = 'M' + pts[0][0].toFixed(1) + ' ' + pts[0][1].toFixed(1);
+      for (let i = 0; i < pts.length - 1; i++) {
+        const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || pts[i + 1];
+        d += 'C' + [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6, p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6, p2[0], p2[1]].map(n => n.toFixed(1)).join(' ');
+      }
+      return d;
+    };
+    const crmSchedPath = crmCurve(crmSched.map((v, i) => [crmX(i), crmY(v)]), 600);
+    const crmDonePath = crmCurve(crmDone.map((v, i) => [crmX(i), crmY(v)]), 600);
+    const crmAreaPath = crmSchedPath ? crmSchedPath + ' L600 196 L0 196 Z' : '';
+    const crmLastSched = crmSched[crmSched.length - 1] || 0;
+    const crmLastDone = crmDone[crmDone.length - 1] || 0;
+    const crmYTicks = [4, 3, 2, 1, 0].map(k => ({ label: String(crmStep * k), pos: (crmY(crmStep * k) / 220 * 100).toFixed(2) }));
+    const crmXTicks = crmBuckets.map((b, i) => ({ label: b.label, pos: (crmX(i) / 600 * 100).toFixed(2), cls: i % 2 ? 'crm-axis-x-alt' : '' }));
+    const crmSpanEnd = crmBuckets.length ? crmBuckets[crmBuckets.length - 1].end : now;
+    const crmSpanLabel = crmBuckets.length ? crmBuckets[0].label + ' – ' + crmSpanEnd.toLocaleDateString('en-US', crmWeekly ? { month: 'short', day: 'numeric' } : { month: 'short', year: 'numeric' }) : '';
+    const crmPlanning = projects.filter(p => p.stKey === 'planning').length;
+    const crmCompletedProjects = projects.filter(p => p.stKey === 'completed').length;
+    const crmOverdue = rawTasks.filter(t => t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < now).length;
+    const crmOnHold = statusCount('on_hold');
+    const crmReview = statusCount('needs_review');
+    const crmStat = (value, label, hint, bars, onClick) => {
+      const max = Math.max(1, ...bars.map(b => b[1]));
+      const h = v => Math.max(12, Math.round(v / max * 100)) + '%';
+      return { value: String(value), label, hint, b1: h(bars[0][1]), b2: h(bars[1][1]), b3: h(bars[2][1]), t1: bars[0][0], t2: bars[1][0], t3: bars[2][0], onClick };
+    };
+    const crmActiveTop = projects.filter(p => p.stKey === 'active').slice(0, 3);
+    const crmStats = [
+      crmStat(s.projects.length, 'Total Projects', 'Open every project', [['Planning · ' + crmPlanning, crmPlanning], ['Active · ' + nActive, nActive], ['Completed · ' + crmCompletedProjects, crmCompletedProjects]], () => this.setState({ screen: 'aprojects', pFilter: 'all', projectId: null })),
+      crmStat(nActive, 'Active Now', 'Show only active projects', [0, 1, 2].map(i => { const p = crmActiveTop[i]; return p ? [p.name + ' · ' + p.progress + '%', p.progress] : ['No active project', 0]; }), () => this.setState({ screen: 'aprojects', pFilter: 'active', projectId: null })),
+      crmStat(attnRaw.length, 'Need Attention', 'Open the tasks that need attention', [['Overdue · ' + crmOverdue, crmOverdue], ['On hold · ' + crmOnHold, crmOnHold], ['Needs review · ' + crmReview, crmReview]], () => this.setState({ screen: 'atasks', aTaskProject: 'all', aTaskStatus: 'all', taskSearch: '' }))
+    ];
+    const crmTint = { planning: '#4a54c8', active: '#13ae85', on_hold: '#f7a324', completed: '#8b8f98' };
+    const crmProjects = projects.slice(0, 6).map(p => ({ ...p, abbr: this.abbr(p.name), statusColor: crmTint[p.stKey] || '#ff4c38', progressLabel: p.progress + '%', progressWidth: Math.max(3, p.progress) + '%', budgetText: p.budgetLabel || '—' }));
+    const crmHealth = s.projects.map(p => {
+      const ts = this.ptasks(p);
+      const stKey = this.derSt(p);
+      const overdue = ts.filter(t => t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < now).length;
+      const held = ts.filter(t => t.status === 'on_hold').length;
+      const review = ts.filter(t => t.status === 'needs_review').length;
+      let label = 'On Track', color = '#12ae85', fill = 'rgba(18,174,133,.11)';
+      if (stKey === 'completed') { label = 'Complete'; }
+      else if (overdue) { label = 'At Risk'; color = '#ff4c38'; fill = 'rgba(255,76,56,.11)'; }
+      else if (held || review) { label = 'Caution'; color = '#f7a324'; fill = 'rgba(247,163,36,.14)'; }
+      const series = ts.slice().sort((a, b) => (a.due || '9999').localeCompare(b.due || '9999')).map(t => Math.max(0, Math.min(100, t.pct)));
+      const pts = (series.length ? series : [0]).map((v, i, arr) => [arr.length > 1 ? i * (300 / (arr.length - 1)) : 150, 34 - v / 100 * 28]);
+      const line = crmCurve(pts, 300);
+      const flags = [overdue ? overdue + ' overdue' : '', held ? held + ' on hold' : '', review ? review + ' in review' : ''].filter(Boolean);
+      return {
+        name: p.name, label, color, fill, line, area: line ? line + ' L300 40 L0 40 Z' : '',
+        sub: this.prog(p) + '% complete · ' + (flags.length ? flags.join(' · ') : ts.length + (ts.length === 1 ? ' task on plan' : ' tasks on plan')),
+        onOpen: () => this.setState({ screen: 'adetail', projectId: p.id })
+      };
+    });
+    const crmAttn = attnRaw.slice(0, 4).map((t, i, arr) => {
+      const d = this.decT(t);
+      const overdue = !!(t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < now);
+      return {
+        title: t.title, sub: d.projectName + ' · ' + (overdue ? 'Overdue ' + this.fmtD(t.due) : d.statusLabel),
+        dot: overdue ? '#ff4c38' : t.status === 'on_hold' ? '#f7a324' : '#8b5cf6', notLast: i < arr.length - 1,
+        onOpen: () => this.setState({ screen: 'atasks', aTaskProject: t.projectId, aTaskStatus: 'all', taskSearch: '' })
+      };
+    });
+    const crmIso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    const crmTodayIso = crmIso(now);
+    const crmCalFirst = new Date(now.getFullYear(), now.getMonth() + (s.calOffset || 0), 1);
+    const crmSelIso = s.calSel || crmTodayIso;
+    const crmCalDays = [];
+    for (let day = 1, dim = new Date(crmCalFirst.getFullYear(), crmCalFirst.getMonth() + 1, 0).getDate(); day <= dim; day++) {
+      const key = crmIso(new Date(crmCalFirst.getFullYear(), crmCalFirst.getMonth(), day));
+      const marks = rawTasks.filter(t => t.due === key).length + s.projects.filter(p => p.goLive === key).length;
+      crmCalDays.push({
+        label: String(day), hasMark: marks > 0,
+        cls: (key === crmTodayIso ? 'crm-cal-today' : '') + (key === crmSelIso ? ' crm-cal-sel' : ''),
+        hint: marks ? marks + (marks === 1 ? ' item due' : ' items due') : 'Nothing due',
+        onClick: () => this.setState({ calSel: key })
+      });
+    }
+    const crmCalItems = [
+      ...s.projects.filter(p => p.goLive === crmSelIso).map(p => ({ title: 'Go-live · ' + p.name, sub: 'Activation target date', onOpen: () => this.setState({ screen: 'adetail', projectId: p.id }) })),
+      ...rawTasks.filter(t => t.due === crmSelIso).map(t => ({ title: t.title, sub: ((s.projects.find(x => x.id === t.projectId) || {}).name || '') + ' · ' + (this.TS[t.status] || ['—'])[0], onOpen: () => this.setState({ screen: 'atasks', aTaskProject: t.projectId, aTaskStatus: 'all', taskSearch: '' }) }))
+    ];
+    const crmSelLabel = new Date(crmSelIso + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    const crmMonthDue = rawTasks.filter(t => t.due && t.due.slice(0, 7) === crmIso(crmCalFirst).slice(0, 7)).length;
     return {
       hasRole: !!role && !s.login, loginShow: s.login && !s.splash && !s.demoLoader,
       loaderShow: s.demoLoader, onShowLoader: () => this.showLoader(), onShowSplash: () => this.showSplash(), onShowLogin: () => this.showLogin(),
@@ -2100,12 +2149,19 @@ class Component extends DCLogic {
       attn: attnRaw.slice(0, 4).map(t => { const d = this.decT(t); return { title: d.title, sub: d.projectName + ' · ' + d.dueLabel, statusLabel: d.statusLabel, stBg: d.stBg, stColor: d.stColor }; }),
       attnCount: attnRaw.length, hasAttn: attnRaw.length > 0,
       dueSoon, dueSoonCount: dueSoonRaw.length, workload,
-      crmScale: Math.round((s.viewportWidth || 1811) / 1811 * 1e5) / 1e5, crmFitHeight: Math.round(1732 * (s.viewportWidth || 1811) / 1811),
-      crmGoDash: () => this.setState({ screen: 'adash', projectId: null }),
-      crmGoProjects: () => this.setState({ screen: 'aprojects', projectId: null }),
-      crmGoTasks: () => this.setState({ screen: 'atasks', projectId: null }),
-      crmGoTeam: () => this.setState({ screen: 'ateam', projectId: null }),
-      crmSignOut: () => this.signOut(),
+      crmFirstName: (s.accountUserName || rm[1] || 'Admin').split(' ')[0], crmToday: now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
+      crmRangeLabel: crmWeekly ? 'This Week' : 'This Month', crmSpanLabel, crmToggleRange: () => this.setState({ chartRange: crmWeekly ? 'month' : 'week' }),
+      crmStats, crmSchedPath, crmDonePath, crmAreaPath, crmYTicks, crmXTicks,
+      crmMarkerX: (crmX(crmBuckets.length - 1) / 600 * 100).toFixed(2), crmMarkerY: (crmY(crmLastDone) / 220 * 100).toFixed(2), crmMarkerLabel: crmLastDone + '/' + crmLastSched + ' done',
+      crmChartNote: 'Cumulative tasks scheduled vs. completed, from the live task list · ' + crmLastDone + ' of ' + crmLastSched + ' complete',
+      crmProjects, crmNoProjects: s.projects.length === 0, crmHealth,
+      crmAttn, crmAttnCount: attnRaw.length, crmNoAttn: attnRaw.length === 0,
+      crmCalLabel: crmCalFirst.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
+      crmCalDow: ['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((label, i) => ({ label, i })),
+      crmCalPad: new Array(crmCalFirst.getDay()).fill(0).map((_, i) => ({ i })),
+      crmCalDays, crmCalItems,
+      crmCalFootLabel: crmCalItems.length ? crmSelLabel + ' · ' + crmCalItems.length + (crmCalItems.length === 1 ? ' item due' : ' items due') : crmSelLabel + ' · nothing due · ' + crmMonthDue + ' this month',
+      crmCalPrev: () => this.setState({ calOffset: (s.calOffset || 0) - 1 }), crmCalNext: () => this.setState({ calOffset: (s.calOffset || 0) + 1 }),
       goProjects: () => this.setState({ screen: 'aprojects' }),
       onNewProject: () => { this.draft = { name: '', location: '', desc: '', priority: 'medium', goLive: '', budget: '' }; this.setState({ modal: 'project', editId: null }); },
       pFilters: mkFilter([['all', 'All ' + projects.length], ['planning', 'Planning ' + projects.filter(p => p.stKey === 'planning').length], ['active', 'Active ' + projects.filter(p => p.stKey === 'active').length], ['on_hold', 'On hold ' + projects.filter(p => p.stKey === 'on_hold').length], ['completed', 'Completed ' + projects.filter(p => p.stKey === 'completed').length]], pf, 'pFilter'),
