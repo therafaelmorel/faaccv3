@@ -592,6 +592,98 @@
 .review-submit:hover{background:#a50d26}
 @media(max-width:880px){.review-trigger{right:14px;bottom:78px}.review-panel{top:8px;right:8px;bottom:74px;width:calc(100vw - 16px);border-radius:17px}.build-dashboard{padding-top:8px}.build-dashboard-empty{min-height:280px}}
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Admin dashboard — Figma "CRM Admin Dashboard" 52:68, fixed 1811x1732 frame */
+.crm-screen{position:fixed;inset:0;z-index:5;background:#f5f5f7;overflow-x:hidden;overflow-y:auto}
+.crm-fit{position:relative;width:100%}
+.crm-stage{position:absolute;left:0;top:0;width:1811px;height:1732px;transform-origin:0 0;font-family:'Poppins','Inter',system-ui,sans-serif;color:#000;letter-spacing:normal;text-align:left}
+.crm-stage *{box-sizing:border-box}
+.crm-stage p,.crm-stage h1,.crm-stage h2{margin:0;font-weight:inherit}
+.crm-stage button{padding:0;font:inherit;color:inherit;cursor:pointer}
+.crm-mona{font-family:'Mona Sans','Inter',system-ui,sans-serif;font-weight:400}
+.crm-ssp{font-family:'Source Sans 3','Source Sans Pro','Inter',system-ui,sans-serif}
+.crm-trim{text-box-trim:trim-both;text-box-edge:cap alphabetic;text-box:trim-both cap alphabetic}
+.crm-card{position:absolute;background:#fff;border:1px solid #ff4c38}
+
+/* Sidebar */
+.crm-logo{position:absolute;left:31px;top:75px;width:54px;height:54px;border-radius:50%;background:#ff4c38;display:flex;align-items:center;justify-content:center;font-family:'Source Sans 3','Source Sans Pro','Inter',system-ui,sans-serif;font-weight:600;font-size:13.6px;line-height:17.68px;letter-spacing:.1133px;color:#fff}
+.crm-rail{position:absolute;left:23px;top:314px;width:70px;height:465px;background:#fff;border:1px solid #ff4c38;border-radius:20px}
+.crm-nav{position:absolute;left:31px;width:54px;height:54px;border-radius:50%;background:#fff;border:1px solid #ff4c38;color:#ff4c38;display:flex;align-items:center;justify-content:center}
+.crm-nav-on{background:#ff4c38;border-color:#ff4c38;color:#fff}
+
+/* Header */
+.crm-welcome{position:absolute;left:128px;top:88px;font-size:40px;line-height:1.3;color:#000;white-space:nowrap}
+.crm-welcome span{color:#ff4c38}
+.crm-date{position:absolute;left:128px;top:126px;height:26px;font-size:20px;line-height:26px;font-weight:600;color:#333539;letter-spacing:.1667px;white-space:nowrap}
+.crm-newproject{position:absolute;left:1590px;top:102px;width:161px;height:53px;border-radius:20px;background:#ff4c38;border:1px solid #fff}
+.crm-newproject svg{position:absolute;left:13px;top:14px}
+.crm-newproject span{position:absolute;left:54px;top:20px;font-size:16px;line-height:1.3;color:#fff;white-space:nowrap}
+
+/* Overview */
+.crm-ov-title{position:absolute;left:130px;top:191.5px;height:33px;font-size:25.036px;line-height:32.547px;font-weight:600;color:#333539;letter-spacing:.2086px}
+.crm-week{position:absolute;left:1137.7px;top:189px;width:133.94px;height:37.55px;background:#fff;border:1px solid #e3e3e7;border-radius:8px}
+.crm-week p{position:absolute;left:16.27px;top:8.76px;height:20.03px;font-size:15.022px;line-height:20.03px;color:#ff4c38;letter-spacing:.0787px}
+.crm-week svg{position:absolute;left:110px;top:16.3px}
+.crm-ov-card{position:absolute;left:125px;top:239.07px;width:1145.4px;height:123.93px;background:#fff;border:1.252px solid #ff4c38;border-radius:20.029px}
+.crm-ov-num{position:absolute;height:38px;font-size:30.043px;line-height:38px;font-weight:600;color:#000;letter-spacing:.3755px;white-space:nowrap}
+.crm-ov-label{position:absolute;height:25px;font-size:20.029px;line-height:25px;color:#000;letter-spacing:.5007px;white-space:nowrap}
+.crm-bar{position:absolute;background:#ff4c38}
+.crm-ov-rule{position:absolute;width:1.25px;background:#dededf}
+
+/* Performance */
+.crm-perf{left:121px;top:388px;width:1160px;height:466px;border-radius:24px}
+.crm-perf h2{position:absolute;left:36px;top:36px;height:36px;font-size:24px;line-height:36px;font-weight:600;color:#21293b;white-space:nowrap}
+.crm-perf-note{position:absolute;left:957px;top:100px;width:167px;height:21px;font-size:14px;line-height:21px;color:#93979c;text-align:right;white-space:nowrap}
+.crm-range{position:absolute;left:987px;top:36px;width:137px;height:48px;border:1px solid #e5e7e7;border-radius:30px;display:flex;align-items:center;gap:8px;padding:0 16px 0 24px}
+.crm-range p{font-size:14px;font-weight:500;color:#4c5158;white-space:nowrap}
+.crm-key{position:absolute;height:21px;font-size:14px;line-height:21px;color:#21293b;white-space:nowrap}
+.crm-key-dot{position:absolute;top:102px;width:16px;height:16px;border-radius:50%}
+.crm-chart{position:absolute;left:0;top:0;width:1160px;height:466px;overflow:visible}
+.crm-axis-y{position:absolute;width:60px;height:21px;font-size:14px;line-height:21px;color:#93979c;text-align:right;white-space:nowrap}
+.crm-axis-x{position:absolute;top:409px;width:120px;height:21px;font-size:14px;line-height:21px;color:#21293b;text-align:center;white-space:nowrap}
+.crm-tip{position:absolute;left:825px;top:157px;width:67px;height:24px;border-radius:30px;background:#081226;font-size:12px;line-height:24px;color:#fff;text-align:center}
+
+/* Projects table */
+.crm-table{left:120px;top:889px;width:1160px;height:768px;border-width:1.37px;border-radius:32.869px;overflow:hidden}
+.crm-table h2{position:absolute;left:49.3px;top:49.3px;height:49px;font-size:32.869px;line-height:49px;font-weight:500;color:#060606;white-space:nowrap}
+.crm-thead{position:absolute;left:1.37px;top:131.48px;width:1157.26px;height:65.74px;background:#f8f8f8}
+.crm-rule{position:absolute;left:0;width:1160px;height:1.37px;background:#ececec}
+.crm-th{position:absolute;height:25px;font-size:16.434px;line-height:25px;font-weight:500;color:#555;white-space:nowrap}
+.crm-td{position:absolute;height:29px;font-size:19.174px;line-height:29px;font-weight:500;color:#060606;white-space:nowrap}
+.crm-td-active{font-weight:600;color:#13ae85}
+.crm-icon-circle{position:absolute;left:65.55px;width:49.3px;height:49.3px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff}
+.crm-cell{position:absolute;left:136.77px}
+.crm-cell strong{display:block;height:29px;font-size:19.174px;line-height:29px;font-weight:600;color:#060606;white-space:nowrap}
+.crm-cell small{display:block;height:25px;font-size:16.434px;line-height:25px;font-weight:400;color:#555;white-space:nowrap}
+
+/* Calendar */
+.crm-cal{position:absolute;left:1309px;top:228px;width:479px;height:399px;border-radius:30px;background:#ff4c38}
+.crm-cal-title{position:absolute;left:1340px;top:260.6px;height:37px;font-size:23.192px;line-height:37px;color:#fff;white-space:nowrap}
+.crm-cal-pill{position:absolute;left:1614.83px;top:257.5px;width:133.36px;height:45.5px;border-radius:22.75px;background:rgba(255,255,255,.64)}
+.crm-cal-month{position:absolute;left:1650.77px;top:272.19px;width:36px;height:14px;font-size:18.554px;line-height:1.3;color:#fff;text-align:center;white-space:nowrap}
+.crm-cal-drop{position:absolute;left:1707.59px;top:266.39px;width:27.83px;height:27.83px;color:#fff}
+.crm-cal-dow{position:absolute;top:326.69px;width:24.35px;height:23.24px;font-size:18.554px;line-height:23.24px;color:#fff;text-align:center}
+.crm-cal-day{position:absolute;width:24.35px;height:13.92px;font-size:18.554px;line-height:1.3;color:#fff;text-align:center}
+.crm-cal-today{position:absolute;left:1522px;top:364px;width:55.33px;height:55.33px;border-radius:50%;background:#fff}
+
+/* Project health */
+.crm-health{left:1308px;top:652px;width:479.19px;height:543.69px;border-width:1.16px;border-radius:27.846px}
+.crm-health h2{position:absolute;left:41.77px;top:41.77px;height:42px;font-size:27.846px;line-height:42px;font-weight:500;color:#060606;white-space:nowrap}
+.crm-health-dots{position:absolute;left:395.65px;top:41.89px;width:41.77px;height:41.77px;color:#060606}
+.crm-health-item{position:absolute;left:41.77px;width:395.65px}
+.crm-health-item p{position:absolute;left:0;top:2px;height:24px;font-size:16.244px;line-height:24px;color:#555;white-space:pre}
+.crm-health-item strong{position:absolute;right:0;top:0;height:28px;font-size:18.564px;line-height:28px;font-weight:600;color:#060606;text-align:right;white-space:nowrap}
+.crm-health-item svg{position:absolute;left:0;top:37.28px}
+
+/* Needs attention */
+.crm-attn{left:1308px;top:1204px;width:452px;height:452px;border-radius:39.882px;overflow:hidden}
+.crm-attn h2{position:absolute;left:39.88px;top:39.88px;height:60px;font-size:39.882px;line-height:60px;font-weight:600;color:#21293b;white-space:nowrap}
+.crm-attn-dot{position:absolute;left:40px;width:26.59px;height:26.59px;border-radius:50%;background:#ff4c38}
+.crm-attn-tail{position:absolute;left:51.5px;width:3.6px;background:repeating-linear-gradient(#ff4c38 0 3.6px,transparent 3.6px 9.3px)}
+.crm-attn-title{position:absolute;left:90px;height:35px;font-size:23.265px;line-height:35px;font-weight:600;color:#21293b;white-space:pre}
+.crm-attn-sub{position:absolute;left:90px;height:30px;font-size:19.941px;line-height:30px;color:#93979c;white-space:nowrap}
+</style>
 </helmet>
 <div style="font-family:'Inter',system-ui,sans-serif;color:#101014;min-height:100vh;display:flex;background:#f5f5f7;letter-spacing:-.01em">
 
@@ -700,112 +792,197 @@
 <main style="flex:1;padding:30px 34px 120px;max-width:1140px;width:100%;margin:0 auto;box-sizing:border-box">
 
 <sc-if value="{{sADash}}">
-<div data-screen-label="Admin · Dashboard" class="pulse-dashboard">
-<div class="pulse-header">
-<div class="pulse-title-line">
-<h1>Good afternoon, Sandra</h1>
-<span>{{lAsOf}}</span>
-</div>
-<button sc-camel-on-click="{{onNewProject}}" class="pulse-primary-button" style-hover="background:#a50d26">
-<span aria-hidden="true">+</span> New project
-</button>
+<div data-screen-label="Admin · Dashboard" class="crm-screen">
+<div class="crm-fit" style="height:{{crmFitHeight}}px">
+<div class="crm-stage" style="transform:scale({{crmScale}})">
+
+<div class="crm-logo crm-ssp">LOGO</div>
+<div class="crm-rail"></div>
+<button sc-camel-on-click="{{crmGoDash}}" class="crm-nav crm-nav-on" style="top:322px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"></rect><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"></rect><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"></rect><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"></rect></svg></button>
+<button class="crm-nav" style="top:388px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-1.8a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V21"></path><circle cx="9" cy="7.5" r="3.5"></circle><path d="M17 3.2a4 4 0 0 1 0 7.7M21 21v-1.8a4 4 0 0 0-3-3.85"></path></svg></button>
+<button sc-camel-on-click="{{crmGoProjects}}" class="crm-nav" style="top:454px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 1h8l4 4v18H6z"></path><path d="M14 1v4h4"></path><path d="M9 12h6M9 16h4"></path></svg></button>
+<button sc-camel-on-click="{{crmGoTasks}}" class="crm-nav" style="top:520px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 12V3a9 9 0 0 1 9 9z"></path></svg></button>
+<button sc-camel-on-click="{{crmGoTeam}}" class="crm-nav" style="top:586px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"></circle><path d="M5.5 10.5a2.5 2.5 0 1 0 0-5M18.5 10.5a2.5 2.5 0 1 0 0-5"></path><path d="M7 20v-1.5a5 5 0 0 1 5-5 5 5 0 0 1 5 5V20"></path></svg></button>
+<button class="crm-nav" style="top:652px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"></circle><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 9 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 9a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"></path></svg></button>
+<button sc-camel-on-click="{{crmSignOut}}" class="crm-nav" style="top:718px"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"></path><path d="M9 16l-4-4 4-4M5 12h10"></path></svg></button>
+
+<h1 class="crm-welcome crm-mona crm-trim">Welcome,<span> Admin! </span></h1>
+<p class="crm-date crm-ssp">Wednesday, August 04 </p>
+<button sc-camel-on-click="{{onNewProject}}" class="crm-newproject"><svg width="24" height="24" sc-camel-view-box="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 7v10M7 12h10"></path></svg><span class="crm-mona crm-trim">New Project</span></button>
+
+<p class="crm-ov-title crm-ssp">Overview</p>
+<div class="crm-week"><p class="crm-ssp">This Week</p><svg width="7.87" height="5.01" sc-camel-view-box="0 0 8 5"><path d="M0 0h8L4 5z" fill="#ff4c38"></path></svg></div>
+
+<div class="crm-ov-card"></div>
+<p class="crm-ov-num crm-ssp" style="left:147.53px;top:266.61px">100</p>
+<p class="crm-ov-label crm-ssp" style="left:147.53px;top:310.42px">Total Projects</p>
+<i class="crm-bar" style="left:424.18px;top:322.94px;width:12.52px;height:12.52px"></i>
+<i class="crm-bar" style="left:442.95px;top:279.13px;width:12.52px;height:56.33px"></i>
+<i class="crm-bar" style="left:461.73px;top:291.65px;width:12.5px;height:43.81px"></i>
+<i class="crm-ov-rule" style="left:493.65px;top:277.88px;height:56.33px"></i>
+<p class="crm-ov-num crm-ssp" style="left:515.56px;top:266.61px">10</p>
+<p class="crm-ov-label crm-ssp" style="left:515.56px;top:310.42px">Active Now</p>
+<i class="crm-bar" style="left:814.74px;top:310.42px;width:12.51px;height:25.04px"></i>
+<i class="crm-bar" style="left:833.5px;top:302.92px;width:12.54px;height:32.54px"></i>
+<i class="crm-bar" style="left:852.31px;top:291.65px;width:12.51px;height:43.81px"></i>
+<i class="crm-ov-rule" style="left:884.21px;top:277.88px;height:55.08px"></i>
+<p class="crm-ov-num crm-ssp" style="left:904.87px;top:266.61px">3</p>
+<p class="crm-ov-label crm-ssp" style="left:904.87px;top:310.42px">Need Attention</p>
+<i class="crm-bar" style="left:1202.79px;top:320.44px;width:12.53px;height:15.02px"></i>
+<i class="crm-bar" style="left:1221.58px;top:302.92px;width:12.5px;height:32.54px"></i>
+<i class="crm-bar" style="left:1240.34px;top:310.42px;width:12.53px;height:25.04px"></i>
+
+<div class="crm-card crm-perf">
+<h2>Performance</h2>
+<div class="crm-range"><p>08-12 May</p><svg width="16" height="16" sc-camel-view-box="0 0 16 16" fill="none" stroke="#4c5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5 8 10.5 12 6.5"></path></svg></div>
+<p class="crm-perf-note">Data update every hour</p>
+<i class="crm-key-dot" style="left:36px;background:#ff4c38"></i>
+<p class="crm-key" style="left:60px;top:100px">Overall Completion</p>
+<i class="crm-key-dot" style="left:243px;background:#4a54c8"></i>
+<p class="crm-key" style="left:267px;top:100px">Tasks Completed</p>
+<svg class="crm-chart" sc-camel-view-box="0 0 1160 466" fill="none" preserveAspectRatio="none">
+<g stroke="#e5e7e7" stroke-width="1.6" stroke-dasharray="6 6"><path d="M73 169H1124"></path><path d="M73 225H1124"></path><path d="M73 281H1124"></path><path d="M73 337H1124"></path><path d="M73 393H1124"></path></g>
+<path d="M94 277C170 290 250 337 330 336C420 335 500 290 604 277C700 266 780 392 862 392C960 392 1020 300 1104 194" stroke="#ff4c38" stroke-width="4" stroke-linecap="round"></path>
+<path d="M98 393C180 392 250 192 349 191C450 190 520 356 606 357C710 358 790 222 858 202C920 184 950 183 1000 197C1040 208 1070 228 1107 245" stroke="#4a54c8" stroke-width="4" stroke-linecap="round"></path>
+<path d="M858 202V392" stroke="#4a54c8" stroke-width="2" stroke-dasharray="6 5"></path>
+<path d="M852.8 181h10.4L858 190z" fill="#081226"></path>
+<circle cx="858.5" cy="201.5" r="7.5" fill="#4a54c8"></circle>
+</svg>
+<p class="crm-axis-y" style="left:0;top:159px;width:45px">4</p>
+<p class="crm-axis-y" style="left:0;top:215px;width:45px">3</p>
+<p class="crm-axis-y" style="left:0;top:270px;width:45px">2</p>
+<p class="crm-axis-y" style="left:0;top:326px;width:43px">1</p>
+<p class="crm-axis-y" style="left:0;top:382px;width:45px">0</p>
+<p class="crm-axis-x" style="left:35px">Mon</p>
+<p class="crm-axis-x" style="left:289px">Tue</p>
+<p class="crm-axis-x" style="left:544px">Wed</p>
+<p class="crm-axis-x" style="left:799px">Thu</p>
+<p class="crm-axis-x" style="left:1046px">Fri</p>
+<p class="crm-tip">3h 23m</p>
 </div>
 
-<div class="pulse-kpis">
-<div><strong>{{stTotal}}</strong><span>Total projects</span></div>
-<div><strong>{{stActive}}</strong><span>Active now</span></div>
-<div><strong>{{stDoneOfTotal}}</strong><span>Tasks done</span></div>
-<div><strong>{{attnCount}}</strong><span>Need attention</span></div>
-</div>
-
-<div class="pulse-analytics">
-<section class="pulse-panel pulse-progress-panel">
-<div class="pulse-panel-header">
-<h2>Activation progress</h2>
-<div class="pulse-toggle">
-<button sc-camel-on-click="{{onChartWeek}}" style="background:{{weekBg}};color:{{weekColor}};border-color:{{weekBorder}}">Week</button>
-<button sc-camel-on-click="{{onChartMonth}}" style="background:{{monthBg}};color:{{monthColor}};border-color:{{monthBorder}}">Month</button>
-</div>
-</div>
-<div class="pulse-chart-legend">
-<span><i style="background:#c8102e"></i>Overall completion</span>
-<span><i style="background:#2f3339"></i>Tasks completed</span>
-<span><i class="pulse-target-key"></i>Target (100%)</span>
-</div>
-<div class="pulse-line-chart">
-<canvas id="admin-progress-chart" aria-label="Activation progress over time"></canvas>
-</div>
-</section>
-
-<section class="pulse-panel pulse-health-panel">
-<div class="pulse-panel-header"><h2>Task health</h2></div>
-<div class="pulse-health-content">
-<canvas id="admin-task-health-chart" width="180" height="180" aria-label="Task status distribution"></canvas>
-<div class="pulse-health-legend">
-<sc-for list="{{taskHealth}}" as="h" hint-placeholder-count="4">
-<div>
-<i style="background:{{h.color}}"></i>
-<strong>{{h.value}}</strong>
-<span>{{h.label}}<small>{{h.pct}}</small></span>
-</div>
-</sc-for>
-</div>
-</div>
-</section>
-</div>
-
-<div class="pulse-actions">
-<section class="pulse-action-section">
-<div class="pulse-action-heading">
-<h2>Needs attention</h2>
-<span>{{attnCount}}</span>
-</div>
-<div class="pulse-action-list">
-<sc-for list="{{attn}}" as="a" hint-placeholder-count="3">
-<button sc-camel-on-click="{{goTasks}}" class="pulse-action-row" style-hover="background:#fafafa">
-<i></i>
-<span><strong>{{a.title}}</strong><small>{{a.sub}}</small></span>
-<em style="background:{{a.stBg}};color:{{a.stColor}}">{{a.statusLabel}}</em>
-</button>
-</sc-for>
-</div>
-</section>
-
-<section class="pulse-action-section pulse-milestones">
-<div class="pulse-action-heading"><h2>Upcoming milestones</h2></div>
-<div class="pulse-action-list">
-<sc-for list="{{dueSoon}}" as="d" hint-placeholder-count="3">
-<div class="pulse-milestone-row">
-<div class="pulse-date-tile">
-<span>{{d.mon}}</span>
-<strong>{{d.day}}</strong>
-</div>
-<div><strong>{{d.title}}</strong><small>{{d.sub}}</small></div>
-<sc-if value="{{d.overdue}}"><em>Overdue</em></sc-if>
-</div>
-</sc-for>
-</div>
-</section>
-</div>
-
-<div class="pulse-project-heading">
+<div class="crm-card crm-table">
 <h2>Projects</h2>
-<button sc-camel-on-click="{{goProjects}}">View all projects <span>→</span></button>
+<i class="crm-thead"></i>
+<i class="crm-rule" style="top:131.48px"></i>
+<p class="crm-th" style="left:120.52px;top:152.02px">PROJECT NAME</p>
+<p class="crm-th" style="left:446.47px;top:152.02px">CODE</p>
+<p class="crm-th" style="left:624.51px;top:152.02px">STOCKS ID</p>
+<p class="crm-th" style="left:842.27px;top:152.02px">AMOUNT</p>
+<p class="crm-th" style="left:1032.63px;top:152.02px">STATUS</p>
+
+<div class="crm-icon-circle" style="top:232.43px;background:#ff4c38"><svg width="21.91" height="21.91" sc-camel-view-box="0 0 22 22" fill="currentColor"><rect x="5.4" y="2.6" width="4.2" height="16.8" rx="2.1"></rect><rect x="12.4" y="2.6" width="4.2" height="16.8" rx="2.1"></rect></svg></div>
+<div class="crm-cell" style="top:230.08px"><strong>ED S9 - EXPANSION</strong><small>Star Hospital</small></div>
+<p class="crm-td" style="left:446.28px;top:242.41px">BBCA</p>
+<p class="crm-td" style="left:624.32px;top:242.41px">STCBBCA-123</p>
+<p class="crm-td" style="left:842.08px;top:242.41px">$1,449.00</p>
+<p class="crm-td crm-td-active" style="left:1032.45px;top:242.41px">Active</p>
+<i class="crm-rule" style="top:316.95px"></i>
+
+<div class="crm-icon-circle" style="top:352.17px;background:#13ae85"><svg width="21.91" height="21.91" sc-camel-view-box="0 0 22 22" fill="currentColor"><path d="M8.2 2.6h6.3a2.1 2.1 0 0 1 0 4.2h-2.1v3.1H8.2a2.1 2.1 0 0 1 0-4.2h2.1V2.6z"></path><path d="M13.8 19.4H7.5a2.1 2.1 0 0 1 0-4.2h2.1v-3.1h4.2a2.1 2.1 0 0 1 0 4.2h-2.1v3.1z"></path></svg></div>
+<div class="crm-cell" style="top:349.82px"><strong>P7 - PEDIATRICS</strong><small>CALBER HOSPITAL</small></div>
+<p class="crm-td" style="left:446.28px;top:362.15px">BBCA</p>
+<p class="crm-td" style="left:624.32px;top:362.15px">STCBBCA-123</p>
+<p class="crm-td" style="left:842.08px;top:362.15px">$1,449.00</p>
+<p class="crm-td crm-td-active" style="left:1032.45px;top:362.15px">Active</p>
+<i class="crm-rule" style="top:436.69px"></i>
+
+<div class="crm-icon-circle" style="top:471.91px;background:#13ae85"><svg width="21.91" height="21.91" sc-camel-view-box="0 0 22 22" fill="currentColor"><path d="M8.4 2.6h5.2v2.1H8.4zM8.9 6.1h4.2v6.2c0 2.4 1.7 3.4 1.7 5.1 0 1.4-1.2 2-2.6 2H9.9c-1.6 0-2.7-.8-2.7-2.2 0-1.5 1.7-2.6 1.7-4.9V6.1z"></path></svg></div>
+<div class="crm-cell" style="top:469.56px"><strong>W1 - ROOMS RENO</strong><small>CALBER HOSPITAL</small></div>
+<p class="crm-td" style="left:446.28px;top:481.88px">BBCA</p>
+<p class="crm-td" style="left:624.32px;top:481.88px">STCBBCA-123</p>
+<p class="crm-td" style="left:842.08px;top:481.88px">$1,449.00</p>
+<p class="crm-td crm-td-active" style="left:1032.45px;top:481.88px">Active</p>
+<i class="crm-rule" style="top:556.43px"></i>
+
+<div class="crm-icon-circle" style="top:591.65px;background:#13ae85"><svg width="21.91" height="21.91" sc-camel-view-box="0 0 22 22" fill="currentColor"><path d="M8.4 2.6h5.2v2.1H8.4zM8.9 6.1h4.2v6.2c0 2.4 1.7 3.4 1.7 5.1 0 1.4-1.2 2-2.6 2H9.9c-1.6 0-2.7-.8-2.7-2.2 0-1.5 1.7-2.6 1.7-4.9V6.1z"></path></svg></div>
+<div class="crm-cell" style="top:589.3px"><strong>W1 - ROOMS RENO</strong><small>CALBER HOSPITAL</small></div>
+<p class="crm-td" style="left:446.28px;top:601.62px">BBCA</p>
+<p class="crm-td" style="left:624.32px;top:601.62px">STCBBCA-123</p>
+<p class="crm-td" style="left:842.08px;top:601.62px">$1,449.00</p>
+<p class="crm-td crm-td-active" style="left:1032.45px;top:601.62px">Active</p>
+<i class="crm-rule" style="top:676.17px"></i>
 </div>
-<section class="pulse-projects">
-<div class="pulse-project-head">
-<span>PROJECT</span><span>STATUS</span><span>PROGRESS</span><span>GO-LIVE</span><span></span>
+
+<div class="crm-cal"></div>
+<p class="crm-cal-title crm-mona">Calender</p>
+<i class="crm-cal-pill"></i>
+<p class="crm-cal-month crm-mona crm-trim">Aug</p>
+<svg class="crm-cal-drop" sc-camel-view-box="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.4 11.9 14 17.5l5.6-5.6"></path></svg>
+<p class="crm-cal-dow crm-mona" style="left:1355.07px">S</p>
+<p class="crm-cal-dow crm-mona" style="left:1415.37px">M</p>
+<p class="crm-cal-dow crm-mona" style="left:1476.83px">T</p>
+<p class="crm-cal-dow crm-mona" style="left:1535.97px">W</p>
+<p class="crm-cal-dow crm-mona" style="left:1596.27px">T</p>
+<p class="crm-cal-dow crm-mona" style="left:1656.68px">F</p>
+<p class="crm-cal-dow crm-mona" style="left:1716.98px">S</p>
+<i class="crm-cal-today"></i>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1355.07px;top:384.67px">01</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1415.37px;top:384.67px">02</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1476.83px;top:384.67px">03</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1535.97px;top:384.67px;color:#000">04</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1596.27px;top:384.67px">05</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1656.68px;top:384.67px">06</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1716.98px;top:384.67px">07</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1355.07px;top:444.97px">08</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1415.37px;top:444.97px">09</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1476.83px;top:444.97px">10</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1535.97px;top:444.97px">11</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1596.27px;top:444.97px">12</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1656.68px;top:444.97px">13</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1716.98px;top:444.97px">14</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1355.07px;top:506.43px">15</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1415.37px;top:506.43px">16</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1476.83px;top:506.43px">17</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1535.97px;top:506.43px">18</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1596.27px;top:506.43px">19</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1656.68px;top:506.43px">20</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1716.98px;top:506.43px">21</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1355.07px;top:566.73px">22</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1415.37px;top:566.73px">23</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1476.83px;top:566.73px">24</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1535.97px;top:566.73px">25</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1596.27px;top:566.73px">26</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1656.68px;top:566.73px">27</p>
+<p class="crm-cal-day crm-mona crm-trim" style="left:1716.98px;top:566.73px">28</p>
+
+<div class="crm-card crm-health">
+<h2>Project Health</h2>
+<svg class="crm-health-dots" sc-camel-view-box="0 0 42 42" fill="currentColor"><circle cx="12" cy="21" r="2.6"></circle><circle cx="21" cy="21" r="2.6"></circle><circle cx="30" cy="21" r="2.6"></circle></svg>
+<div class="crm-health-item" style="top:125.54px"><p>ED S9 Expansion </p><strong>On Track</strong>
+<svg width="395.65" height="69.62" sc-camel-view-box="0 0 395.65 69.62" fill="none" preserveAspectRatio="none">
+<path d="M0 55C12.2 55 18 40 30 40C42 40 48 48 60 48C72 48 78 30 90 30C102 30 108 45 120 45C132 45 138 22 150 22C162 22 168 42 180 42C192 42 198 36 210 36C222 36 228 30 240 30C252 30 258 34 270 34C282 34 288 20 300 20C312 20 318 26 330 26C344 26 351 8 365 8C377.2 8 383.4 30 395.65 30V69.62H0z" fill="#e9f6f0"></path>
+<path d="M0 55C12.2 55 18 40 30 40C42 40 48 48 60 48C72 48 78 30 90 30C102 30 108 45 120 45C132 45 138 22 150 22C162 22 168 42 180 42C192 42 198 36 210 36C222 36 228 30 240 30C252 30 258 34 270 34C282 34 288 20 300 20C312 20 318 26 330 26C344 26 351 8 365 8C377.2 8 383.4 30 395.65 30" stroke="#12ae85" stroke-width="2.6" stroke-linecap="round"></path>
+</svg></div>
+<div class="crm-health-item" style="top:260.28px"><p>P7 -  Renovation</p><strong>At Risk</strong>
+<svg width="395.65" height="69.62" sc-camel-view-box="0 0 395.65 69.62" fill="none" preserveAspectRatio="none">
+<path d="M0 28C12.2 28 18 34 30 34C42 34 48 30 60 30C72 30 78 36 90 36C102 36 108 28 120 28C132 28 138 16 150 16C162 16 168 6 180 6C192 6 198 4 210 4C222 4 228 14 240 14C252 14 258 34 270 34C282 34 288 54 300 54C312 54 318 58 330 58C342 58 348 44 360 44C374.4 44 381.2 62 395.65 62V69.62H0z" fill="#fdeeec"></path>
+<path d="M0 28C12.2 28 18 34 30 34C42 34 48 30 60 30C72 30 78 36 90 36C102 36 108 28 120 28C132 28 138 16 150 16C162 16 168 6 180 6C192 6 198 4 210 4C222 4 228 14 240 14C252 14 258 34 270 34C282 34 288 54 300 54C312 54 318 58 330 58C342 58 348 44 360 44C374.4 44 381.2 62 395.65 62" stroke="#ff4c38" stroke-width="2.6" stroke-linecap="round"></path>
+</svg></div>
+<div class="crm-health-item" style="top:395.03px"><p>W1 - Urology </p><strong>Caution</strong>
+<svg width="395.65" height="69.62" sc-camel-view-box="0 0 395.65 69.62" fill="none" preserveAspectRatio="none">
+<path d="M0 2C12.2 2 18 30 30 30C42 30 48 40 60 40C72 40 78 34 90 34C102 34 108 26 120 26C132 26 138 22 150 22C162 22 168 26 180 26C192 26 198 20 210 20C222 20 228 28 240 28C252 28 258 42 270 42C282 42 288 58 300 58C312 58 318 64 330 64C342 64 348 52 360 52C374.4 52 381.2 64 395.65 64V69.62H0z" fill="#fef5da"></path>
+<path d="M0 2C12.2 2 18 30 30 30C42 30 48 40 60 40C72 40 78 34 90 34C102 34 108 26 120 26C132 26 138 22 150 22C162 22 168 26 180 26C192 26 198 20 210 20C222 20 228 28 240 28C252 28 258 42 270 42C282 42 288 58 300 58C312 58 318 64 330 64C342 64 348 52 360 52C374.4 52 381.2 64 395.65 64" stroke="#f7c544" stroke-width="2.6" stroke-linecap="round"></path>
+</svg></div>
 </div>
-<sc-for list="{{allProjects}}" as="p" hint-placeholder-count="5">
-<button sc-camel-on-click="{{p.onOpen}}" class="pulse-project-row" style-hover="background:#fafafa">
-<span class="pulse-project-name"><strong>{{p.name}}</strong><small>{{p.location}} · {{p.taskLabel}}</small></span>
-<span class="pulse-project-status"><i style="background:{{p.stDot}}"></i>{{p.statusLabel}}</span>
-<span class="pulse-project-progress"><span><i style="width:{{p.progress}}%"></i></span><strong>{{p.progress}}%</strong></span>
-<span class="pulse-project-date">{{p.goLiveLabel}}</span>
-<span class="pulse-chevron">›</span>
-</button>
-</sc-for>
-</section>
+
+<div class="crm-card crm-attn">
+<h2>Needs Attention</h2>
+<i class="crm-attn-dot" style="top:137px"></i>
+<i class="crm-attn-tail" style="top:163.59px;height:68.41px"></i>
+<i class="crm-attn-dot" style="top:240px"></i>
+<i class="crm-attn-tail" style="top:266.59px;height:68.41px"></i>
+<i class="crm-attn-dot" style="top:343px"></i>
+<p class="crm-attn-title" style="top:133px">ED S9 - Biomed Task</p>
+<p class="crm-attn-sub" style="top:167.9px">Issues Description</p>
+<p class="crm-attn-title" style="top:237.69px">ED S9  Biomed task</p>
+<p class="crm-attn-sub" style="top:272.59px">Issues Description</p>
+<p class="crm-attn-title" style="top:340.38px">Client Office</p>
+<p class="crm-attn-sub" style="top:375.28px">Issues Description</p>
+</div>
+
+</div>
+</div>
 </div>
 </sc-if>
 
@@ -1526,10 +1703,10 @@ class Component extends DCLogic {
     const rmap = { admin: 'adash', team: 'ttasks', leadership: 'ldash' };
     const accountNames = { admin: 'Sandra Ortiz', team: 'Marcus Lee', leadership: 'Robert Chen' };
     const sr = props.startRole && props.startRole !== 'picker' ? props.startRole : null;
-    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, projects: P, tasks: T, notes: N };
+    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, viewportWidth: 1811, projects: P, tasks: T, notes: N };
     this.draft = {};
   }
-  componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; if (m !== this.state.isMobile) this.setState({ isMobile: m }); }; window.addEventListener('resize', this._rs); this._chartResize = () => this.drawAdminCharts(); window.addEventListener('resize', this._chartResize); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); this._commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':'); if (this.state.role) this.loadPageComments(); }
+  componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; const w = Math.max(320, window.innerWidth); const patch = {}; if (m !== this.state.isMobile) patch.isMobile = m; if (w !== this.state.viewportWidth) patch.viewportWidth = w; if (Object.keys(patch).length) this.setState(patch); }; window.addEventListener('resize', this._rs); this._chartResize = () => this.drawAdminCharts(); window.addEventListener('resize', this._chartResize); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); this._commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':'); if (this.state.role) this.loadPageComments(); }
   componentWillUnmount() { window.removeEventListener('resize', this._rs); window.removeEventListener('resize', this._chartResize); clearTimeout(this._t1); clearTimeout(this._t2); clearTimeout(this._loaderT); }
   scheduleSplashExit() { clearTimeout(this._t1); clearTimeout(this._t2); this._t1 = setTimeout(() => this.skipSplash(), 2200); }
   skipSplash() { if (!this.state.splash) return; clearTimeout(this._t1); clearTimeout(this._t2); this.setState({ splashLeaving: true }); this._t2 = setTimeout(() => this.setState({ splash: false }), 480); }
@@ -1923,6 +2100,12 @@ class Component extends DCLogic {
       attn: attnRaw.slice(0, 4).map(t => { const d = this.decT(t); return { title: d.title, sub: d.projectName + ' · ' + d.dueLabel, statusLabel: d.statusLabel, stBg: d.stBg, stColor: d.stColor }; }),
       attnCount: attnRaw.length, hasAttn: attnRaw.length > 0,
       dueSoon, dueSoonCount: dueSoonRaw.length, workload,
+      crmScale: Math.round((s.viewportWidth || 1811) / 1811 * 1e5) / 1e5, crmFitHeight: Math.round(1732 * (s.viewportWidth || 1811) / 1811),
+      crmGoDash: () => this.setState({ screen: 'adash', projectId: null }),
+      crmGoProjects: () => this.setState({ screen: 'aprojects', projectId: null }),
+      crmGoTasks: () => this.setState({ screen: 'atasks', projectId: null }),
+      crmGoTeam: () => this.setState({ screen: 'ateam', projectId: null }),
+      crmSignOut: () => this.signOut(),
       goProjects: () => this.setState({ screen: 'aprojects' }),
       onNewProject: () => { this.draft = { name: '', location: '', desc: '', priority: 'medium', goLive: '', budget: '' }; this.setState({ modal: 'project', editId: null }); },
       pFilters: mkFilter([['all', 'All ' + projects.length], ['planning', 'Planning ' + projects.filter(p => p.stKey === 'planning').length], ['active', 'Active ' + projects.filter(p => p.stKey === 'active').length], ['on_hold', 'On hold ' + projects.filter(p => p.stKey === 'on_hold').length], ['completed', 'Completed ' + projects.filter(p => p.stKey === 'completed').length]], pf, 'pFilter'),
