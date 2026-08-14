@@ -774,9 +774,74 @@
 .sidebar-role-picker>span{display:block;margin:0 2px 7px;color:#999da7;font-size:8.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
 .sidebar-role-options{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .sidebar-role-options button{min-width:0;border:0;border-radius:8px;padding:7px 3px;font:700 9px 'Inter',system-ui,sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-main{flex:1;width:100%;max-width:1920px;margin:0 auto;padding:30px clamp(24px,2.5vw,48px) 120px;box-sizing:border-box}
+
+/* Leadership · Eagle View */
+.lead-dash{width:100%;padding-top:2px;color:#202636;letter-spacing:-.01em}
+.lead-dash *{box-sizing:border-box}
+.lead-dash button{font:inherit;cursor:pointer}
+.lead-top{display:flex;align-items:flex-start;gap:18px;margin-bottom:20px}
+.lead-title{margin:0;font-size:27px;line-height:1.15;font-weight:800;letter-spacing:-.04em;color:#151a28}
+.lead-subtitle{margin:7px 0 0;color:#697080;font-size:13px}
+.lead-range{margin-left:auto;display:flex;align-items:center;gap:9px;height:36px;padding:0 14px;border:1px solid #dedee4;border-radius:10px;background:#fff;color:#ff493d;font-size:12px;font-weight:650;white-space:nowrap}
+.lead-card{background:rgba(255,255,255,.82);border:1px solid #f2c8cd;border-radius:18px;overflow:hidden}
+.lead-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}
+.lead-kpi{min-height:104px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-right:1px solid #ececf1}
+.lead-kpi:last-child{border-right:0}
+.lead-kpi-copy strong{display:block;font-size:27px;line-height:1;font-weight:800;color:#101014;font-variant-numeric:tabular-nums}
+.lead-kpi-copy span{display:block;margin-top:8px;color:#555c69;font-size:12.5px}
+.lead-mini-bars{height:44px;display:flex;align-items:flex-end;gap:5px;flex:none}
+.lead-mini-bars i{display:block;width:10px;border-radius:4px 4px 2px 2px;background:#ff4b3e}
+.lead-mini-bars i:nth-child(1){height:13px}.lead-mini-bars i:nth-child(2){height:25px}.lead-mini-bars i:nth-child(3){height:42px}
+.lead-donut{width:58px;height:58px;flex:none;transform:rotate(-90deg)}
+.lead-donut circle{fill:none;stroke-width:10}
+.lead-donut-bg{stroke:#eceef1}.lead-donut-green{stroke:#12ad83}.lead-donut-red{stroke:#ff4b3e}
+.lead-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,.9fr);gap:18px;align-items:stretch;margin-bottom:18px}
+.lead-panel-head{display:flex;align-items:center;gap:12px;padding:19px 22px 0;flex-wrap:wrap}
+.lead-panel-head h2{margin:0;font-size:16px;font-weight:800;color:#171b27;letter-spacing:-.025em}
+.lead-panel-chip{margin-left:auto;display:flex;align-items:center;gap:8px;height:31px;padding:0 11px;border:1px solid #e3e3e7;border-radius:9px;background:#fff;color:#ff493d;font-size:11.5px;font-weight:650;white-space:nowrap}
+.lead-legend{display:flex;gap:18px;padding:12px 22px 0;color:#505663;font-size:12px}
+.lead-legend span{display:flex;align-items:center;gap:7px}.lead-legend i{width:8px;height:8px;border-radius:50%;flex:none}
+.lead-chart-wrap{position:relative;margin:16px 22px 0;padding-left:34px}
+.lead-plot{position:relative;height:202px}
+.lead-plot svg{display:block;width:100%;height:100%;overflow:visible}
+.lead-axis-y{position:absolute;left:-34px;width:26px;text-align:right;color:#8e949f;font-size:10.5px;transform:translateY(-50%);font-variant-numeric:tabular-nums}
+.lead-axis-row{position:relative;height:18px;margin-top:8px}
+.lead-axis-x{position:absolute;top:0;color:#555c69;font-size:10.5px;transform:translateX(-50%);white-space:nowrap}
+.lead-chart-note{padding:12px 22px 18px;color:#9298a3;font-size:11px}
+.lead-upcoming{padding-bottom:8px}
+.lead-timeline{margin:21px 22px 4px}
+.lead-event{position:relative;padding:0 0 28px 34px}
+.lead-event:last-child{padding-bottom:15px}
+.lead-event:before{content:"";position:absolute;left:5px;top:8px;bottom:-8px;width:1px;background:#ff797d}
+.lead-event:last-child:before{display:none}
+.lead-event:after{content:"";position:absolute;left:0;top:4px;width:11px;height:11px;border-radius:50%;background:#ff3138}
+.lead-event small{display:block;color:#737986;font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.lead-event strong{display:block;margin-top:9px;color:#353b48;font-size:13px;line-height:1.35}
+.lead-health{min-width:0}
+.lead-health-head,.lead-health-row{display:grid;grid-template-columns:minmax(220px,1.7fr) minmax(150px,.9fr) 88px 86px 92px;gap:12px;align-items:center;padding-left:22px;padding-right:22px}
+.lead-health-head{height:36px;margin-top:14px;border-top:1px solid #ececf1;border-bottom:1px solid #ececf1;background:#fafafa;color:#757b87;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.lead-health-row{min-height:57px;border-bottom:1px solid #ececf1;background:transparent;cursor:pointer}
+.lead-health-row:last-child{border-bottom:0}.lead-health-row:hover{background:#fffafa}
+.lead-health-name{display:flex;align-items:center;gap:11px;min-width:0}
+.lead-health-name i{width:27px;height:27px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8.5px;font-style:normal;font-weight:800;flex:none}
+.lead-health-name strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:#171b27}
+.lead-health-progress{display:flex;align-items:center;gap:9px;min-width:0;color:#525865;font-size:11.5px;font-variant-numeric:tabular-nums}
+.lead-health-progress b{width:29px;flex:none}.lead-health-progress span{height:6px;flex:1;min-width:56px;border-radius:99px;background:#e8e9ed;overflow:hidden}.lead-health-progress i{display:block;height:100%;border-radius:99px;background:#12ad83}
+.lead-cell{color:#4d5360;font-size:11.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.lead-status{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;white-space:nowrap}.lead-status i{width:7px;height:7px;border-radius:50%;flex:none}
+.lead-attention{padding-bottom:4px}
+.lead-attention-list{padding:9px 22px 0}
+.lead-attention-item{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:center;min-height:64px;border-bottom:1px solid #ececf1}
+.lead-attention-item:last-child{border-bottom:0}
+.lead-attention-mark{width:27px;height:27px;border:1.5px solid #ff4b3e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ff4b3e;font-size:13px;font-weight:800}
+.lead-attention-item strong{display:block;color:#11141d;font-size:20px;line-height:1;font-weight:800;font-variant-numeric:tabular-nums}
+.lead-attention-item span{display:block;margin-top:4px;color:#656c79;font-size:11.5px}
 
 @media(max-width:1040px){.crm-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:1120px){.pm-primary{grid-template-columns:1fr}.pm-next{min-height:0}.pm-timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pm-next-item{padding-bottom:0}.pm-next-item:before{display:none}}
+@media(max-width:1260px){.lead-grid{grid-template-columns:minmax(0,1fr)}.lead-timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.lead-event{padding-bottom:10px}.lead-event:before{display:none}}
+@media(max-width:1020px){.lead-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.lead-kpi:nth-child(2){border-right:0}.lead-kpi:nth-child(-n+2){border-bottom:1px solid #ececf1}.lead-health-head,.lead-health-row{grid-template-columns:minmax(200px,1.5fr) minmax(130px,.9fr) 80px 88px}.lead-health-head>span:nth-child(4),.lead-health-row>.lead-cell:nth-child(4){display:none}}
 @media(max-width:820px){
 .crm-welcome{font-size:22px}
 .crm-newproject{margin-left:0}
@@ -788,7 +853,7 @@
 .crm-plot{height:172px}
 .crm-axis-x:first-child{transform:translateX(0)}
 }
-@media(max-width:880px){.pm-work{padding-top:0}.pm-table-head{display:none}.pm-task{grid-template-columns:minmax(0,1fr) 115px 24px;padding-top:12px;padding-bottom:12px}.pm-task-project{display:none}.pm-task-due{font-size:11px}.pm-project-head{display:none}.pm-project-row{grid-template-columns:minmax(0,1fr) auto}.pm-project-row>span:nth-child(2),.pm-project-row>span:nth-child(3){display:none}.pm-progress{min-width:120px}}
+@media(max-width:880px){.app-main{padding:22px 18px 96px}.pm-work{padding-top:0}.pm-table-head{display:none}.pm-task{grid-template-columns:minmax(0,1fr) 115px 24px;padding-top:12px;padding-bottom:12px}.pm-task-project{display:none}.pm-task-due{font-size:11px}.pm-project-head{display:none}.pm-project-row{grid-template-columns:minmax(0,1fr) auto}.pm-project-row>span:nth-child(2),.pm-project-row>span:nth-child(3){display:none}.pm-progress{min-width:120px}.lead-top{padding-top:0}.lead-title{font-size:23px}.lead-timeline{grid-template-columns:1fr}.lead-event{padding-left:24px}.lead-event:after{left:0}.lead-health-head{display:none}.lead-health-row{grid-template-columns:minmax(0,1fr) 120px 82px;padding:13px 16px}.lead-health-row>.lead-cell:nth-child(3){display:none}}
 @media(max-width:620px){.pm-head h1{font-size:23px}.pm-updates{align-items:flex-start;flex-direction:column;padding:15px;gap:10px}.pm-updates h2{border-right:0;padding-right:0}.pm-update-list{display:block;width:100%}.pm-update{padding:8px 0;border-right:0;border-top:1px solid #ececf1}.pm-timeline{grid-template-columns:1fr}.pm-next-item{padding-left:22px}.pm-next-item:after{left:0}.pm-task{grid-template-columns:minmax(0,1fr) 24px}.pm-task-due,.pm-status{display:none}.pm-project-row{grid-template-columns:minmax(0,1fr)}.pm-progress{display:none}}
 @media(max-width:620px){
 .crm-axis-x-alt{display:none}
@@ -799,6 +864,7 @@
 .crm-hide-xs{display:none}
 .crm-ov-item{padding:16px 18px}
 .crm-cal-day,.crm-cal-pad{height:31px}
+.lead-kpis{grid-template-columns:1fr}.lead-kpi{min-height:88px;border-right:0;border-bottom:1px solid #ececf1}.lead-kpi:last-child{border-bottom:0}.lead-kpi:nth-child(2){border-right:0}.lead-top{display:block}.lead-range{margin:14px 0 0}.lead-plot{height:174px}.lead-health-row{grid-template-columns:minmax(0,1fr) 78px}.lead-health-progress{display:none}
 }
 </style>
 </helmet>
@@ -903,7 +969,7 @@
 </header>
 </sc-if>
 
-<main style="flex:1;padding:30px 34px 120px;max-width:1140px;width:100%;margin:0 auto;box-sizing:border-box">
+<main class="app-main">
 
 <sc-if value="{{sADash}}">
 <div data-screen-label="Admin · Dashboard" class="crm-dash">
@@ -1475,68 +1541,63 @@ New project
 </sc-if>
 
 <sc-if value="{{sLDash}}">
-<div data-screen-label="Leadership · Eagle View">
-<div style="background:linear-gradient(120deg,#17171b 0%,#2a2a31 100%);border-radius:22px;padding:30px 32px;color:#fff;display:flex;align-items:center;gap:34px;flex-wrap:wrap;margin-bottom:24px">
-<div style="flex:1;min-width:260px">
-<p style="margin:0;font-size:12px;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.06em">{{lAsOf}}</p>
-<h1 style="margin:8px 0 0;font-size:27px;font-weight:800;letter-spacing:-.03em">Eagle view</h1>
-<p style="margin:7px 0 0;font-size:13.5px;color:rgba(255,255,255,.65)">Every activation at a glance.</p>
-<div style="display:flex;gap:28px;margin-top:22px;flex-wrap:wrap">
-<div><p style="margin:0;font-size:24px;font-weight:800">{{stTotal}}</p><p style="margin:2px 0 0;font-size:11.5px;color:rgba(255,255,255,.55)">projects</p></div>
-<div><p style="margin:0;font-size:24px;font-weight:800">{{stAvg}}</p><p style="margin:2px 0 0;font-size:11.5px;color:rgba(255,255,255,.55)">overall complete</p></div>
-<div><p style="margin:0;font-size:24px;font-weight:800;color:#ff5c72">{{lRisk}}</p><p style="margin:2px 0 0;font-size:11.5px;color:rgba(255,255,255,.55)">tasks at risk</p></div>
-<div><p style="margin:0;font-size:24px;font-weight:800">{{lNextDays}}</p><p style="margin:2px 0 0;font-size:11.5px;color:rgba(255,255,255,.55)">to next go-live</p></div>
+<div data-screen-label="Leadership · Eagle View" class="lead-dash">
+<div class="lead-top">
+<div><h1 class="lead-title">Leadership Overview</h1><p class="lead-subtitle">{{leadToday}} · Portfolio performance and risks.</p></div>
+<button class="lead-range">This Quarter <svg width="9" height="6" sc-camel-view-box="0 0 8 5"><path d="M0 0h8L4 5z" fill="#ff493d"></path></svg></button>
 </div>
+
+<div class="lead-card lead-kpis">
+<div class="lead-kpi"><div class="lead-kpi-copy"><strong>{{stTotal}}</strong><span>Total Projects</span></div><div class="lead-mini-bars"><i></i><i></i><i></i></div></div>
+<div class="lead-kpi"><div class="lead-kpi-copy"><strong>{{leadOnTrack}}</strong><span>On Track</span></div><svg class="lead-donut" sc-camel-view-box="0 0 72 72"><circle class="lead-donut-bg" cx="36" cy="36" r="27"></circle><circle class="lead-donut-green" cx="36" cy="36" r="27" stroke-dasharray="{{leadOnTrackDash}}"></circle></svg></div>
+<div class="lead-kpi"><div class="lead-kpi-copy"><strong>{{leadAtRisk}}</strong><span>At Risk</span></div><svg class="lead-donut" sc-camel-view-box="0 0 72 72"><circle class="lead-donut-bg" cx="36" cy="36" r="27"></circle><circle class="lead-donut-red" cx="36" cy="36" r="27" stroke-dasharray="{{leadAtRiskDash}}"></circle></svg></div>
+<div class="lead-kpi"><div class="lead-kpi-copy"><strong>{{leadAttentionCount}}</strong><span>Need Attention</span></div><div class="lead-mini-bars"><i></i><i></i><i></i></div></div>
 </div>
-<div style="flex:none">
-<div style="display:flex;gap:13px;align-items:flex-end">
-<sc-for list="{{heroBars}}" as="b" hint-placeholder-count="5">
-<div style="display:flex;flex-direction:column;align-items:center;gap:7px" title="{{b.name}}">
-<span style="font-size:10.5px;font-weight:800;color:rgba(255,255,255,.9);font-variant-numeric:tabular-nums">{{b.pct}}</span>
-<div style="width:27px;height:86px;background:rgba(255,255,255,.12);border-radius:9px;display:flex;align-items:flex-end;overflow:hidden"><div style="width:100%;background:#e23a4e;border-radius:9px;height:{{b.h}};min-height:6px"></div></div>
-<span style="font-size:9.5px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:.06em">{{b.abbr}}</span>
+
+<div class="lead-grid">
+<section class="lead-card">
+<div class="lead-panel-head"><h2>Portfolio Progress</h2><span class="lead-panel-chip">{{leadSpanLabel}} <svg width="9" height="6" sc-camel-view-box="0 0 8 5"><path d="M0 0h8L4 5z" fill="#ff493d"></path></svg></span></div>
+<div class="lead-legend"><span><i style="background:#ff493d"></i>Scheduled</span><span><i style="background:#4a54c8"></i>Completed</span></div>
+<div class="lead-chart-wrap">
+<div class="lead-plot">
+<sc-for list="{{leadYTicks}}" as="y" hint-placeholder-count="5"><span class="lead-axis-y" style="top:{{y.pos}}%">{{y.label}}</span></sc-for>
+<svg sc-camel-view-box="0 0 600 220" preserveAspectRatio="none" aria-label="Cumulative portfolio task progress">
+<line x1="0" y1="16" x2="600" y2="16" stroke="#e7e8ec" stroke-width="1" stroke-dasharray="3 4"></line><line x1="0" y1="61" x2="600" y2="61" stroke="#e7e8ec" stroke-width="1" stroke-dasharray="3 4"></line><line x1="0" y1="106" x2="600" y2="106" stroke="#e7e8ec" stroke-width="1" stroke-dasharray="3 4"></line><line x1="0" y1="151" x2="600" y2="151" stroke="#e7e8ec" stroke-width="1" stroke-dasharray="3 4"></line><line x1="0" y1="196" x2="600" y2="196" stroke="#e7e8ec" stroke-width="1"></line>
+<path d="{{leadAreaPath}}" fill="rgba(255,73,61,.06)"></path><path d="{{leadSchedPath}}" fill="none" stroke="#ff493d" stroke-width="2.4" stroke-linecap="round"></path><path d="{{leadDonePath}}" fill="none" stroke="#4a54c8" stroke-width="2.4" stroke-linecap="round"></path>
+</svg>
 </div>
+<div class="lead-axis-row"><sc-for list="{{leadXTicks}}" as="x" hint-placeholder-count="5"><span class="lead-axis-x" style="left:{{x.pos}}%">{{x.label}}</span></sc-for></div>
+</div>
+<p class="lead-chart-note">Cumulative tasks scheduled vs. completed across the active portfolio.</p>
+</section>
+
+<section class="lead-card lead-upcoming">
+<div class="lead-panel-head"><h2>Upcoming Go-Lives</h2></div>
+<div class="lead-timeline">
+<sc-for list="{{lGoLives}}" as="g" hint-placeholder-count="3"><div class="lead-event"><small>{{g.shortDate}}</small><strong>{{g.name}}</strong></div></sc-for>
+</div>
+</section>
+</div>
+
+<div class="lead-grid">
+<section class="lead-card lead-health">
+<div class="lead-panel-head"><h2>Project Health</h2></div>
+<div class="lead-health-head"><span>Project</span><span>Progress</span><span>Go-Live</span><span>Open Tasks</span><span>Status</span></div>
+<sc-for list="{{leadHealth}}" as="p" hint-placeholder-count="3">
+<button sc-camel-on-click="{{p.onOpen}}" class="lead-health-row">
+<span class="lead-health-name"><i style="background:{{p.avatarBg}}">{{p.abbr}}</i><strong>{{p.name}}</strong></span>
+<span class="lead-health-progress"><b>{{p.progress}}%</b><span><i style="width:{{p.progressWidth}}"></i></span></span>
+<span class="lead-cell">{{p.goLiveLabel}}</span><span class="lead-cell">{{p.openLabel}}</span><span class="lead-status" style="color:{{p.statusColor}}"><i style="background:{{p.statusColor}}"></i>{{p.healthLabel}}</span>
+</button>
 </sc-for>
+</section>
+
+<section class="lead-card lead-attention">
+<div class="lead-panel-head"><h2>Attention Required</h2></div>
+<div class="lead-attention-list">
+<sc-for list="{{leadAttention}}" as="a" hint-placeholder-count="3"><div class="lead-attention-item"><span class="lead-attention-mark">{{a.mark}}</span><div><strong>{{a.value}}</strong><span>{{a.label}}</span></div></div></sc-for>
 </div>
-<p style="margin:10px 0 0;font-size:11px;color:rgba(255,255,255,.5);font-weight:600;text-align:center">PROGRESS BY PROJECT</p>
-</div>
-</div>
-<h2 style="margin:0 0 14px;font-size:16px;font-weight:800;letter-spacing:-.02em">Portfolio</h2>
-<div style="background:#fff;border:1px solid #ececf1;border-radius:18px;overflow:hidden;margin-bottom:14px">
-<sc-for list="{{allProjects}}" as="p" hint-placeholder-count="5">
-<div sc-camel-on-click="{{p.onOpen}}" style="display:flex;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid #f1f1f4;cursor:pointer;flex-wrap:wrap" style-hover="background:#fafafa">
-<div style="flex:1;min-width:220px"><p style="margin:0;font-size:13.5px;font-weight:700">{{p.name}}</p><p style="margin:2px 0 0;font-size:11.5px;color:#a5a5ad">{{p.location}} · Go-live {{p.goLiveLabel}} · {{p.taskLabel}}</p></div>
-<span style="width:104px;display:flex;align-items:center;gap:7px;font-size:12px;color:#6f6f78;font-weight:600;flex:none"><span style="width:7px;height:7px;border-radius:99px;background:{{p.stDot}};display:inline-block"></span>{{p.statusLabel}}</span>
-<div style="display:flex;align-items:center;gap:10px;flex:none"><div style="width:140px;height:6px;background:#f1f1f4;border-radius:99px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#c8102e,#e23a4e);border-radius:99px;width:{{p.progress}}%"></div></div><span style="font-size:12px;font-weight:800;width:36px;text-align:right;font-variant-numeric:tabular-nums">{{p.progress}}%</span></div>
-<svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" stroke="#c1c1c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="m9 18 6-6-6-6"></path></svg>
-</div>
-</sc-for>
-</div>
-<div style="display:flex;align-items:center;gap:20px;padding:0 6px;margin-bottom:26px;flex-wrap:wrap">
-<sc-for list="{{summaryRows}}" as="r" hint-placeholder-count="5">
-<span style="display:flex;align-items:center;gap:7px;font-size:12px;color:#6f6f78;font-weight:500"><span style="width:8px;height:8px;border-radius:3px;background:{{r.color}}"></span>{{r.value}} {{r.label}}</span>
-</sc-for>
-<sc-if value="{{hasRisk}}"><span style="margin-left:auto;font-size:12px;font-weight:700;color:#c8102e">{{lRiskMsg}}</span></sc-if>
-</div>
-<div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
-<div style="flex:1;min-width:280px;background:#fff;border:1px solid #ececf1;border-radius:18px;overflow:hidden">
-<div style="padding:18px 22px 12px"><h2 style="margin:0;font-size:14px;font-weight:800">Upcoming go-lives</h2></div>
-<sc-for list="{{lGoLives}}" as="g" hint-placeholder-count="4">
-<div style="display:flex;align-items:center;gap:12px;padding:12px 22px;border-top:1px solid #f1f1f4">
-<div style="flex:1;min-width:0"><p style="margin:0;font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{g.name}}</p><p style="margin:2px 0 0;font-size:11px;color:#a5a5ad">{{g.dateLabel}}</p></div>
-<span style="font-size:12.5px;font-weight:800;color:{{g.chipColor}};flex:none;font-variant-numeric:tabular-nums">{{g.daysLabel}}</span>
-</div>
-</sc-for>
-</div>
-<div style="flex:1.4;min-width:300px;background:#fff;border:1px solid #ececf1;border-radius:18px;overflow:hidden">
-<div style="padding:18px 22px 12px"><h2 style="margin:0;font-size:14px;font-weight:800">Latest from the field</h2></div>
-<sc-for list="{{lNotes}}" as="n" hint-placeholder-count="4">
-<div style="padding:12px 22px;border-top:1px solid #f1f1f4">
-<p style="margin:0;font-size:11.5px;color:#a5a5ad"><span style="color:#101014;font-weight:700">{{n.author}}</span> · {{n.dateLabel}} · {{n.taskTitle}}</p>
-<p style="margin:3px 0 0;font-size:12.5px;color:#101014;line-height:1.5">{{n.content}}</p>
-</div>
-</sc-for>
-</div>
+</section>
 </div>
 </div>
 </sc-if>
@@ -1999,7 +2060,7 @@ class Component extends DCLogic {
     const s = this.state, role = s.role;
     const roleMeta = { admin: ['Administrator', 'Sandra Ortiz'], team: ['Project Team', 'Marcus Lee'], leadership: ['Leadership', 'Robert Chen'] };
     const rm = roleMeta[role] || ['', ''];
-    const displayUserName = s.accountRole === 'admin' && role === 'team' ? 'Daniella Rivera' : (s.accountUserName || rm[1]);
+    const displayUserName = s.accountRole === 'admin' && role === 'team' ? 'Daniella Rivera' : s.accountRole === 'admin' && role === 'leadership' ? 'Robert Chen' : (s.accountUserName || rm[1]);
     const pageComments = (s.pageComments || []).map(comment => {
       const author = comment.author || 'Reviewer';
       const initials = author.split(' ').filter(Boolean).slice(0, 2).map(part => part.charAt(0)).join('').toUpperCase();
@@ -2278,6 +2339,45 @@ class Component extends DCLogic {
     ];
     const crmSelLabel = new Date(crmSelIso + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
     const crmMonthDue = rawTasks.filter(t => t.due && t.due.slice(0, 7) === crmIso(crmCalFirst).slice(0, 7)).length;
+    /* Leadership dashboard — read-only portfolio data, isolated from the Admin and PM views */
+    const leadProjectColors = ['#13ad84', '#14aab6', '#7c68ce'];
+    const leadHealthAll = s.projects.map((p, i) => {
+      const projectTasks = this.ptasks(p);
+      const overdue = projectTasks.filter(t => t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < now).length;
+      const caution = projectTasks.filter(t => t.status === 'on_hold' || t.status === 'needs_review').length;
+      const healthLabel = overdue ? 'At Risk' : caution ? 'Caution' : 'On Track';
+      const statusColor = overdue ? '#ff493d' : caution ? '#f59e0b' : '#12ad83';
+      const open = projectTasks.filter(t => t.status !== 'completed').length;
+      const progress = this.prog(p);
+      return {
+        name: p.name, abbr: this.abbr(p.name), avatarBg: leadProjectColors[i % leadProjectColors.length], progress,
+        progressWidth: Math.max(3, progress) + '%', goLiveLabel: this.fmtD(p.goLive), openLabel: open + ' open',
+        healthLabel, statusColor, isAtRisk: overdue > 0,
+        onOpen: () => this.setState({ screen: 'ldetail', projectId: p.id })
+      };
+    });
+    const leadAtRisk = leadHealthAll.filter(p => p.isAtRisk).length;
+    const leadOnTrack = Math.max(0, s.projects.length - leadAtRisk);
+    const leadCirc = 170;
+    const leadDash = value => Math.round((value / Math.max(1, s.projects.length)) * leadCirc) + ' ' + leadCirc;
+    const leadBucketDates = ['2026-06-28', '2026-07-12', '2026-07-26', '2026-08-09', '2026-08-23'];
+    const leadBuckets = leadBucketDates.map(date => ({ date, end: new Date(date + 'T23:59:59'), label: new Date(date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) }));
+    const leadSched = leadBuckets.map(b => crmCum(crmDueTasks, b.end));
+    const leadDone = leadBuckets.map(b => crmCum(crmDueTasks.filter(t => t.status === 'completed'), b.end));
+    const leadStep = Math.max(1, Math.ceil(Math.max(1, ...leadSched, ...leadDone) / 4));
+    const leadTopVal = leadStep * 4;
+    const leadX = i => leadBuckets.length > 1 ? i * (600 / (leadBuckets.length - 1)) : 300;
+    const leadY = value => 196 - (value / leadTopVal) * 180;
+    const leadSchedPath = crmCurve(leadSched.map((value, i) => [leadX(i), leadY(value)]), 600);
+    const leadDonePath = crmCurve(leadDone.map((value, i) => [leadX(i), leadY(value)]), 600);
+    const leadAreaPath = leadSchedPath ? leadSchedPath + ' L600 196 L0 196 Z' : '';
+    const leadYTicks = [4, 3, 2, 1, 0].map(k => ({ label: String(leadStep * k), pos: (leadY(leadStep * k) / 220 * 100).toFixed(2) }));
+    const leadXTicks = leadBuckets.map((b, i) => ({ label: b.label, pos: (leadX(i) / 600 * 100).toFixed(2) }));
+    const leadAttention = [
+      { mark: '!', value: crmOverdue, label: crmOverdue === 1 ? 'overdue task' : 'overdue tasks' },
+      { mark: 'R', value: crmReview, label: crmReview === 1 ? 'task awaiting review' : 'tasks awaiting review' },
+      { mark: 'P', value: leadAtRisk, label: leadAtRisk === 1 ? 'project behind schedule' : 'projects behind schedule' }
+    ];
     return {
       hasRole: !!role && !s.login, loginShow: s.login && !s.splash && !s.demoLoader,
       loaderShow: s.demoLoader, onShowLoader: () => this.showLoader(), onShowSplash: () => this.showSplash(), onShowLogin: () => this.showLogin(),
@@ -2321,6 +2421,12 @@ class Component extends DCLogic {
       crmCalDays, crmCalItems,
       crmCalFootLabel: crmCalItems.length ? crmSelLabel + ' · ' + crmCalItems.length + (crmCalItems.length === 1 ? ' item due' : ' items due') : crmSelLabel + ' · nothing due · ' + crmMonthDue + ' this month',
       crmCalPrev: () => this.setState({ calOffset: (s.calOffset || 0) - 1 }), crmCalNext: () => this.setState({ calOffset: (s.calOffset || 0) + 1 }),
+      leadToday: now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
+      leadOnTrack, leadAtRisk, leadAttentionCount: attnRaw.length,
+      leadOnTrackDash: leadDash(leadOnTrack), leadAtRiskDash: leadDash(leadAtRisk),
+      leadSpanLabel: leadBuckets[0].label + ' – ' + leadBuckets[leadBuckets.length - 1].label,
+      leadSchedPath, leadDonePath, leadAreaPath, leadYTicks, leadXTicks,
+      leadHealth: leadHealthAll.filter(p => p.healthLabel !== 'Complete').slice(0, 3), leadAttention,
       goProjects: () => this.setState({ screen: 'aprojects' }),
       onNewProject: () => { this.draft = { name: '', location: '', desc: '', priority: 'medium', goLive: '', budget: '' }; this.setState({ modal: 'project', editId: null }); },
       pFilters: mkFilter([['all', 'All ' + projects.length], ['planning', 'Planning ' + projects.filter(p => p.stKey === 'planning').length], ['active', 'Active ' + projects.filter(p => p.stKey === 'active').length], ['on_hold', 'On hold ' + projects.filter(p => p.stKey === 'on_hold').length], ['completed', 'Completed ' + projects.filter(p => p.stKey === 'completed').length]], pf, 'pFilter'),
@@ -2355,7 +2461,7 @@ class Component extends DCLogic {
       lRisk: nRisk, hasRisk: nRisk > 0, lRiskMsg: nRisk + (nRisk === 1 ? ' task needs' : ' tasks need') + ' attention',
       lNextDays: nextDays != null ? nextDays + 'd' : '—',
       lNotes: s.notes.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map(n => { const t = s.tasks.find(x => x.id === n.taskId); return { author: n.author, dateLabel: this.fmtD(n.date), content: n.content, taskTitle: t ? t.title : '' }; }),
-      lGoLives: upcoming.map(p => { const days = Math.ceil((new Date(p.goLive + 'T12:00:00') - now) / 864e5); return { name: p.name, dateLabel: new Date(p.goLive + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }), daysLabel: days + 'd', daysNum: days, meterPct: Math.max(4, Math.min(100, Math.round((1 - days / 120) * 100))), chipColor: days <= 30 ? '#c8102e' : '#101014' }; }),
+      lGoLives: upcoming.map(p => { const date = new Date(p.goLive + 'T12:00:00'); const days = Math.ceil((date - now) / 864e5); return { name: p.name, dateLabel: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }), shortDate: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase(), daysLabel: days + 'd', daysNum: days, meterPct: Math.max(4, Math.min(100, Math.round((1 - days / 120) * 100))), chipColor: days <= 30 ? '#c8102e' : '#101014' }; }).slice(0, 3),
       mProject: s.modal === 'project', mProjectTitle: s.editId ? 'Edit project' : 'New project', mProjectSave: s.editId ? 'Save changes' : 'Create project',
       mTask: s.modal === 'task', mTaskTitle: s.editId ? 'Edit task' : 'New task', mTaskSave: s.editId ? 'Save changes' : 'Create task',
       mDelP: s.modal === 'delP', mDelPName: (s.projects.find(p => p.id === s.delId) || {}).name || '',

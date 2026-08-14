@@ -1,39 +1,46 @@
-# Design QA — FACT Admin Projects
+# Design QA — FACT Leadership Overview
 
-- Source visual truth: `/workspace/scratch/2d5bf4c80ece/upload/ChatGPT Image Jul 29, 2026, 11_33_11 AM.png`
-- Implementation URL: https://faaccv3.vercel.app/
-- Reference size: 2048 × 1082 px
-- Browser QA viewport: 1347 × 927 CSS px
-- State: Admin → Projects → All
+- Source visual truth: `/workspace/scratch/9b5c70602fe6/generated_images/exec-7e5f0c50-3ac5-4194-8188-b0a6b5ea60c1.png`
+- Source pixel dimensions: 1792 × 1024 px
+- Target state: Leadership → Eagle View
+- Intended comparison viewport: wide desktop
+- Implementation screenshot: unavailable
+- Implementation pixel dimensions, CSS viewport, and density: unavailable
 
-## Visual comparison
+## Full-view and focused comparison evidence
 
-The deployed Admin Projects screen was compared with the selected go-live portfolio timeline concept. The final implementation preserves its hierarchy and presentation:
+The source visual was opened and inspected at original resolution. The implementation could not be opened in the cloud browser because the local preview endpoint returned `ERR_CONNECTION_REFUSED`, so neither a full-view comparison nor focused typography/table/chart comparisons could be completed.
 
-- project title, subtitle, status filters with counts, search, and New project action;
-- one contained white portfolio surface instead of separate project cards;
-- summary metrics for project count, total budget, and average progress;
-- upcoming projects ordered by go-live date on a continuous timeline;
-- compact columns for tasks, progress, budget, and project actions;
-- completed work separated into a dedicated timeline section;
-- existing FACT sidebar and top demo selector.
+## Implemented scope
 
-The responsive layout keeps the timeline readable at the smaller browser viewport while maintaining the selected concept's spacing, typography, borders, and red/black visual system.
+- Rebuilt only the Leadership Eagle View screen to match the approved executive dashboard direction.
+- Added the four-part portfolio KPI strip, portfolio progress chart, upcoming go-live timeline, project health table, and attention summary.
+- Connected the screen to the existing live project and task state instead of hardcoding the rendered example values.
+- Project Health rows open the existing read-only Leadership project detail.
+- Added Leadership-only responsive layout rules for wide, medium, tablet, and mobile widths.
+- Preserved the Admin and PM markup and behavior; the previously requested shared responsive content wrapper remains included.
 
-## Interaction and runtime checks
+## Automated checks
 
-- Admin Projects loads with all five projects and the 24-day East Tower countdown.
-- Search narrows the timeline to the matching project.
-- Status filters show the correct project subsets and hide empty timeline sections.
-- New project opens the existing form and Cancel closes it.
-- Clicking a project opens its existing detail screen.
-- Edit and delete actions remain available on every row.
-- The Project Team selector still switches to the team workspace.
-- No application-origin console errors or framework overlays were observed. Browser-extension metadata errors were excluded.
-- The bundled template parses as valid JSON and the embedded component JavaScript passes `node --check`.
+- Generated `index.html` and `public/index.html` from the source template.
+- Embedded application JavaScript parses successfully.
+- Template structure check passes.
+- `git diff --check` passes.
+
+## Primary interactions and console
+
+- Static code inspection confirms the existing Eagle View navigation and Project Health row actions remain wired.
+- Browser interaction testing and console inspection are blocked by the unavailable browser-rendered preview.
 
 ## Findings
 
-No blocking or material visual defects remain.
+- [P1] Visual verification unavailable
+  - Evidence: the source render is available, but the cloud browser could not reach the local implementation.
+  - Impact: exact rendered spacing, type metrics, and breakpoint behavior cannot be compared against the approved visual in this environment.
+  - Fix: verify the deployed Cloudflare build at the Leadership Eagle View state and update this report with same-state screenshots.
 
-final result: passed
+## Comparison history
+
+- Initial comparison: blocked before implementation capture; no visual fixes could be validated.
+
+final result: blocked
