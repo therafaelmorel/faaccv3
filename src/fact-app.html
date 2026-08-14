@@ -717,7 +717,66 @@
 .crm-empty{padding:16px 18px 18px;font-size:12px;color:#93979c}
 .crm-count{flex:none;padding:3px 9px;border-radius:99px;background:#fff0ee;color:#ff4c38;font-size:11.5px;font-weight:600}
 
+/* Project Team · My Work */
+.pm-work{width:100%;padding-top:4px}
+.pm-head{margin-bottom:20px}
+.pm-head h1{margin:0;font-size:27px;line-height:1.15;font-weight:800;letter-spacing:-.04em;color:#151a28}
+.pm-head h1 span{color:#e31b2f}
+.pm-head p{margin:7px 0 0;color:#697080;font-size:13px}
+.pm-card{background:rgba(255,255,255,.76);border:1px solid #f2c8cd;border-radius:16px;overflow:hidden}
+.pm-updates{display:flex;align-items:center;min-height:64px;margin-bottom:14px;padding:0 17px;gap:18px}
+.pm-updates h2{flex:none;margin:0;padding-right:18px;border-right:1px solid #ececf1;font-size:14px;font-weight:800;color:#171b27}
+.pm-update-list{display:flex;align-items:center;gap:0;min-width:0;flex:1;overflow:hidden}
+.pm-update{display:flex;align-items:center;gap:9px;min-width:0;padding:0 22px;border-right:1px solid #ececf1;color:#252a36;font-size:12.5px;white-space:nowrap}
+.pm-update:first-child{padding-left:0}.pm-update:last-child{border-right:0}
+.pm-update i{width:7px;height:7px;border-radius:50%;background:#ff3138;flex:none}
+.pm-update span{overflow:hidden;text-overflow:ellipsis}.pm-update small{color:#828793;font-size:11.5px;flex:none}
+.pm-primary{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:14px;margin-bottom:14px}
+.pm-focus-head{padding:17px 18px 13px}.pm-focus-head h2,.pm-next h2,.pm-projects-head h2{margin:0;font-size:16px;font-weight:800;color:#171b27}
+.pm-focus-head p{margin:5px 0 0;color:#697080;font-size:12px}
+.pm-table-head,.pm-task{display:grid;grid-template-columns:minmax(220px,1.35fr) minmax(180px,1.05fr) 140px 132px 26px;align-items:center;gap:12px;padding-left:18px;padding-right:13px}
+.pm-table-head{height:35px;border-top:1px solid #f0f0f2;border-bottom:1px solid #e7e7eb;color:#767b87;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.pm-task{min-height:54px;border-bottom:1px solid #ececf1;font-size:12.5px}
+.pm-task:last-of-type{border-bottom:0}
+.pm-task-name{display:flex;align-items:center;gap:11px;min-width:0;font-weight:650;color:#171b27}
+.pm-task-name span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pm-task-mark{width:17px;height:17px;border:1.5px solid #8d929d;border-radius:4px;background:#fff;flex:none;cursor:pointer}
+.pm-task-mark.overdue{border-radius:50%;border-color:#ff3138;color:#ff3138;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+.pm-task-project,.pm-task-due{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#5f6572}
+.pm-task-due.overdue{color:#f22028;font-weight:650}
+.pm-status{width:112px;border:0;border-radius:7px;padding:7px 9px;font:600 11px 'Inter',system-ui,sans-serif;cursor:pointer;outline:none}
+.pm-more{border:0;background:transparent;color:#6c7280;font-size:18px;line-height:1;cursor:pointer;padding:4px}
+.pm-add{display:flex;align-items:center;gap:9px;border:0;background:transparent;color:#f22028;font-size:12px;font-weight:750;padding:13px 18px 15px;cursor:pointer}
+.pm-add span{font-size:20px;font-weight:350;line-height:1}
+.pm-next{padding:17px 18px}
+.pm-timeline{margin-top:18px}
+.pm-next-item{position:relative;padding:0 0 21px 28px}
+.pm-next-item:last-child{padding-bottom:0}
+.pm-next-item:before{content:"";position:absolute;left:4px;top:7px;bottom:-7px;width:1px;background:#ff797d}
+.pm-next-item:last-child:before{display:none}
+.pm-next-item:after{content:"";position:absolute;left:0;top:4px;width:9px;height:9px;border-radius:50%;background:#ff3138}
+.pm-next-item small{display:block;color:#737986;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.pm-next-item strong{display:block;margin-top:7px;color:#171b27;font-size:12.5px;line-height:1.35}
+.pm-next-item span{display:block;margin-top:4px;color:#656b78;font-size:11.5px}
+.pm-projects-head{display:flex;align-items:center;justify-content:space-between;padding:15px 18px}
+.pm-link{border:0;background:transparent;color:#f22028;font-size:11.5px;font-weight:700;cursor:pointer}
+.pm-project-head,.pm-project-row{display:grid;grid-template-columns:minmax(260px,1.7fr) .7fr .7fr 1fr;gap:14px;align-items:center;padding-left:18px;padding-right:18px}
+.pm-project-head{height:28px;background:#fafafa;border-top:1px solid #ededf0;border-bottom:1px solid #ededf0;color:#777c88;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.pm-project-row{min-height:48px;border-bottom:1px solid #ececf1;font-size:12px;cursor:pointer}
+.pm-project-row:last-child{border-bottom:0}
+.pm-project-row:hover{background:#fffafa}
+.pm-project-name{display:flex;align-items:center;gap:12px;min-width:0;color:#171b27;font-weight:650}
+.pm-project-name i{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8.5px;font-style:normal;font-weight:800;flex:none}
+.pm-project-name span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pm-progress{display:flex;align-items:center;gap:10px;color:#656b78;font-variant-numeric:tabular-nums}
+.pm-progress-track{height:6px;flex:1;min-width:70px;background:#e8e9ed;border-radius:99px;overflow:hidden}.pm-progress-track i{display:block;height:100%;border-radius:99px;background:#12ad83}
+.sidebar-role-picker{margin:0 14px 10px;padding:10px;border:1px solid #ececf1;border-radius:13px;background:#fafafa}
+.sidebar-role-picker>span{display:block;margin:0 2px 7px;color:#999da7;font-size:8.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.sidebar-role-options{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.sidebar-role-options button{min-width:0;border:0;border-radius:8px;padding:7px 3px;font:700 9px 'Inter',system-ui,sans-serif;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
 @media(max-width:1040px){.crm-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:1120px){.pm-primary{grid-template-columns:1fr}.pm-next{min-height:0}.pm-timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pm-next-item{padding-bottom:0}.pm-next-item:before{display:none}}
 @media(max-width:820px){
 .crm-welcome{font-size:22px}
 .crm-newproject{margin-left:0}
@@ -729,6 +788,8 @@
 .crm-plot{height:172px}
 .crm-axis-x:first-child{transform:translateX(0)}
 }
+@media(max-width:880px){.pm-work{padding-top:0}.pm-table-head{display:none}.pm-task{grid-template-columns:minmax(0,1fr) 115px 24px;padding-top:12px;padding-bottom:12px}.pm-task-project{display:none}.pm-task-due{font-size:11px}.pm-project-head{display:none}.pm-project-row{grid-template-columns:minmax(0,1fr) auto}.pm-project-row>span:nth-child(2),.pm-project-row>span:nth-child(3){display:none}.pm-progress{min-width:120px}}
+@media(max-width:620px){.pm-head h1{font-size:23px}.pm-updates{align-items:flex-start;flex-direction:column;padding:15px;gap:10px}.pm-updates h2{border-right:0;padding-right:0}.pm-update-list{display:block;width:100%}.pm-update{padding:8px 0;border-right:0;border-top:1px solid #ececf1}.pm-timeline{grid-template-columns:1fr}.pm-next-item{padding-left:22px}.pm-next-item:after{left:0}.pm-task{grid-template-columns:minmax(0,1fr) 24px}.pm-task-due,.pm-status{display:none}.pm-project-row{grid-template-columns:minmax(0,1fr)}.pm-progress{display:none}}
 @media(max-width:620px){
 .crm-axis-x-alt{display:none}
 .crm-legend{gap:12px}
@@ -742,19 +803,6 @@
 </style>
 </helmet>
 <div style="font-family:'Inter',system-ui,sans-serif;color:#101014;min-height:100vh;display:flex;background:#f5f5f7;letter-spacing:-.01em">
-
-<sc-if value="{{showRolePreviewControls}}">
-<div data-role-preview-controls="true" class="demo-controls">
-<span class="preview-control-label">Preview role</span>
-<button sc-camel-on-click="{{pickAdmin}}" class="demo-control-button" style="background:{{adminChipBg}};color:{{adminChipColor}}">Admin</button>
-<button sc-camel-on-click="{{pickTeam}}" class="demo-control-button" style="background:{{teamChipBg}};color:{{teamChipColor}}">Project Team</button>
-<button sc-camel-on-click="{{pickLead}}" class="demo-control-button" style="background:{{leadChipBg}};color:{{leadChipColor}}">Leadership</button>
-</div>
-</sc-if>
-
-<sc-if value="{{isPreviewingRole}}">
-<div class="role-preview-banner">Viewing the {{roleLabel}} experience <button sc-camel-on-click="{{onExitRolePreview}}">Exit preview</button></div>
-</sc-if>
 
 <sc-if value="{{loaderShow}}" hint-placeholder-val="{{ false }}">
 <div data-screen-label="Loader" style="position:fixed;inset:0;z-index:110;background:#f8f8fa;display:flex;align-items:center;justify-content:center;overflow:hidden">
@@ -824,6 +872,16 @@
 <button sc-camel-on-click="{{it.onClick}}" style="display:flex;align-items:center;gap:11px;padding:11px 13px;border:none;border-radius:12px;font-size:13.5px;font-weight:600;cursor:pointer;text-align:left;background:{{it.bg}};color:{{it.color}};letter-spacing:-.01em"><svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="{{it.d}}"></path></svg>{{it.label}}</button>
 </sc-for>
 </nav>
+<sc-if value="{{showRolePreviewControls}}">
+<div data-role-preview-controls="true" class="sidebar-role-picker">
+<span>Preview role · temporary</span>
+<div class="sidebar-role-options">
+<button sc-camel-on-click="{{pickAdmin}}" style="background:{{adminChipBg}};color:{{adminChipColor}}">Admin</button>
+<button sc-camel-on-click="{{pickTeam}}" style="background:{{teamChipBg}};color:{{teamChipColor}}" title="Project Team">PM</button>
+<button sc-camel-on-click="{{pickLead}}" style="background:{{leadChipBg}};color:{{leadChipColor}}">Lead</button>
+</div>
+</div>
+</sc-if>
 <div style="padding:14px;border-top:1px solid #ececf1">
 <div style="display:flex;align-items:center;gap:10px;padding:10px 11px;border-radius:14px;background:#f8f8fa">
 <div style="width:34px;height:34px;border-radius:99px;background:linear-gradient(135deg,#c8102e,#e23a4e);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;flex:none">{{userInitial}}</div>
@@ -1231,6 +1289,63 @@ New project
 </div>
 </sc-for>
 </div>
+</div>
+</sc-if>
+
+<sc-if value="{{sTWork}}">
+<div data-screen-label="Team · My Work" class="pm-work">
+<header class="pm-head">
+<h1>Good morning, <span>{{pmFirstName}}</span></h1>
+<p>{{pmToday}} &nbsp;·&nbsp; Here’s what needs your attention.</p>
+</header>
+
+<section class="pm-card pm-updates">
+<h2>Recent Updates</h2>
+<div class="pm-update-list">
+<sc-for list="{{pmUpdates}}" as="u" hint-placeholder-count="2">
+<div class="pm-update"><i></i><span>{{u.text}}</span><small>· &nbsp;{{u.time}}</small></div>
+</sc-for>
+</div>
+</section>
+
+<div class="pm-primary">
+<section class="pm-card">
+<div class="pm-focus-head"><h2>Today</h2><p>{{pmFocusSummary}}</p></div>
+<div class="pm-table-head"><span>Task</span><span>Project</span><span>Due</span><span>Status</span><span></span></div>
+<sc-for list="{{pmFocusTasks}}" as="t" hint-placeholder-count="3">
+<div class="pm-task">
+<div class="pm-task-name"><button sc-camel-on-click="{{t.onQuickComplete}}" class="pm-task-mark {{t.markClass}}" title="{{t.markTitle}}">{{t.markText}}</button><span>{{t.title}}</span></div>
+<span class="pm-task-project">{{t.projectName}}</span>
+<span class="pm-task-due {{t.dueClass}}">{{t.focusDue}}</span>
+<sc-raw-select value="{{t.status}}" sc-camel-on-change="{{t.onStatusChange}}" class="pm-status" style="background:{{t.stBg}};color:{{t.stColor}}"><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="on_hold">On hold</option><option value="needs_review">Needs review</option><option value="completed">Complete</option></sc-raw-select>
+<button sc-camel-on-click="{{t.onNote}}" class="pm-more" title="Add a task update">⋮</button>
+</div>
+</sc-for>
+<sc-if value="{{pmNoFocus}}"><div class="task-empty">You have no open tasks requiring attention.</div></sc-if>
+<button sc-camel-on-click="{{onPMAddUpdate}}" class="pm-add"><span>＋</span>Add update</button>
+</section>
+
+<aside class="pm-card pm-next">
+<h2>Up Next</h2>
+<div class="pm-timeline">
+<sc-for list="{{pmUpNext}}" as="u" hint-placeholder-count="3">
+<div class="pm-next-item"><small>{{u.date}}</small><strong>{{u.title}}</strong><span>{{u.time}}</span></div>
+</sc-for>
+</div>
+</aside>
+</div>
+
+<section class="pm-card">
+<div class="pm-projects-head"><h2>Assigned Projects</h2><button sc-camel-on-click="{{goTeamProjects}}" class="pm-link">View all&nbsp; ›</button></div>
+<div class="pm-project-head"><span>Project</span><span>My Tasks</span><span>Next Deadline</span><span>Progress</span></div>
+<sc-for list="{{pmProjects}}" as="p" hint-placeholder-count="3">
+<div sc-camel-on-click="{{p.onOpen}}" class="pm-project-row">
+<div class="pm-project-name"><i style="background:{{p.avatarBg}}">{{p.abbr}}</i><span>{{p.name}}</span></div>
+<span>{{p.openLabel}}</span><span>{{p.nextDeadline}}</span>
+<div class="pm-progress"><div class="pm-progress-track"><i style="width:{{p.progress}}%"></i></div><span>{{p.progress}}%</span></div>
+</div>
+</sc-for>
+</section>
 </div>
 </sc-if>
 
@@ -1714,7 +1829,7 @@ class Component extends DCLogic {
       { id: 'n4', taskId: 't12', author: 'James Carter', date: '2026-07-24', content: 'On hold until the revised RO water spec is approved by Infection Prevention.' },
       { id: 'n5', taskId: 't7', author: 'Marcus Lee', date: '2026-07-23', content: 'Wi-Fi survey complete. Three additional APs needed on the north wing.' },
       { id: 'n6', taskId: 't4', author: 'Priya Nair', date: '2026-07-22', content: 'Training curriculum approved. First cohort scheduled for Aug 3.' }];
-    const rmap = { admin: 'adash', team: 'ttasks', leadership: 'ldash' };
+    const rmap = { admin: 'adash', team: 'twork', leadership: 'ldash' };
     const accountNames = { admin: 'Sandra Ortiz', team: 'Marcus Lee', leadership: 'Robert Chen' };
     const sr = props.startRole && props.startRole !== 'picker' ? props.startRole : null;
     this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, calOffset: 0, calSel: '', projects: P, tasks: T, notes: N };
@@ -1728,7 +1843,7 @@ class Component extends DCLogic {
   showSplash() { clearTimeout(this._loaderT); clearTimeout(this._t1); clearTimeout(this._t2); this.setState({ demoLoader: false, splash: true, splashLeaving: false, login: true }, () => this.scheduleSplashExit()); }
   showLogin() { clearTimeout(this._loaderT); clearTimeout(this._t1); clearTimeout(this._t2); this.setState({ demoLoader: false, splash: false, splashLeaving: false, login: true, loginPassword: '', loginError: '', accountRole: null, accountUserName: '', accountCanPreviewRoles: false, role: null, projectId: null, modal: null }); }
   applySignedInUser(user) {
-    const homes = { admin: 'adash', team: 'ttasks', leadership: 'ldash' };
+    const homes = { admin: 'adash', team: 'twork', leadership: 'ldash' };
     this.setState({ login: false, splash: false, demoLoader: false, loginBusy: false, loginError: '', loginPassword: '', accountRole: user.role, accountUserName: user.name, accountCanPreviewRoles: !!user.canPreviewRoles, role: user.role, screen: homes[user.role] || 'adash', projectId: null, modal: null });
   }
   restoreSession() {
@@ -1766,7 +1881,7 @@ class Component extends DCLogic {
       .then(response => { if (!response.ok) throw new Error('Config unavailable'); return response.json(); })
       .then(config => this.setState(state => {
         const buildMode = config.buildMode !== false;
-        const homes = { admin: 'adash', team: 'ttasks', leadership: 'ldash' };
+        const homes = { admin: 'adash', team: 'twork', leadership: 'ldash' };
         return { buildMode, feedbackEnabled: config.feedbackEnabled !== false, rolePreviewEnabled: config.adminRolePreviewEnabled !== false, screen: !buildMode && state.screen === 'build' ? (homes[state.role] || 'adash') : state.screen, commentPanelOpen: config.feedbackEnabled === false ? false : state.commentPanelOpen };
       }))
       .catch(() => { /* Local and unconfigured previews remain in development mode. */ });
@@ -1777,7 +1892,10 @@ class Component extends DCLogic {
   ptasks(p) { return this.state.tasks.filter(t => t.projectId === p.id); }
   prog(p) { const ts = this.ptasks(p); if (!ts.length) return 0; return Math.round(ts.reduce((a, t) => a + t.pct, 0) / ts.length); }
   derSt(p) { const ts = this.ptasks(p); if (!ts.length) return 'planning'; if (ts.every(t => t.status === 'completed')) return 'completed'; const open = ts.filter(t => t.status !== 'completed'); if (open.length && open.every(t => t.status === 'on_hold')) return 'on_hold'; if (ts.some(t => t.status !== 'not_started')) return 'active'; return 'planning'; }
-  isMine(t) { return t.assignees.some(a => a === 'Marcus Lee' || a === 'IT Dept'); }
+  isMine(t) {
+    const signedInTeamMember = this.state.accountRole === 'team' && this.state.accountUserName ? this.state.accountUserName : 'Marcus Lee';
+    return t.assignees.some(a => a === signedInTeamMember || (signedInTeamMember === 'Marcus Lee' && a === 'IT Dept'));
+  }
   abbr(name) { return name.split(' ').filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase(); }
   decP(p) {
     const ts = this.ptasks(p);
@@ -1831,7 +1949,7 @@ class Component extends DCLogic {
   }
   commentPageLabel() {
     const s = this.state;
-    const labels = { adash: 'Admin Dashboard', build: 'Build Dashboard', aprojects: 'Admin Projects', adetail: 'Admin Project Detail', atasks: 'Admin Tasks', ateam: 'Admin Team', ttasks: 'My Tasks', tprojects: 'My Projects', tdetail: 'Project Detail', ldash: 'Leadership Eagle View', lprojects: 'Leadership Projects', ldetail: 'Leadership Project Detail' };
+    const labels = { adash: 'Admin Dashboard', build: 'Build Dashboard', aprojects: 'Admin Projects', adetail: 'Admin Project Detail', atasks: 'Admin Tasks', ateam: 'Admin Team', twork: 'My Work', ttasks: 'My Tasks', tprojects: 'My Projects', tdetail: 'Project Detail', ldash: 'Leadership Eagle View', lprojects: 'Leadership Projects', ldetail: 'Leadership Project Detail' };
     if ((s.screen === 'adetail' || s.screen === 'tdetail' || s.screen === 'ldetail') && s.projectId) {
       const project = s.projects.find(p => p.id === s.projectId);
       return project ? project.name : (labels[s.screen] || 'Project Detail');
@@ -1881,14 +1999,18 @@ class Component extends DCLogic {
     const s = this.state, role = s.role;
     const roleMeta = { admin: ['Administrator', 'Sandra Ortiz'], team: ['Project Team', 'Marcus Lee'], leadership: ['Leadership', 'Robert Chen'] };
     const rm = roleMeta[role] || ['', ''];
+    const displayUserName = s.accountRole === 'admin' && role === 'team' ? 'Daniella Rivera' : (s.accountUserName || rm[1]);
     const pageComments = (s.pageComments || []).map(comment => {
       const author = comment.author || 'Reviewer';
       const initials = author.split(' ').filter(Boolean).slice(0, 2).map(part => part.charAt(0)).join('').toUpperCase();
       const created = comment.createdAt ? new Date(comment.createdAt) : new Date();
       return { ...comment, author, initials: initials || 'R', dateLabel: created.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' · ' + created.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) };
     });
-    const navDefs = { admin: [['adash', 'Dashboard', 'dash'], ['aprojects', 'Projects', 'folder'], ['atasks', 'Tasks', 'check'], ['ateam', 'Team', 'users']], team: [['ttasks', 'My Tasks', 'clip'], ['tprojects', 'My Projects', 'folder']], leadership: [['ldash', 'Eagle View', 'chart'], ['lprojects', 'Projects', 'folder']] };
-    if (s.buildMode) Object.values(navDefs).forEach(items => items.splice(1, 0, ['build', 'Build Dashboard', 'build']));
+    const navDefs = { admin: [['adash', 'Dashboard', 'dash'], ['aprojects', 'Projects', 'folder'], ['atasks', 'Tasks', 'check'], ['ateam', 'Team', 'users']], team: [['twork', 'My Work', 'clip'], ['tprojects', 'Projects', 'folder'], ['ttasks', 'Tasks', 'check']], leadership: [['ldash', 'Eagle View', 'chart'], ['lprojects', 'Projects', 'folder']] };
+    if (s.buildMode) {
+      navDefs.admin.splice(1, 0, ['build', 'Build Dashboard', 'build']);
+      navDefs.leadership.splice(1, 0, ['build', 'Build Dashboard', 'build']);
+    }
     const navItems = (navDefs[role] || []).map(([id, label, ic]) => {
       const active = s.screen === id || (id === 'aprojects' && s.screen === 'adetail') || (id === 'tprojects' && s.screen === 'tdetail') || (id === 'lprojects' && s.screen === 'ldetail');
       return { label, d: this.IC[ic], bg: active ? '#c8102e' : 'transparent', color: active ? '#fff' : '#6f6f78', mColor: active ? '#c8102e' : '#a5a5ad', onClick: () => this.setState({ screen: id, projectId: null }) };
@@ -1989,6 +2111,43 @@ class Component extends DCLogic {
     const taskHealth = healthCounts.map(([label, color, value]) => ({ label, color, value, pct: Math.round(value / healthTotal * 100) + '%' }));
     const now = new Date();
     const avatarColors = [['#fde8ec', '#c8102e'], ['#e8efff', '#2563eb'], ['#e2f6ea', '#1f9d55'], ['#fdf1dc', '#b45309'], ['#f1eafe', '#7c3aed'], ['#e0f2fe', '#0369a1'], ['#f1f1f4', '#6f6f78']];
+    const pmStart = new Date(now); pmStart.setHours(0, 0, 0, 0);
+    const pmOpenRaw = myRaw.filter(t => t.status !== 'completed').slice().sort((a, b) => (a.due || '9999').localeCompare(b.due || '9999'));
+    const pmFocusRaw = pmOpenRaw.slice(0, 3);
+    const pmOverdueCount = pmFocusRaw.filter(t => t.due && new Date(t.due + 'T23:59:59') < now).length;
+    const pmFocusTasks = pmFocusRaw.map(t => {
+      const d = this.decT(t);
+      const due = t.due ? new Date(t.due + 'T12:00:00') : null;
+      const overdue = !!(due && due < pmStart);
+      const dayDiff = due ? Math.max(1, Math.ceil((pmStart - due) / 864e5)) : 0;
+      const dueToday = !!(due && due.toDateString() === pmStart.toDateString());
+      return {
+        ...d,
+        markClass: overdue ? 'overdue' : '', markText: overdue ? '!' : '', markTitle: overdue ? 'Overdue task' : 'Mark complete',
+        dueClass: overdue ? 'overdue' : '',
+        focusDue: !due ? 'No due date' : dueToday ? 'Due today' : overdue ? 'Overdue by ' + dayDiff + (dayDiff === 1 ? ' day' : ' days') : 'Due ' + this.fmtD(t.due),
+        onQuickComplete: () => this.setState(state => ({ tasks: state.tasks.map(item => item.id === t.id ? { ...item, status: 'completed', pct: 100 } : item) }))
+      };
+    });
+    const pmTimeline = [
+      ...pmOpenRaw.filter(t => t.due && new Date(t.due + 'T23:59:59') >= now).map(t => ({ sort: t.due, title: t.title, time: 'Task deadline', dateObj: new Date(t.due + 'T12:00:00') })),
+      ...s.projects.filter(p => p.goLive && this.derSt(p) !== 'completed' && new Date(p.goLive + 'T23:59:59') >= now && myRaw.some(t => t.projectId === p.id)).map(p => ({ sort: p.goLive, title: p.name + ' go-live', time: 'All day', dateObj: new Date(p.goLive + 'T12:00:00') }))
+    ].sort((a, b) => a.sort.localeCompare(b.sort)).slice(0, 3);
+    const pmUpNext = pmTimeline.map(item => ({ title: item.title, time: item.time, date: item.dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).replace(',', ' ·').toUpperCase() }));
+    const pmUpdates = s.notes.slice().sort((a, b) => b.date.localeCompare(a.date)).filter(n => {
+      const task = s.tasks.find(t => t.id === n.taskId);
+      return task && myRaw.some(m => m.id === task.id);
+    }).slice(0, 2).map(n => {
+      const task = s.tasks.find(t => t.id === n.taskId);
+      return { text: n.author + ' updated ' + (task ? task.title : 'a task'), time: this.fmtD(n.date) };
+    });
+    const pmProjectColors = ['#13ad84', '#14aab6', '#7c68ce', '#ef8a3c'];
+    const pmProjects = s.projects.filter(p => myRaw.some(t => t.projectId === p.id)).map((p, i) => {
+      const open = myRaw.filter(t => t.projectId === p.id && t.status !== 'completed');
+      const nextDue = open.filter(t => t.due).slice().sort((a, b) => a.due.localeCompare(b.due))[0];
+      const d = this.decP(p);
+      return { ...d, abbr: this.abbr(p.name), avatarBg: pmProjectColors[i % pmProjectColors.length], openLabel: open.length + ' open', nextDeadline: nextDue ? this.fmtD(nextDue.due) : this.fmtD(p.goLive) };
+    });
     const badge = { admin: ['Administrator', 'rgba(200,16,46,.09)', '#c8102e'], leadership: ['Leadership', '#fdf1dc', '#b45309'], team: ['Project Team', '#e2f6ea', '#1f9d55'] };
     const upcoming = s.projects.filter(p => this.derSt(p) !== 'completed' && p.goLive).sort((a, b) => a.goLive.localeCompare(b.goLive));
     const next = upcoming[0];
@@ -2125,22 +2284,22 @@ class Component extends DCLogic {
       splashShow: s.splash, splashOpacity: s.splashLeaving ? 0 : 1, onSkipSplash: () => this.skipSplash(), isDesktop: !!role && !s.login && !s.isMobile, isMobileNav: !!role && !s.login && s.isMobile,
       loginEmail: s.loginEmail, loginPassword: s.loginPassword, loginError: s.loginError, hasLoginError: !!s.loginError, signInLabel: s.loginBusy ? 'Signing in…' : 'Sign in', onLoginEmail: (e) => this.setState({ loginEmail: e.target.value }), onLoginPassword: (e) => this.setState({ loginPassword: e.target.value }), onSignInDemo: () => this.signInDemo(),
       splashChipBg: s.splash ? '#c8102e' : 'transparent', splashChipColor: s.splash ? '#fff' : '#4d4d55', loaderChipBg: s.demoLoader ? '#c8102e' : 'transparent', loaderChipColor: s.demoLoader ? '#fff' : '#4d4d55', loginChipBg: s.login && !s.splash && !s.demoLoader ? '#c8102e' : 'transparent', loginChipColor: s.login && !s.splash && !s.demoLoader ? '#fff' : '#4d4d55', adminChipBg: role === 'admin' && !s.login && !s.splash && !s.demoLoader ? '#c8102e' : 'transparent', adminChipColor: role === 'admin' && !s.login && !s.splash && !s.demoLoader ? '#fff' : '#4d4d55', teamChipBg: role === 'team' && !s.login && !s.splash && !s.demoLoader ? '#c8102e' : 'transparent', teamChipColor: role === 'team' && !s.login && !s.splash && !s.demoLoader ? '#fff' : '#4d4d55', leadChipBg: role === 'leadership' && !s.login && !s.splash && !s.demoLoader ? '#c8102e' : 'transparent', leadChipColor: role === 'leadership' && !s.login && !s.splash && !s.demoLoader ? '#fff' : '#4d4d55',
-      navItems, roleLabel: rm[0], userName: s.accountUserName || rm[1], userInitial: (s.accountUserName || rm[1] || 'U').charAt(0),
+      navItems, roleLabel: rm[0], userName: displayUserName, userInitial: (displayUserName || 'U').charAt(0),
       onSwitchRole: () => this.signOut(),
       showRolePreviewControls: s.buildMode && s.rolePreviewEnabled && s.accountRole === 'admin' && s.accountCanPreviewRoles && !!role && !s.login,
       isPreviewingRole: !!s.accountRole && s.role !== s.accountRole && !s.login,
-      onExitRolePreview: () => { const homes = { admin: 'adash', team: 'ttasks', leadership: 'ldash' }; this.setState({ role: s.accountRole, screen: homes[s.accountRole] || 'adash', projectId: null, modal: null }); },
+      onExitRolePreview: () => { const homes = { admin: 'adash', team: 'twork', leadership: 'ldash' }; this.setState({ role: s.accountRole, screen: homes[s.accountRole] || 'adash', projectId: null, modal: null }); },
       feedbackEnabled: s.buildMode && s.feedbackEnabled,
       canInviteTesters: s.buildMode && s.accountRole === 'admin' && s.role === 'admin', onOpenInvite: () => this.setState({ modal: 'invite', inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null }),
       mInvite: s.modal === 'invite', inviteName: s.inviteName, inviteEmail: s.inviteEmail, inviteRole: s.inviteRole, onInviteName: (e) => this.setState({ inviteName: e.target.value }), onInviteEmail: (e) => this.setState({ inviteEmail: e.target.value }), onInviteRole: (e) => this.setState({ inviteRole: e.target.value }), inviteComplete: !!s.inviteResult, inviteFormShow: !s.inviteResult, inviteAccessCode: s.inviteResult ? s.inviteResult.accessCode : '', inviteResultEmail: s.inviteResult ? s.inviteResult.email : '', inviteError: s.inviteError, hasInviteError: !!s.inviteError, inviteButtonLabel: s.inviteBusy ? 'Creating invitation…' : 'Create invitation', onCreateInvite: () => this.createInvitation(), onCloseInvite: () => this.setState({ modal: null, inviteResult: null, inviteError: '' }),
       commentPanelOpen: s.commentPanelOpen, onOpenComments: () => this.setState({ commentPanelOpen: true }), onCloseComments: () => this.setState({ commentPanelOpen: false }),
       pageComments, commentCount: pageComments.length, hasCommentCount: pageComments.length > 0, commentsLoading: s.commentsLoading, commentsEmpty: !s.commentsLoading && pageComments.length === 0, commentPageLabel: this.commentPageLabel(), commentDraft: s.commentDraft, onCommentDraft: (e) => this.setState({ commentDraft: e.target.value }), onAddComment: () => this.addPageComment(), commentStorageLabel: s.commentsStorage === 'cloud' ? 'Shared with the review team' : 'Saved in this browser',
       pickAdmin: () => this.setState({ login: false, splash: false, demoLoader: false, role: 'admin', screen: 'adash', projectId: null, modal: null }),
-      pickTeam: () => this.setState({ login: false, splash: false, demoLoader: false, role: 'team', screen: 'ttasks', tFilter: 'all', projectId: null, modal: null }),
+      pickTeam: () => this.setState({ login: false, splash: false, demoLoader: false, role: 'team', screen: 'twork', tFilter: 'all', projectId: null, modal: null }),
       pickLead: () => this.setState({ login: false, splash: false, demoLoader: false, role: 'leadership', screen: 'ldash', projectId: null, modal: null }),
       sBuild: s.buildMode && s.screen === 'build',
       sADash: role === 'admin' && s.screen === 'adash', sAProjects: role === 'admin' && s.screen === 'aprojects', sADetail: role === 'admin' && s.screen === 'adetail' && !!dpRaw, sATasks: role === 'admin' && s.screen === 'atasks', sATeam: role === 'admin' && s.screen === 'ateam',
-      sTTasks: role === 'team' && s.screen === 'ttasks', sTProjects: role === 'team' && s.screen === 'tprojects', sTDetail: role === 'team' && s.screen === 'tdetail' && !!dpRaw,
+      sTWork: role === 'team' && s.screen === 'twork', sTTasks: role === 'team' && s.screen === 'ttasks', sTProjects: role === 'team' && s.screen === 'tprojects', sTDetail: role === 'team' && s.screen === 'tdetail' && !!dpRaw,
       sLDash: role === 'leadership' && s.screen === 'ldash', sLProjects: role === 'leadership' && s.screen === 'lprojects', sLDetail: role === 'leadership' && s.screen === 'ldetail' && !!dpRaw,
       lAsOf: now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }).toUpperCase(),
       stTotal: s.projects.length, stActive: nActive, stDoneOfTotal: nDone + '/' + rawTasks.length, stAvg: avg + '%',
@@ -2180,6 +2339,13 @@ class Component extends DCLogic {
       adminAttentionTasks: adminTaskWorkspace.attention, adminUpcomingTasks: adminTaskWorkspace.upcoming, adminAttentionCount: adminTaskWorkspace.attention.length, adminUpcomingCount: adminTaskWorkspace.upcoming.length, adminHasAttention: adminTaskWorkspace.attention.length > 0, adminHasUpcoming: adminTaskWorkspace.upcoming.length > 0, adminNoTasks: adminTaskWorkspace.empty,
       teamTaskProjects: teamTaskWorkspace.projectItems, teamTaskStatuses: teamTaskWorkspace.statusItems, teamTaskTitle: teamTaskWorkspace.title,
       teamAttentionTasks: teamTaskWorkspace.attention, teamUpcomingTasks: teamTaskWorkspace.upcoming, teamAttentionCount: teamTaskWorkspace.attention.length, teamUpcomingCount: teamTaskWorkspace.upcoming.length, teamHasAttention: teamTaskWorkspace.attention.length > 0, teamHasUpcoming: teamTaskWorkspace.upcoming.length > 0, teamNoTasks: teamTaskWorkspace.empty,
+      pmFirstName: displayUserName ? displayUserName.split(' ')[0] : 'Daniella',
+      pmToday: now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
+      pmUpdates, pmFocusTasks, pmNoFocus: pmFocusTasks.length === 0,
+      pmFocusSummary: pmFocusTasks.length + (pmFocusTasks.length === 1 ? ' task due' : ' tasks due') + '  ·  ' + pmOverdueCount + ' overdue',
+      pmUpNext, pmProjects,
+      goTeamProjects: () => this.setState({ screen: 'tprojects', projectId: null }),
+      onPMAddUpdate: () => { const task = pmFocusRaw[0]; if (task) this.setState({ modal: 'note', noteTaskId: task.id, noteDraft: '' }); },
       onNewTask: () => { this.draft = { title: '', projectId: s.projects[0] ? s.projects[0].id : '', phase: 'Regulatory & Licensing', priority: 'medium', status: 'not_started', due: '', pct: 0, assign: '', desc: '' }; this.setState({ modal: 'task', editId: null }); },
       members: this.USERS.map((u, i) => { const b = badge[u.role]; const av = avatarColors[i % avatarColors.length]; const cnt = rawTasks.filter(t => t.assignees.includes(u.name) && t.status !== 'completed').length; return { name: u.name, initial: u.name.charAt(0), dept: u.dept, roleLabel: b[0], badgeBg: b[1], badgeColor: b[2], avatarBg: av[0], avatarColor: av[1], taskLabel: u.role === 'team' ? cnt + ' open task' + (cnt === 1 ? '' : 's') : '—' }; }),
       myInProg: myRaw.filter(t => t.status === 'in_progress').length, myDone: myRaw.filter(t => t.status === 'completed').length,
