@@ -391,70 +391,65 @@
 </style>
 
 <style>
-.portfolio-projects{width:min(1420px,calc(100vw - 304px));margin-left:50%;transform:translateX(-50%);padding-top:9px}
-.portfolio-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:18px}
-.portfolio-header h1{margin:0;font-size:25px;font-weight:800;letter-spacing:-.035em;line-height:1}
-.portfolio-header p{margin:7px 0 0;font-size:12.5px;color:#6f6f78}
-.portfolio-new-button{display:flex;align-items:center;gap:8px;padding:11px 17px;border:0;border-radius:8px;background:#c8102e;color:#fff;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
-.portfolio-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:15px}
-.portfolio-filters{display:flex;gap:8px;flex-wrap:wrap}
-.portfolio-filters button{padding:8px 16px;border:1px solid;border-radius:99px;font-size:11px;font-weight:650;cursor:pointer}
-.portfolio-search{width:300px;height:39px;display:flex;align-items:center;gap:9px;padding:0 13px;border:1px solid #dedee4;border-radius:7px;background:#fff;color:#9a9aa3;box-sizing:border-box}
-.portfolio-search input{width:100%;border:0;outline:0;background:transparent;color:#101014;font:500 11.5px Inter,system-ui,sans-serif}
-.portfolio-search input::placeholder{color:#a5a5ad}
-.portfolio-surface{background:#fff;border:1px solid #dedee4;border-radius:10px;overflow:hidden}
-.portfolio-summary{height:92px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;border-bottom:1px solid #dedee4}
-.portfolio-summary-item{height:48px;display:flex;align-items:center;gap:16px;padding:0 22px;border-right:1px solid #dedee4}
+.portfolio-projects{width:100%;padding-top:4px}
+.portfolio-header{display:flex;align-items:flex-start;justify-content:space-between;gap:28px;margin-bottom:26px}
+.portfolio-header h1{margin:0;font-size:29px;font-weight:800;letter-spacing:-.045em;line-height:1}
+.portfolio-header p{margin:10px 0 0;font-size:13px;color:#6f6f78}
+.portfolio-header-actions{display:flex;align-items:center;gap:14px}
+.portfolio-new-button{height:44px;display:flex;align-items:center;gap:9px;padding:0 18px;border:0;border-radius:8px;background:#c8102e;color:#fff;font-size:12.5px;font-weight:750;cursor:pointer;white-space:nowrap;box-shadow:0 5px 14px rgba(200,16,46,.14)}
+.portfolio-search{width:310px;height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;border:1px solid #dedee4;border-radius:8px;background:#fff;color:#8a8a94;box-sizing:border-box}
+.portfolio-search input{width:100%;border:0;outline:0;background:transparent;color:#101014;font:500 12px Inter,system-ui,sans-serif}
+.portfolio-search input::placeholder{color:#9a9aa3}
+.portfolio-summary{height:110px;display:grid;grid-template-columns:repeat(5,1fr);align-items:center;margin-bottom:27px;background:#fff;border:1px solid #dedee4;border-radius:9px}
+.portfolio-summary-item{height:58px;display:flex;align-items:center;justify-content:center;border-right:1px solid #dedee4;text-align:center}
 .portfolio-summary-item:last-child{border-right:0}
-.portfolio-summary-icon{width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:#6f6f78;flex:none}
-.portfolio-currency{width:30px;height:30px;border:1.6px solid #85858e;border-radius:50%;font-size:17px;font-weight:500}
-.portfolio-summary-item>span:last-child{display:flex;flex-direction:column;gap:4px}
-.portfolio-summary-item strong{font-size:20px;line-height:1;font-weight:800;letter-spacing:-.025em}
-.portfolio-summary-item small{font-size:10.5px;color:#6f6f78}
-.portfolio-section{padding:0 20px}
-.portfolio-section-title{height:52px;display:flex;align-items:end;padding-bottom:11px;box-sizing:border-box}
-.portfolio-section-title h2{margin:0;font-size:14px;font-weight:800;letter-spacing:-.015em}
-.portfolio-columns,.portfolio-row{display:grid;grid-template-columns:136px minmax(340px,1fr) 110px 170px 88px 68px;column-gap:18px}
-.portfolio-columns{align-items:center;height:27px;color:#6f6f78;font-size:9.5px}
-.portfolio-columns span:nth-child(n+3){text-align:left}
-.portfolio-row{min-height:88px;align-items:center;border-bottom:1px solid #ececf1}
-.portfolio-section:not(.portfolio-completed) .portfolio-row:last-child{border-bottom:0}
-.portfolio-date{position:relative;align-self:stretch;display:grid;grid-template-columns:42px 1fr;grid-template-rows:25px 27px;align-content:center;padding-left:9px;box-sizing:border-box;border-right:1px solid #dedee4}
-.portfolio-date:after{content:"";position:absolute;right:-5px;top:50%;width:8px;height:8px;border:1px solid #c1c1c9;border-radius:50%;background:#fff;transform:translateY(-50%)}
-.portfolio-date>span{grid-column:1;grid-row:1;color:#c8102e;font-size:10px;font-weight:800;align-self:end}
-.portfolio-date>strong{grid-column:1;grid-row:2;font-size:23px;line-height:1;font-weight:500;letter-spacing:-.04em}
-.portfolio-date>em{grid-column:2;grid-row:1/3;align-self:center;justify-self:start;margin-left:4px;padding:5px 9px;border:1px solid #ee566d;border-radius:99px;color:#c8102e;font-size:9px;font-style:normal;font-weight:650;white-space:nowrap}
-.portfolio-date>small{grid-column:1;grid-row:2;align-self:end;margin-top:25px;color:#8a8a94;font-size:9px}
-.portfolio-project-cell{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:11px 0;border:0;background:none;color:#101014;text-align:left;cursor:pointer}
-.portfolio-project-cell>strong{font-size:12.5px;font-weight:750;line-height:1.3}
-.portfolio-project-meta{font-size:9.5px;color:#6f6f78}
-.portfolio-project-cell>small{max-width:610px;color:#777781;font-size:9.5px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.portfolio-status-line{display:flex;align-items:center;gap:7px;margin-top:3px;color:#6f6f78;font-size:9.5px;font-weight:600}
-.portfolio-status-line i{width:6px;height:6px;border-radius:50%}
-.portfolio-status-line b{margin-left:9px;padding-left:12px;border-left:1px solid #dedee4;font-size:9.5px}
-.portfolio-tasks,.portfolio-budget{font-size:10.5px;color:#5f5f68;white-space:nowrap}
+.portfolio-summary-item span{display:flex;flex-direction:column;gap:8px}
+.portfolio-summary-item strong{font-size:27px;line-height:1;font-weight:650;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.portfolio-summary-item small{font-size:11.5px;color:#3f3f46;font-weight:500}
+.portfolio-summary-item.is-active strong,.portfolio-summary-item.is-active small{color:#c8102e}
+.portfolio-toolbar{min-height:46px;display:flex;align-items:flex-start;justify-content:space-between;gap:22px;border-bottom:1px solid #dedee4;margin-bottom:23px}
+.portfolio-filters{display:flex;align-items:flex-start;gap:31px;overflow-x:auto}
+.portfolio-filters button{height:46px;padding:0 2px 15px;border:0;border-bottom:3px solid;background:transparent;font-size:11.5px;font-weight:650;cursor:pointer;white-space:nowrap}
+.portfolio-sort{display:flex;align-items:center;gap:8px;padding:2px 0 0;border:0;background:transparent;color:#5f5f68;font-size:11.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.portfolio-surface{background:#fff;border:1px solid #dedee4;border-radius:9px;overflow:hidden}
+.portfolio-columns,.portfolio-row{display:grid;grid-template-columns:minmax(220px,1.7fr) 64px 90px minmax(120px,.9fr) 82px 94px 72px 66px;column-gap:12px;align-items:center}
+.portfolio-columns{height:52px;padding:0 22px;border-bottom:1px solid #dedee4;color:#4f4f58;font-size:9px;font-weight:750;letter-spacing:.065em;text-transform:uppercase}
+.portfolio-row{min-height:86px;padding:0 22px;border-bottom:1px solid #ececf1;cursor:pointer;transition:background .16s ease}
+.portfolio-row:hover{background:#fafafa}
+.portfolio-row:last-child{border-bottom:0}
+.portfolio-project-cell{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:13px 0;border:0;background:none;color:#101014;text-align:left;cursor:pointer}
+.portfolio-project-cell>strong{max-width:100%;font-size:12.5px;font-weight:750;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.portfolio-project-meta{max-width:100%;font-size:10px;color:#777781;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.portfolio-priority{font-size:9.5px;color:#666670;font-weight:650;text-transform:uppercase}
+.portfolio-status{display:flex;align-items:center;gap:8px;color:#3f3f46;font-size:10.5px;font-weight:550;white-space:nowrap}
+.portfolio-status i{width:7px;height:7px;border-radius:50%;flex:none}
 .portfolio-progress{display:flex;align-items:center;gap:10px}
-.portfolio-progress>span{width:118px;height:6px;border-radius:99px;background:#f0f0f3;overflow:hidden}
-.portfolio-progress i{display:block;height:100%;background:#d51635;border-radius:99px}
-.portfolio-progress strong{width:32px;text-align:right;font-size:10.5px;font-weight:750;font-variant-numeric:tabular-nums}
-.portfolio-budget{color:#24242a;font-weight:550}
-.portfolio-actions{display:flex;gap:4px;justify-content:flex-end}
-.portfolio-actions button{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border:0;border-radius:7px;background:none;color:#9c9ca5;cursor:pointer}
-.portfolio-completed{border-top:1px solid #dedee4}
-.portfolio-completed .portfolio-section-title{height:42px}
-.portfolio-completed .portfolio-row{border-bottom:0}
-.portfolio-empty{padding:45px 20px;text-align:center;display:flex;flex-direction:column;gap:6px;color:#101014}
+.portfolio-progress>span{flex:1;min-width:72px;height:5px;border-radius:99px;background:#e8e8ed;overflow:hidden}
+.portfolio-progress i{display:block;height:100%;background:#c8102e;border-radius:99px}
+.portfolio-progress strong{width:31px;text-align:right;font-size:10.5px;font-weight:650;font-variant-numeric:tabular-nums}
+.portfolio-tasks,.portfolio-date,.portfolio-budget{font-size:10.5px;color:#4f4f58;white-space:nowrap}
+.portfolio-budget{color:#24242a;font-weight:600}
+.portfolio-actions{display:flex;align-items:center;justify-content:flex-end;gap:1px}
+.portfolio-actions button{width:29px;height:29px;display:flex;align-items:center;justify-content:center;border:0;border-radius:7px;background:none;color:#8a8a94;cursor:pointer}
+.portfolio-chevron{display:flex;align-items:center;justify-content:flex-end;color:#a5a5ad}
+.portfolio-footer{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-top:1px solid #ececf1;color:#6f6f78;font-size:10.5px}
+.portfolio-page{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #c8102e;border-radius:6px;color:#c8102e;font-size:10.5px;font-weight:700}
+.portfolio-empty{padding:52px 20px;text-align:center;display:flex;flex-direction:column;gap:7px;color:#101014}
 .portfolio-empty strong{font-size:13px}.portfolio-empty span{font-size:11px;color:#8a8a94}
-@media(max-width:1100px){
-.portfolio-projects{width:100%;margin-left:0;transform:none}
-.portfolio-columns,.portfolio-row{grid-template-columns:92px minmax(240px,1fr) 92px 140px 70px 60px;column-gap:12px}
-.portfolio-date{padding-left:2px}.portfolio-progress>span{width:90px}.portfolio-project-cell>small{max-width:360px}
+.portfolio-readonly .portfolio-columns,.portfolio-readonly .portfolio-row{grid-template-columns:minmax(260px,1.8fr) 72px 100px minmax(130px,1fr) 100px 110px 24px;column-gap:16px}
+@media(max-width:1180px){
+.portfolio-columns,.portfolio-row{grid-template-columns:minmax(220px,1.5fr) 68px 94px minmax(110px,.8fr) 78px 98px 72px 58px;column-gap:12px;padding-left:16px;padding-right:16px}
+.portfolio-readonly .portfolio-columns,.portfolio-readonly .portfolio-row{grid-template-columns:minmax(240px,1.6fr) 74px 100px minmax(120px,.9fr) 98px 108px 20px}
+.portfolio-header-actions{gap:10px}.portfolio-search{width:260px}
 }
-@media(max-width:820px){
-.portfolio-header{align-items:flex-end}.portfolio-toolbar{align-items:stretch;flex-direction:column}.portfolio-search{width:100%}
-.portfolio-summary{height:auto;grid-template-columns:1fr}.portfolio-summary-item{height:62px;border-right:0;border-bottom:1px solid #dedee4}.portfolio-summary-item:last-child{border-bottom:0}
-.portfolio-columns{display:none}.portfolio-row{grid-template-columns:74px minmax(0,1fr) 58px;column-gap:12px;padding:8px 0}
-.portfolio-date{grid-column:1;grid-row:1/3}.portfolio-project-cell{grid-column:2/4}.portfolio-tasks{grid-column:2}.portfolio-progress{grid-column:2}.portfolio-budget{grid-column:3;grid-row:2}.portfolio-actions{grid-column:3;grid-row:3}.portfolio-status-line{display:flex}
+@media(max-width:900px){
+.portfolio-header{align-items:stretch;flex-direction:column;margin-bottom:20px}.portfolio-header-actions{width:100%}.portfolio-search{flex:1;width:auto}
+.portfolio-summary{height:auto;grid-template-columns:repeat(5,minmax(100px,1fr));overflow-x:auto}.portfolio-summary-item{height:78px}
+.portfolio-surface{overflow-x:auto}.portfolio-columns,.portfolio-row{min-width:920px}.portfolio-readonly .portfolio-columns,.portfolio-readonly .portfolio-row{min-width:780px}
+}
+@media(max-width:640px){
+.portfolio-header h1{font-size:25px}.portfolio-header-actions{align-items:stretch;flex-direction:column}.portfolio-new-button{justify-content:center}.portfolio-summary{grid-template-columns:repeat(5,112px)}
+.portfolio-toolbar{align-items:flex-end}.portfolio-filters{gap:22px}.portfolio-sort span{display:none}
 }
 </style>
 <style>
@@ -1146,105 +1141,74 @@
 </div>
 </sc-if>
 
-<sc-if value="{{sAProjects}}">
-<div data-screen-label="Admin · Projects" class="portfolio-projects">
+<sc-if value="{{sProjectsRegister}}">
+<div data-screen-label="{{projectScreenLabel}}" class="portfolio-projects {{projectRegisterClass}}">
 <div class="portfolio-header">
 <div>
 <h1>Projects</h1>
-<p>Every facility activation, planning to go-live. Status rolls up from each project's tasks.</p>
+<p>{{projectSubtitle}}</p>
 </div>
+<div class="portfolio-header-actions">
+<label class="portfolio-search">
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.4-3.4"></path></svg>
+<input type="search" placeholder="Search projects" sc-camel-value="{{projectSearch}}" sc-camel-on-change="{{onProjectSearch}}">
+</label>
+<sc-if value="{{canManageProjects}}">
 <button sc-camel-on-click="{{onNewProject}}" class="portfolio-new-button" style-hover="background:#a50d26">
 <svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
 New project
 </button>
+</sc-if>
+</div>
+</div>
+
+<div class="portfolio-summary">
+<div class="portfolio-summary-item"><span><strong>{{projectTotalCount}}</strong><small>Total</small></span></div>
+<div class="portfolio-summary-item is-active"><span><strong>{{projectActiveCount}}</strong><small>Active</small></span></div>
+<div class="portfolio-summary-item"><span><strong>{{projectPlanningCount}}</strong><small>Planning</small></span></div>
+<div class="portfolio-summary-item"><span><strong>{{projectHoldCount}}</strong><small>On hold</small></span></div>
+<div class="portfolio-summary-item"><span><strong>{{projectCompletedCount}}</strong><small>Completed</small></span></div>
 </div>
 
 <div class="portfolio-toolbar">
 <div class="portfolio-filters">
-<sc-for list="{{pFilters}}" as="f" hint-placeholder-count="5">
-<button sc-camel-on-click="{{f.onClick}}" style="background:{{f.bg}};color:{{f.color}};border-color:{{f.borderC}}">{{f.label}}</button>
+<sc-for list="{{projectFilters}}" as="f" hint-placeholder-count="5">
+<button sc-camel-on-click="{{f.onClick}}" style="color:{{f.color}};border-bottom-color:{{f.borderC}}">{{f.label}}</button>
 </sc-for>
 </div>
-<label class="portfolio-search">
-<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.4-3.4"></path></svg>
-<input type="search" placeholder="Search projects..." sc-camel-value="{{projectSearch}}" sc-camel-on-change="{{onProjectSearch}}">
-</label>
+<button class="portfolio-sort"><span>Sort:</span> Go-live <svg width="10" height="7" sc-camel-view-box="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="m1.5 1.5 3.5 3.5 3.5-3.5"></path></svg></button>
 </div>
 
 <section class="portfolio-surface">
-<div class="portfolio-summary">
-<div class="portfolio-summary-item">
-<span class="portfolio-summary-icon"><svg width="23" height="23" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{folderIcon}}"></path></svg></span>
-<span><strong>{{stTotal}}</strong><small>Projects</small></span>
-</div>
-<div class="portfolio-summary-item">
-<span class="portfolio-summary-icon portfolio-currency">$</span>
-<span><strong>{{projectBudgetTotal}}</strong><small>Total budget</small></span>
-</div>
-<div class="portfolio-summary-item">
-<span class="portfolio-summary-icon"><svg width="23" height="23" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{chartIcon}}"></path></svg></span>
-<span><strong>{{stAvg}}</strong><small>Average progress</small></span>
-</div>
-</div>
-
-<sc-if value="{{hasUpcomingProjects}}">
-<div class="portfolio-section">
-<div class="portfolio-section-title"><h2>Upcoming launches</h2></div>
 <div class="portfolio-columns">
-<span>Go-live date</span><span>Project</span><span>Tasks completed</span><span>Progress</span><span>Budget</span><span></span>
+<span>Project</span><span>Priority</span><span>Status</span><span>Progress</span><span>{{projectTasksHeader}}</span><span>Go-live</span><sc-if value="{{canManageProjects}}"><span>Budget</span><span></span></sc-if><sc-if value="{{cannotManageProjects}}"><span></span></sc-if>
 </div>
-<sc-for list="{{upcomingProjects}}" as="p" hint-placeholder-count="4">
-<div class="portfolio-row">
-<div class="portfolio-date">
-<span>{{p.goMonth}}</span>
-<strong>{{p.goDay}}</strong>
-<sc-if value="{{p.showDays}}"><em>{{p.daysToGoLabel}}</em></sc-if>
-</div>
+<sc-for list="{{projectRows}}" as="p" hint-placeholder-count="5">
+<div sc-camel-on-click="{{p.onOpen}}" class="portfolio-row">
 <button sc-camel-on-click="{{p.onOpen}}" class="portfolio-project-cell" style-hover="color:#c8102e">
 <strong>{{p.name}}</strong>
 <span class="portfolio-project-meta">{{p.location}}</span>
-<small>{{p.desc}}</small>
-<span class="portfolio-status-line"><i style="background:{{p.stDot}}"></i>{{p.statusLabel}}<b style="color:{{p.prioTextColor}}">{{p.prioLabel}}</b></span>
 </button>
-<span class="portfolio-tasks">{{p.taskShortLabel}}</span>
+<span class="portfolio-priority">{{p.prioLabel}}</span>
+<span class="portfolio-status"><i style="background:{{p.registerDot}}"></i>{{p.statusLabel}}</span>
 <div class="portfolio-progress"><span><i style="width:{{p.progress}}%"></i></span><strong>{{p.progress}}%</strong></div>
+<span class="portfolio-tasks">{{p.registerTaskLabel}}</span>
+<span class="portfolio-date">{{p.goLiveLabel}}</span>
+<sc-if value="{{canManageProjects}}">
 <span class="portfolio-budget">{{p.budgetLabel}}</span>
 <div class="portfolio-actions">
 <button sc-camel-on-click="{{p.onEdit}}" title="Edit project" style-hover="color:#101014;background:#f1f1f4"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></button>
 <button sc-camel-on-click="{{p.onDelete}}" title="Delete project" style-hover="color:#c8102e;background:rgba(200,16,46,.08)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path></svg></button>
 </div>
+</sc-if>
+<sc-if value="{{cannotManageProjects}}"><span class="portfolio-chevron"><svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span></sc-if>
 </div>
 </sc-for>
-</div>
-</sc-if>
-
-<sc-if value="{{hasCompletedProjects}}">
-<div class="portfolio-section portfolio-completed">
-<div class="portfolio-section-title"><h2>Completed</h2></div>
-<sc-for list="{{completedProjects}}" as="p" hint-placeholder-count="1">
-<div class="portfolio-row">
-<div class="portfolio-date"><span>{{p.goMonth}}</span><strong>{{p.goDay}}</strong><small>{{p.goYear}}</small></div>
-<button sc-camel-on-click="{{p.onOpen}}" class="portfolio-project-cell" style-hover="color:#c8102e">
-<strong>{{p.name}}</strong>
-<span class="portfolio-project-meta">{{p.location}}</span>
-<small>{{p.desc}}</small>
-<span class="portfolio-status-line"><i style="background:{{p.stDot}}"></i>{{p.statusLabel}}<b style="color:{{p.prioTextColor}}">{{p.prioLabel}}</b></span>
-</button>
-<span class="portfolio-tasks">{{p.taskShortLabel}}</span>
-<div class="portfolio-progress"><span><i style="width:{{p.progress}}%"></i></span><strong>{{p.progress}}%</strong></div>
-<span class="portfolio-budget">{{p.budgetLabel}}</span>
-<div class="portfolio-actions">
-<button sc-camel-on-click="{{p.onEdit}}" title="Edit project" style-hover="color:#101014;background:#f1f1f4"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></button>
-<button sc-camel-on-click="{{p.onDelete}}" title="Delete project" style-hover="color:#c8102e;background:rgba(200,16,46,.08)"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path></svg></button>
-</div>
-</div>
-</sc-for>
-</div>
-</sc-if>
 
 <sc-if value="{{noFilteredProjects}}">
 <div class="portfolio-empty"><strong>No matching projects</strong><span>Try a different status or search term.</span></div>
 </sc-if>
+<div class="portfolio-footer"><span>Showing {{projectShownCount}} projects</span><span class="portfolio-page">1</span></div>
 </section>
 </div>
 </sc-if>
@@ -1502,22 +1466,6 @@ New project
 </div>
 </sc-if>
 
-<sc-if value="{{sTProjects}}">
-<div data-screen-label="Team · My Projects">
-<div style="margin-bottom:20px"><h1 style="margin:0;font-size:23px;font-weight:800;letter-spacing:-.03em">My projects</h1><p style="margin:5px 0 0;font-size:13px;color:#6f6f78">Projects with tasks assigned to you. Open one to work its tasks.</p></div>
-<div style="background:#fff;border:1px solid #ececf1;border-radius:18px;overflow:hidden">
-<sc-for list="{{myProjects}}" as="p" hint-placeholder-count="3">
-<div sc-camel-on-click="{{p.onOpen}}" style="display:flex;align-items:center;gap:16px;padding:17px 22px;border-bottom:1px solid #f1f1f4;cursor:pointer;flex-wrap:wrap" style-hover="background:#fafafa">
-<div style="flex:1;min-width:220px"><p style="margin:0;font-size:13.5px;font-weight:700">{{p.name}}</p><p style="margin:2px 0 0;font-size:11.5px;color:#a5a5ad">{{p.location}} · Go-live {{p.goLiveLabel}} · {{p.myTaskLabel}}</p></div>
-<span style="width:104px;display:flex;align-items:center;gap:7px;font-size:12px;color:#6f6f78;font-weight:600;flex:none"><span style="width:7px;height:7px;border-radius:99px;background:{{p.stDot}};display:inline-block"></span>{{p.statusLabel}}</span>
-<div style="display:flex;align-items:center;gap:10px;flex:none"><div style="width:140px;height:6px;background:#f1f1f4;border-radius:99px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#c8102e,#e23a4e);border-radius:99px;width:{{p.progress}}%"></div></div><span style="font-size:12px;font-weight:800;width:36px;text-align:right;font-variant-numeric:tabular-nums">{{p.progress}}%</span></div>
-<svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" stroke="#c1c1c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="m9 18 6-6-6-6"></path></svg>
-</div>
-</sc-for>
-</div>
-</div>
-</sc-if>
-
 <sc-if value="{{sTDetail}}">
 <div data-screen-label="Team · Project detail">
 <button sc-camel-on-click="{{onBackTeam}}" style="display:flex;align-items:center;gap:6px;border:none;background:none;color:#6f6f78;font-size:12.5px;font-weight:600;cursor:pointer;padding:0;margin-bottom:18px" style-hover="color:#101014"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>My projects</button>
@@ -1620,22 +1568,6 @@ New project
 <sc-for list="{{leadAttention}}" as="a" hint-placeholder-count="3"><div class="lead-attention-item"><span class="lead-attention-mark">{{a.mark}}</span><div><strong>{{a.value}}</strong><span>{{a.label}}</span></div></div></sc-for>
 </div>
 </section>
-</div>
-</div>
-</sc-if>
-
-<sc-if value="{{sLProjects}}">
-<div data-screen-label="Leadership · Projects">
-<div style="margin-bottom:20px"><h1 style="margin:0;font-size:23px;font-weight:800;letter-spacing:-.03em">Projects</h1><p style="margin:5px 0 0;font-size:13px;color:#6f6f78">Read-only view of every activation project. Open one to see its tasks.</p></div>
-<div style="background:#fff;border:1px solid #ececf1;border-radius:18px;overflow:hidden">
-<sc-for list="{{allProjects}}" as="p" hint-placeholder-count="5">
-<div sc-camel-on-click="{{p.onOpen}}" style="display:flex;align-items:center;gap:16px;padding:17px 22px;border-bottom:1px solid #f1f1f4;cursor:pointer;flex-wrap:wrap" style-hover="background:#fafafa">
-<div style="flex:1;min-width:240px"><p style="margin:0;font-size:13.5px;font-weight:700">{{p.name}}</p><p style="margin:3px 0 0;font-size:12px;color:#6f6f78;line-height:1.5;max-width:520px">{{p.desc}}</p><p style="margin:4px 0 0;font-size:11.5px;color:#a5a5ad">{{p.location}} · Go-live {{p.goLiveLabel}} · {{p.taskLabel}}</p></div>
-<span style="width:104px;display:flex;align-items:center;gap:7px;font-size:12px;color:#6f6f78;font-weight:600;flex:none"><span style="width:7px;height:7px;border-radius:99px;background:{{p.stDot}};display:inline-block"></span>{{p.statusLabel}}</span>
-<div style="display:flex;align-items:center;gap:10px;flex:none"><div style="width:140px;height:6px;background:#f1f1f4;border-radius:99px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#c8102e,#e23a4e);border-radius:99px;width:{{p.progress}}%"></div></div><span style="font-size:12px;font-weight:800;width:36px;text-align:right;font-variant-numeric:tabular-nums">{{p.progress}}%</span></div>
-<svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" stroke="#c1c1c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="m9 18 6-6-6-6"></path></svg>
-</div>
-</sc-for>
 </div>
 </div>
 </sc-if>
@@ -2143,7 +2075,20 @@ class Component extends DCLogic {
     const mkFilter = (defs, cur, key) => defs.map(([v, label]) => ({ label, bg: cur === v ? '#101014' : '#fff', color: cur === v ? '#fff' : '#6f6f78', borderC: cur === v ? '#101014' : '#ececf1', onClick: () => this.setState({ [key]: v }) }));
     const pf = s.pFilter, tf = s.tFilter;
     const projectSearch = (s.pSearch || '').trim().toLowerCase();
-    const fProjects = projects.filter(p => (pf === 'all' || p.stKey === pf) && (!projectSearch || (p.name + ' ' + p.location + ' ' + p.desc).toLowerCase().includes(projectSearch)));
+    const roleProjectBase = role === 'team' ? projects.filter(p => s.tasks.some(t => t.projectId === p.id && this.isMine(t))) : projects;
+    const fProjects = roleProjectBase.filter(p => (pf === 'all' || p.stKey === pf) && (!projectSearch || (p.name + ' ' + p.location + ' ' + p.desc).toLowerCase().includes(projectSearch)));
+    const projectRows = fProjects.slice().sort((a, b) => {
+      if (a.stKey === 'completed' && b.stKey !== 'completed') return 1;
+      if (a.stKey !== 'completed' && b.stKey === 'completed') return -1;
+      return (a.goLiveISO || '9999').localeCompare(b.goLiveISO || '9999');
+    }).map(p => ({ ...p, registerTaskLabel: role === 'team' ? p.myTaskLabel : p.taskShortLabel, registerDot: p.stKey === 'active' || p.stKey === 'on_hold' ? '#c8102e' : '#a5a5ad' }));
+    const projectCount = key => roleProjectBase.filter(p => p.stKey === key).length;
+    const projectFilters = [['all', 'All ' + roleProjectBase.length], ['planning', 'Planning ' + projectCount('planning')], ['active', 'Active ' + projectCount('active')], ['on_hold', 'On hold ' + projectCount('on_hold')], ['completed', 'Completed ' + projectCount('completed')]].map(([value, label]) => ({
+      label,
+      color: pf === value ? '#c8102e' : '#4f4f58',
+      borderC: pf === value ? '#c8102e' : 'transparent',
+      onClick: () => this.setState({ pFilter: value })
+    }));
     const upcomingProjects = fProjects.filter(p => p.stKey !== 'completed').slice().sort((a, b) => (a.goLiveISO || '9999').localeCompare(b.goLiveISO || '9999'));
     const completedProjects = fProjects.filter(p => p.stKey === 'completed').slice().sort((a, b) => (b.goLiveISO || '').localeCompare(a.goLiveISO || ''));
     const projectBudgetTotal = this.fmtM(s.projects.reduce((sum, p) => sum + (+p.budget || 0), 0));
@@ -2443,6 +2388,10 @@ class Component extends DCLogic {
       sADash: role === 'admin' && s.screen === 'adash', sAProjects: role === 'admin' && s.screen === 'aprojects', sADetail: role === 'admin' && s.screen === 'adetail' && !!dpRaw, sATasks: role === 'admin' && s.screen === 'atasks', sATeam: role === 'admin' && s.screen === 'ateam',
       sTWork: role === 'team' && s.screen === 'twork', sTTasks: role === 'team' && s.screen === 'ttasks', sTProjects: role === 'team' && s.screen === 'tprojects', sTDetail: role === 'team' && s.screen === 'tdetail' && !!dpRaw,
       sLDash: role === 'leadership' && s.screen === 'ldash', sLProjects: role === 'leadership' && s.screen === 'lprojects', sLDetail: role === 'leadership' && s.screen === 'ldetail' && !!dpRaw,
+      sProjectsRegister: (role === 'admin' && s.screen === 'aprojects') || (role === 'team' && s.screen === 'tprojects') || (role === 'leadership' && s.screen === 'lprojects'),
+      projectScreenLabel: role === 'admin' ? 'Admin · Projects' : role === 'team' ? 'Project Manager · Projects' : 'Leadership · Projects',
+      projectSubtitle: role === 'admin' ? 'Plan and track every facility activation through go-live.' : role === 'team' ? 'Track the facility activations assigned to you through go-live.' : 'Review portfolio progress and go-live readiness across every activation.',
+      canManageProjects: role === 'admin', cannotManageProjects: role !== 'admin', projectRegisterClass: role === 'admin' ? 'portfolio-admin' : 'portfolio-readonly',
       lAsOf: now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }).toUpperCase(),
       stTotal: s.projects.length, stActive: nActive, stDoneOfTotal: nDone + '/' + rawTasks.length, stAvg: avg + '%',
       heroBars, teamBars, myOpen: myOpenCount, myDue,
@@ -2472,6 +2421,9 @@ class Component extends DCLogic {
       goProjects: () => this.setState({ screen: 'aprojects' }),
       onNewProject: () => { this.draft = { name: '', location: '', desc: '', priority: 'medium', goLive: '', budget: '' }; this.setState({ modal: 'project', editId: null }); },
       pFilters: mkFilter([['all', 'All ' + projects.length], ['planning', 'Planning ' + projects.filter(p => p.stKey === 'planning').length], ['active', 'Active ' + projects.filter(p => p.stKey === 'active').length], ['on_hold', 'On hold ' + projects.filter(p => p.stKey === 'on_hold').length], ['completed', 'Completed ' + projects.filter(p => p.stKey === 'completed').length]], pf, 'pFilter'),
+      projectFilters, projectRows, projectShownCount: projectRows.length, projectTotalCount: roleProjectBase.length,
+      projectActiveCount: projectCount('active'), projectPlanningCount: projectCount('planning'), projectHoldCount: projectCount('on_hold'), projectCompletedCount: projectCount('completed'),
+      projectTasksHeader: role === 'team' ? 'My tasks' : 'Tasks',
       projectSearch: s.pSearch || '', onProjectSearch: (e) => this.setState({ pSearch: e.target.value }),
       upcomingProjects, completedProjects, hasUpcomingProjects: upcomingProjects.length > 0, hasCompletedProjects: completedProjects.length > 0, noFilteredProjects: fProjects.length === 0,
       projectBudgetTotal, folderIcon: this.IC.folder, chartIcon: this.IC.chart,
