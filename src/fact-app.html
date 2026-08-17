@@ -2327,7 +2327,7 @@ class Component extends DCLogic {
       crmStat(nActive, 'Active Now', 'Show only active projects', [0, 1, 2].map(i => { const p = crmActiveTop[i]; return p ? [p.name + ' · ' + p.progress + '%', p.progress] : ['No active project', 0]; }), () => this.setState({ screen: 'aprojects', pFilter: 'active', projectId: null })),
       crmStat(attnRaw.length, 'Need Attention', 'Open the tasks that need attention', [['Overdue · ' + crmOverdue, crmOverdue], ['On hold · ' + crmOnHold, crmOnHold], ['Needs review · ' + crmReview, crmReview]], () => this.setState({ screen: 'atasks', aTaskProject: 'all', aTaskStatus: 'all', taskSearch: '' }))
     ];
-    const crmTint = { planning: '#4a54c8', active: '#13ae85', on_hold: '#f7a324', completed: '#8b8f98' };
+    const crmTint = { planning: '#4a54c8', active: '#13ae85', on_hold: '#c8102e', completed: '#8b8f98' };
     const crmProjects = projects.slice(0, 6).map(p => ({ ...p, abbr: this.abbr(p.name), statusColor: crmTint[p.stKey] || '#c8102e', progressLabel: p.progress + '%', progressWidth: Math.max(3, p.progress) + '%', budgetText: p.budgetLabel || '—' }));
     const crmHealth = s.projects.map(p => {
       const ts = this.ptasks(p);
@@ -2338,7 +2338,7 @@ class Component extends DCLogic {
       let label = 'On Track', color = '#12ae85', fill = 'rgba(18,174,133,.11)';
       if (stKey === 'completed') { label = 'Complete'; }
       else if (overdue) { label = 'At Risk'; color = '#c8102e'; fill = 'rgba(200,16,46,.11)'; }
-      else if (held || review) { label = 'Caution'; color = '#f7a324'; fill = 'rgba(247,163,36,.14)'; }
+      else if (held || review) { label = 'Caution'; color = '#c8102e'; fill = 'rgba(200,16,46,.11)'; }
       const series = ts.slice().sort((a, b) => (a.due || '9999').localeCompare(b.due || '9999')).map(t => Math.max(0, Math.min(100, t.pct)));
       const pts = (series.length ? series : [0]).map((v, i, arr) => [arr.length > 1 ? i * (300 / (arr.length - 1)) : 150, 34 - v / 100 * 28]);
       const line = crmCurve(pts, 300);
@@ -2354,7 +2354,7 @@ class Component extends DCLogic {
       const overdue = !!(t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < now);
       return {
         title: t.title, sub: d.projectName + ' · ' + (overdue ? 'Overdue ' + this.fmtD(t.due) : d.statusLabel),
-        dot: overdue ? '#c8102e' : t.status === 'on_hold' ? '#f7a324' : '#8b5cf6', notLast: i < arr.length - 1,
+        dot: overdue ? '#c8102e' : t.status === 'on_hold' ? '#c8102e' : '#8b5cf6', notLast: i < arr.length - 1,
         onOpen: () => this.setState({ screen: 'atasks', aTaskProject: t.projectId, aTaskStatus: 'all', taskSearch: '' })
       };
     });
