@@ -467,18 +467,19 @@
 .task-summary-item.is-alert .task-summary-copy strong,.task-summary-item.is-alert .task-summary-icon{color:#c8102e}.task-summary-item.is-alert .task-summary-icon{background:#fde8ec}
 .task-summary-item.is-progress .task-summary-icon{background:#e8efff;color:#2563eb}.task-summary-item.is-review .task-summary-icon{background:#f1eafe;color:#7c3aed}
 .task-workspace{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:620px;background:#fff;border:1px solid #dedee4;border-radius:16px;overflow:hidden}
-.task-rail{display:flex;flex-direction:column;border-right:1px solid #e7e7ec;padding:17px 13px 16px}
+.task-rail{min-width:0;display:flex;flex-direction:column;border-right:1px solid #e7e7ec;padding:17px 13px 16px}
 .task-rail h2{margin:0 9px 13px;font-size:14px;font-weight:800;letter-spacing:-.02em}
+.task-rail h2.task-status-heading{margin:18px 9px 8px;padding-top:16px;border-top:1px solid #e7e7ec}
 .task-project-list{display:flex;flex-direction:column;gap:3px}
 .task-project-button,.task-status-button{position:relative;width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:0;border-radius:8px;background:transparent;color:#101014;text-align:left;cursor:pointer}
-.task-project-button{min-height:43px;padding:9px 10px 9px 13px}
+.task-project-button{min-height:43px;padding:9px 10px 9px 13px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;column-gap:10px}
 .task-project-button:before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:99px;background:var(--task-bar,transparent)}
-.task-project-button strong{font-size:11.5px;line-height:1.35;font-weight:700}
-.task-project-button span{flex:none;color:#a5a5ad;font-size:10.5px;white-space:nowrap}
-.task-status-list{display:flex;flex-direction:column;gap:3px;margin-top:auto;padding-top:15px;border-top:1px solid #e7e7ec}
-.task-status-button{padding:8px 10px;font-size:11.5px;font-weight:650;color:#4d4d55}
+.task-project-button strong{min-width:0;font-size:11.5px;line-height:1.35;font-weight:700;overflow-wrap:anywhere}
+.task-project-button>span{align-self:start;padding-top:1px;color:#8b8b95;font-size:10.5px;line-height:1.35;white-space:nowrap}
+.task-status-list{display:flex;flex-direction:column;gap:3px}
+.task-status-button{padding:8px 10px;display:grid;grid-template-columns:8px minmax(0,1fr) auto;align-items:center;gap:10px;font-size:11.5px;font-weight:650;color:#4d4d55}
 .task-status-button i{width:8px;height:8px;border-radius:50%;flex:none}
-.task-status-button span:first-of-type{flex:1}
+.task-status-button span:first-of-type{min-width:0}
 .task-status-button span:last-child{color:#8b8b95;font-size:10.5px}
 .task-main{min-width:0;padding:18px 18px 20px}
 .task-main-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
@@ -519,10 +520,7 @@
 .task-note-button{min-width:31px;width:auto;padding:0 7px;gap:4px;font-size:9.5px;font-weight:700}
 .task-empty{padding:44px 20px;text-align:center;color:#8b8b95;font-size:12px}
 .task-page-readonly .task-list-head,.task-page-readonly .task-item{grid-template-columns:minmax(260px,1fr) 82px 60px minmax(125px,.62fr) 120px}
-.task-page-team .task-project-button{min-height:49px;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:start;justify-content:stretch;gap:2px}
-.task-page-team .task-project-button>strong{min-width:0;width:100%;display:block;grid-column:1;grid-row:1;justify-self:stretch;text-align:left;overflow-wrap:anywhere}
-.task-page-team .task-project-button>strong>span{display:inline;width:auto;margin:0;padding:0;color:inherit;font-size:inherit;line-height:inherit;white-space:normal}
-.task-page-team .task-project-button>span{grid-column:1;grid-row:2;display:block;width:max-content;justify-self:end;margin-left:auto;padding-top:0;line-height:1.35}
+.task-page-team .task-project-button{min-height:49px}
 @media(max-width:1180px){
 .task-workspace{grid-template-columns:205px minmax(0,1fr)}
 .task-rail{padding-left:10px;padding-right:10px}
@@ -1299,6 +1297,7 @@ New project
 <button sc-camel-on-click="{{item.onClick}}" class="task-project-button" style="background:{{item.bg}};--task-bar:{{item.barColor}}"><strong>{{item.name}}</strong><span>{{item.countLabel}}</span></button>
 </sc-for>
 </div>
+<h2 class="task-status-heading">Status</h2>
 <div class="task-status-list">
 <sc-for list="{{adminTaskStatuses}}" as="status" hint-placeholder-count="5">
 <button sc-camel-on-click="{{status.onClick}}" class="task-status-button" style="background:{{status.bg}};color:{{status.color}}"><i style="background:{{status.dot}}"></i><span>{{status.label}}</span><span>{{status.count}}</span></button>
@@ -1447,6 +1446,7 @@ New project
 <button sc-camel-on-click="{{item.onClick}}" class="task-project-button" style="background:{{item.bg}};--task-bar:{{item.barColor}}"><strong>{{item.name}}</strong><span>{{item.countLabel}}</span></button>
 </sc-for>
 </div>
+<h2 class="task-status-heading">Status</h2>
 <div class="task-status-list">
 <sc-for list="{{teamTaskStatuses}}" as="status" hint-placeholder-count="5">
 <button sc-camel-on-click="{{status.onClick}}" class="task-status-button" style="background:{{status.bg}};color:{{status.color}}"><i style="background:{{status.dot}}"></i><span>{{status.label}}</span><span>{{status.count}}</span></button>
@@ -1628,6 +1628,7 @@ New project
 <button sc-camel-on-click="{{item.onClick}}" class="task-project-button" style="background:{{item.bg}};--task-bar:{{item.barColor}}"><strong>{{item.name}}</strong><span>{{item.countLabel}}</span></button>
 </sc-for>
 </div>
+<h2 class="task-status-heading">Status</h2>
 <div class="task-status-list">
 <sc-for list="{{leadTaskStatuses}}" as="status" hint-placeholder-count="5">
 <button sc-camel-on-click="{{status.onClick}}" class="task-status-button" style="background:{{status.bg}};color:{{status.color}}"><i style="background:{{status.dot}}"></i><span>{{status.label}}</span><span>{{status.count}}</span></button>
