@@ -1,50 +1,35 @@
-# Tasks across roles design QA
+# Design QA — Admin Team & Departments
 
-- Source visual truth: `/workspace/scratch/7da795c3cf26/generated_images/exec-2b70bb09-6a59-4df8-88e3-a7033c12c5c2.png`
-- Implementation screenshot: unavailable; Cloud Browser access to `terminal.local:4173` was denied by the workspace browser security policy.
-- Intended viewport: 1584 × 992 desktop reference, light theme.
-- Source pixels: 1584 × 992.
-- Implementation pixels: unavailable.
-- CSS size and density normalization: unavailable because the rendered implementation could not be captured.
-- State: Admin Tasks, PM Tasks, and Leadership Tasks using the all-projects/all-status filter state.
+Result: **passed**
 
-## Full-view comparison evidence
+## Reference
 
-The source render was available and used as the implementation target. A browser-rendered implementation image could not be obtained, so a valid side-by-side full-view comparison was not possible.
+- Approved render: `generated_images/exec-dc381fdf-09e7-4194-b4bc-897139ddf3d5.png`
+- Verified screen: Admin → Team
+- Browser viewport: desktop cloud browser (1364 px wide)
 
-## Focused region comparison evidence
+## Visual comparison
 
-Blocked for the same reason. Code-level checks confirm the expected summary strip, project/status filter rail, task table columns, role-specific actions, and responsive rules are present, but code inspection is not a substitute for visual comparison.
+- Matched the approved page hierarchy: header and CTA, four-part summary strip, member table, departments panel, and pending invitation list.
+- Kept the FACT navigation, typography, neutral surfaces, and existing navigation red (`#c8102e`).
+- Replaced render-only sample values with the platform's current users, tasks, roles, departments, invitations, and active projects.
+- Corrected generated text-wrapper sizing so summary values visibly render at 36 px.
+- Corrected the member table grid so Access and Actions remain visible at the standard desktop viewport.
+- Confirmed no overlapping cards, clipped actions, broken padding, or misaligned columns in the final side-by-side comparison.
 
-## Findings
+## Interaction checks
 
-- [P1] Browser-rendered visual evidence is unavailable.
-  Location: Admin, PM, and Leadership Tasks screens.
-  Evidence: the cloud browser denied access to the local preview before any viewport capture or interaction test could run.
-  Impact: layout fidelity, wrapping, and responsive behavior cannot be certified visually.
-  Fix: open the local preview in an allowed Cloud Browser session and compare all three role states against the source render.
+- Member search filters the directory.
+- Department filter returns the correct department members.
+- New department opens a working creation modal.
+- Edit member opens a working role/department modal.
+- Remove member opens a confirmation modal.
+- Invite member opens the existing invitation flow.
+- Pending invitation Resend and Revoke controls update the local screen state.
 
-## Required fidelity surfaces
+## Validation
 
-- Fonts and typography: implemented with the existing FACT Inter typography system; visual confirmation blocked.
-- Spacing and layout rhythm: the approved full-width layout, four-part summary, filter rail, table columns, and responsive breakpoints are implemented; visual confirmation blocked.
-- Colors and visual tokens: FACT red `#C8102E`, white/cool-gray surfaces, pale-red borders, and semantic state colors are implemented; visual confirmation blocked.
-- Image quality and asset fidelity: no raster or decorative image assets are required by this screen. Existing product icons are retained.
-- Copy and content: Admin, PM, and Leadership task labels, counts, filters, assignees, due dates, priorities, and statuses are wired to the existing task data.
-
-## Interaction verification
-
-- Static checks passed: Leadership Tasks navigation and screen exist.
-- Static checks passed: exactly one New task button exists, inside the Admin screen.
-- Static checks passed: the create-task handler rejects non-Admin roles.
-- Static checks passed: Leadership uses read-only status labels; PM retains status updates and notes; Admin retains create/edit/delete.
-- Template build and JavaScript parse checks passed.
-- Browser interaction and console checks: blocked by browser security policy.
-
-## Comparison history
-
-1. Implemented the selected Admin Tasks render across all three roles.
-2. Added role-specific permissions and data scopes.
-3. Attempted Cloud Browser verification; local preview access was denied before capture.
-
-final result: blocked
+- Template JavaScript parser: passed.
+- Generated HTML build: passed.
+- `git diff --check`: passed.
+- A pre-existing bundled-font decode warning remains in the browser console; it does not block the page or this screen's controls.

@@ -560,6 +560,90 @@
 .task-list-head{display:none}.task-item,.task-page-readonly .task-item{grid-template-columns:minmax(0,1fr) 104px 38px;gap:7px;padding:10px 8px}.task-page-readonly .task-item{grid-template-columns:minmax(0,1fr) 104px}
 .task-due{grid-column:1}.task-priority{display:block;grid-column:2;grid-row:2}.task-assignee{grid-column:1;grid-row:3}.task-status-select,.task-status-readonly{grid-column:2;grid-row:1;width:104px}.task-actions{grid-column:3;grid-row:1/3;flex-direction:column}
 }
+
+/* Admin · Team & Departments */
+.admin-team{width:100%;min-width:0;padding-top:8px;color:#14141a}
+.admin-team *{box-sizing:border-box}
+.admin-team button,.admin-team input,.admin-team select{font-family:inherit}
+.admin-team-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:18px}
+.admin-team-head h1{margin:0;font-size:27px;font-weight:800;letter-spacing:-.045em;line-height:1.1}
+.admin-team-head p{margin:6px 0 0;color:#6f6f78;font-size:13px}
+.admin-team-invite{height:42px;padding:0 18px;border:0;border-radius:13px;background:#c8102e;color:#fff;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 7px 18px rgba(200,16,46,.14)}
+.admin-team-invite:hover{background:#a50d26}
+.admin-team-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px;overflow:hidden;border:1px solid #efc2cb;border-radius:18px;background:#fff}
+.admin-team-stat{min-height:108px;padding:20px 22px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid #ececf1;text-align:center}
+.admin-team-stat:last-child{border-right:0}
+.admin-team-stat strong,.admin-team-stat strong *{display:block;color:#101014;font-size:36px!important;line-height:1!important;font-weight:800!important;letter-spacing:-.05em!important;font-variant-numeric:tabular-nums}
+.admin-team-stat span{display:block;margin-top:10px;color:#4d535e;font-size:12px;font-weight:700}
+.admin-team-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(330px,.92fr);gap:16px;align-items:stretch}
+.admin-team-panel{min-width:0;overflow:hidden;border:1px solid #dedee4;border-radius:16px;background:#fff}
+.admin-team-panel-head{min-height:64px;padding:15px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #ececf1}
+.admin-team-panel-head h2{margin:0;font-size:15px;font-weight:800;letter-spacing:-.025em;white-space:nowrap}
+.admin-team-tools{margin-left:auto;display:flex;align-items:center;gap:10px;min-width:0}
+.admin-team-search{position:relative;min-width:210px}
+.admin-team-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#8f94a0;pointer-events:none}
+.admin-team-search input{width:100%;height:38px;padding:0 12px 0 35px;border:1px solid #dedee4;border-radius:10px;background:#fafafd;color:#14141a;font-size:12px}
+.admin-team-search input:focus,.admin-team-filter:focus{outline:2px solid rgba(200,16,46,.13);border-color:#c8102e;background:#fff}
+.admin-team-filter{height:38px;min-width:170px;padding:0 34px 0 12px;border:1px solid #dedee4;border-radius:10px;background:#fafafd;color:#14141a;font-size:12px;font-weight:600;cursor:pointer}
+.admin-member-head,.admin-member-row{display:grid;grid-template-columns:minmax(155px,1.35fr) minmax(115px,1fr) 90px 70px 78px 52px;gap:10px;align-items:center}
+.admin-member-head{padding:10px 18px;background:#fafafa;border-bottom:1px solid #ececf1;color:#787d88;font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.admin-member-row{min-height:78px;padding:13px 18px;border-bottom:1px solid #ececf1}
+.admin-member-row:last-child{border-bottom:0}
+.admin-member-row:hover{background:#fffafb}
+.admin-member-person{display:flex;align-items:center;gap:11px;min-width:0}
+.admin-member-avatar{width:35px;height:35px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800}
+.admin-member-copy{min-width:0}
+.admin-member-copy strong{display:block;overflow:hidden;color:#14141a;font-size:12.5px;font-weight:800;text-overflow:ellipsis;white-space:nowrap}
+.admin-member-copy small{display:block;margin-top:3px;overflow:hidden;color:#979ba5;font-size:10px;text-overflow:ellipsis;white-space:nowrap}
+.admin-member-dept{overflow:hidden;color:#343944;font-size:11.5px;font-weight:600;text-overflow:ellipsis;white-space:nowrap}
+.admin-member-role{display:inline-flex;width:max-content;max-width:100%;padding:5px 9px;border-radius:7px;font-size:9.5px;font-weight:800;white-space:nowrap}
+.admin-member-tasks{color:#343944;font-size:12px;font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
+.admin-member-access{display:flex;align-items:center;gap:7px;color:#4d535e;font-size:11px;font-weight:600;white-space:nowrap}
+.admin-member-access i{width:7px;height:7px;border-radius:50%;background:#16a47a;flex:none}
+.admin-member-actions{display:flex;justify-content:flex-end;gap:2px}
+.admin-member-action{width:27px;height:27px;border:0;border-radius:8px;background:transparent;color:#8d929d;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.admin-member-action:hover{background:#f3f3f6;color:#14141a}
+.admin-member-action.remove:hover{background:#fdecef;color:#c8102e}
+.admin-team-empty{padding:48px 20px;text-align:center;color:#9398a3;font-size:12px}
+.admin-team-foot{min-height:60px;padding:12px 18px;display:flex;align-items:center;gap:14px;border-top:1px solid #ececf1;color:#777c87;font-size:10.5px}
+.admin-team-pages{margin-left:auto;display:flex;align-items:center;gap:4px}
+.admin-team-page{width:30px;height:30px;border:1px solid transparent;border-radius:8px;background:#fff;color:#353a44;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.admin-team-page.active{border-color:#c8102e;color:#c8102e}
+.admin-team-page.muted{border-color:#e1e2e7;color:#a4a8b1}
+.admin-dept-action{margin-left:auto;border:0;background:transparent;color:#c8102e;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap}
+.admin-dept-action:hover{text-decoration:underline}
+.admin-dept-labels,.admin-dept-row{display:grid;grid-template-columns:minmax(0,1fr) 110px 25px;gap:10px;align-items:center}
+.admin-dept-labels{padding:10px 18px;background:#fafafa;border-bottom:1px solid #ececf1;color:#787d88;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.admin-dept-labels span:nth-child(2){text-align:center}
+.admin-dept-row{min-height:57px;padding:10px 18px;border-bottom:1px solid #ececf1}
+.admin-dept-row strong{overflow:hidden;font-size:11.5px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+.admin-dept-people{display:flex;align-items:center;justify-content:center;padding-left:8px}
+.admin-dept-avatar{width:27px;height:27px;margin-left:-7px;border:2px solid #fff;border-radius:50%;background:#f0f1f4;color:#5d6470;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800}
+.admin-dept-count{text-align:right;color:#555b66;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}
+.admin-invites{padding:17px 18px 14px}
+.admin-invites h3{margin:0 0 11px;font-size:14px;font-weight:800;letter-spacing:-.02em}
+.admin-invite-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #ececf1}
+.admin-invite-copy{min-width:0}
+.admin-invite-copy strong{display:block;overflow:hidden;font-size:10.5px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+.admin-invite-copy small{display:block;margin-top:3px;color:#979ba5;font-size:9.5px}
+.admin-invite-actions{display:flex;gap:10px}
+.admin-invite-actions button{padding:0;border:0;background:transparent;color:#c8102e;font-size:9.5px;font-weight:800;cursor:pointer}
+.admin-invite-actions button:hover{text-decoration:underline}
+.admin-invite-more{display:inline-block;margin-top:10px;border:0;background:transparent;color:#c8102e;font-size:10px;font-weight:800;cursor:pointer}
+.admin-team-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.admin-team-modal-grid .wide{grid-column:1/-1}
+.admin-team-modal-grid label{display:block;margin-bottom:6px;font-size:11px;font-weight:800}
+.admin-team-modal-grid input,.admin-team-modal-grid select{width:100%;height:42px;padding:0 12px;border:1px solid #dedee4;border-radius:11px;background:#f8f8fa;color:#14141a;font-size:12.5px}
+.admin-team-modal-grid input:focus,.admin-team-modal-grid select:focus{outline:2px solid rgba(200,16,46,.14);border-color:#c8102e;background:#fff}
+@media(max-width:1220px){
+.admin-team-grid{grid-template-columns:1fr}.admin-dept-panel{display:grid;grid-template-columns:minmax(0,1fr) 340px}.admin-dept-panel>.admin-team-panel-head{grid-column:1/-1}.admin-invites{border-left:1px solid #ececf1}.admin-member-head,.admin-member-row{grid-template-columns:minmax(180px,1.4fr) minmax(130px,1fr) 100px 72px 84px 56px}
+}
+@media(max-width:980px){
+.admin-team-summary{grid-template-columns:1fr 1fr}.admin-team-stat:nth-child(2){border-right:0}.admin-team-stat:nth-child(-n+2){border-bottom:1px solid #ececf1}.admin-team-panel-head{align-items:flex-start;flex-direction:column}.admin-team-tools{width:100%;margin-left:0}.admin-team-search{flex:1}.admin-team-filter{min-width:150px}.admin-member-head{display:none}.admin-member-row{grid-template-columns:minmax(180px,1.4fr) minmax(130px,1fr) 100px 70px 56px}.admin-member-access{display:none}
+}
+@media(max-width:720px){
+.admin-team-head{align-items:flex-start}.admin-team-head h1{font-size:23px}.admin-team-invite{height:38px;padding:0 13px}.admin-team-stat{min-height:88px;padding:15px}.admin-team-stat strong{font-size:30px!important}.admin-team-stat span{font-size:10.5px}.admin-team-tools{align-items:stretch;flex-direction:column}.admin-team-search,.admin-team-filter{width:100%;min-width:0}.admin-member-row{grid-template-columns:minmax(0,1fr) 56px;gap:8px}.admin-member-dept,.admin-member-role,.admin-member-tasks{grid-column:1}.admin-member-actions{grid-column:2;grid-row:1/4;align-self:center;flex-direction:column}.admin-dept-panel{display:block}.admin-invites{border-top:1px solid #ececf1;border-left:0}.admin-team-foot{align-items:flex-start;flex-direction:column}.admin-team-pages{margin-left:0}.admin-team-modal-grid{grid-template-columns:1fr}
+}
 </style>
 <style>
 /* FACT build dashboard */
@@ -1358,17 +1442,39 @@ New project
 </sc-if>
 
 <sc-if value="{{sATeam}}">
-<div data-screen-label="Admin · Team">
-<div style="margin-bottom:20px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px"><div><h1 style="margin:0;font-size:23px;font-weight:800;letter-spacing:-.03em">Team</h1><p style="margin:5px 0 0;font-size:13px;color:#6f6f78">Everyone working on facility activations.</p></div><sc-if value="{{canInviteTesters}}"><button sc-camel-on-click="{{onOpenInvite}}" style="border:0;border-radius:11px;background:#c8102e;color:#fff;padding:10px 14px;font-size:12px;font-weight:800;cursor:pointer">Invite tester</button></sc-if></div>
-<div style="background:#fff;border:1px solid #ececf1;border-radius:18px;overflow:hidden">
-<sc-for list="{{members}}" as="m" hint-placeholder-count="7">
-<div style="display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid #f1f1f4">
-<div style="width:38px;height:38px;border-radius:13px;background:{{m.avatarBg}};color:{{m.avatarColor}};display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:800;flex:none">{{m.initial}}</div>
-<div style="flex:1;min-width:0"><p style="margin:0;font-size:13.5px;font-weight:700">{{m.name}}</p><p style="margin:2px 0 0;font-size:11.5px;color:#a5a5ad">{{m.dept}}</p></div>
-<span style="padding:3px 10px;border-radius:99px;font-size:10.5px;font-weight:700;background:{{m.badgeBg}};color:{{m.badgeColor}};flex:none">{{m.roleLabel}}</span>
-<span style="font-size:11.5px;color:#6f6f78;font-weight:600;flex:none;width:90px;text-align:right">{{m.taskLabel}}</span>
+<div data-screen-label="Admin · Team & Departments" class="admin-team">
+<header class="admin-team-head">
+<div><h1>Team &amp; Departments</h1><p>Manage access, assignments and department structure.</p></div>
+<sc-if value="{{canInviteTesters}}"><button sc-camel-on-click="{{onOpenInvite}}" class="admin-team-invite">＋ Invite member</button></sc-if>
+</header>
+<section class="admin-team-summary">
+<div class="admin-team-stat"><strong>{{adminMemberTotal}}</strong><span>Total Members</span></div>
+<div class="admin-team-stat"><strong>{{adminDepartmentTotal}}</strong><span>Departments</span></div>
+<div class="admin-team-stat"><strong>{{adminPendingInviteTotal}}</strong><span>Pending Invites</span></div>
+<div class="admin-team-stat"><strong>{{adminActiveProjectTotal}}</strong><span>Active Projects</span></div>
+</section>
+<div class="admin-team-grid">
+<section class="admin-team-panel">
+<div class="admin-team-panel-head"><h2>Team Members</h2><div class="admin-team-tools">
+<label class="admin-team-search"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg><input type="search" placeholder="Search members..." sc-camel-value="{{teamSearch}}" sc-camel-on-change="{{onTeamSearch}}"></label>
+<sc-raw-select value="{{teamDeptFilter}}" sc-camel-on-change="{{onTeamDeptFilter}}" class="admin-team-filter"><option value="all">All departments</option><option value="Activation Program">Activation Program</option><option value="IT & Low Voltage">IT &amp; Low Voltage</option><option value="Facilities">Facilities</option><option value="Clinical Operations">Clinical Operations</option><option value="Regulatory & Licensing">Regulatory &amp; Licensing</option><option value="Biomedical Engineering">Biomedical Engineering</option></sc-raw-select>
+</div></div>
+<div class="admin-member-head"><span>Member</span><span>Department</span><span>Role</span><span>Active Tasks</span><span>Access</span><span>Actions</span></div>
+<sc-for list="{{adminMembers}}" as="m" hint-placeholder-count="7">
+<div class="admin-member-row">
+<div class="admin-member-person"><div class="admin-member-avatar" style="background:{{m.avatarBg}};color:{{m.avatarColor}}">{{m.initials}}</div><div class="admin-member-copy"><strong>{{m.name}}</strong><small>{{m.email}}</small></div></div>
+<span class="admin-member-dept">{{m.dept}}</span><span class="admin-member-role" style="background:{{m.badgeBg}};color:{{m.badgeColor}}">{{m.roleLabel}}</span><span class="admin-member-tasks">{{m.taskCount}}</span><span class="admin-member-access"><i></i>Active</span>
+<div class="admin-member-actions"><button sc-camel-on-click="{{m.onEdit}}" class="admin-member-action" title="Edit member"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></button><button sc-camel-on-click="{{m.onRemove}}" class="admin-member-action remove" title="Remove member"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path></svg></button></div>
 </div>
 </sc-for>
+<sc-if value="{{adminMembersEmpty}}"><div class="admin-team-empty">No members match this search or department.</div></sc-if>
+<div class="admin-team-foot"><span>{{adminMembersShowing}}</span><div class="admin-team-pages"><button class="admin-team-page muted">‹</button><button class="admin-team-page active">1</button><button class="admin-team-page muted">›</button></div></div>
+</section>
+<aside class="admin-team-panel admin-dept-panel">
+<div class="admin-team-panel-head"><h2>Departments</h2><button sc-camel-on-click="{{onNewDepartment}}" class="admin-dept-action">＋ New department</button></div>
+<div><div class="admin-dept-labels"><span>Department</span><span>Members</span><span>Total</span></div><sc-for list="{{adminDepartments}}" as="d" hint-placeholder-count="6"><div class="admin-dept-row"><strong>{{d.name}}</strong><div class="admin-dept-people"><sc-for list="{{d.avatars}}" as="a" hint-placeholder-count="2"><span class="admin-dept-avatar" style="background:{{a.bg}};color:{{a.color}}">{{a.initials}}</span></sc-for></div><span class="admin-dept-count">{{d.count}}</span></div></sc-for></div>
+<div class="admin-invites"><h3>Pending Invitations</h3><sc-for list="{{adminPendingInvites}}" as="invite" hint-placeholder-count="2"><div class="admin-invite-row"><div class="admin-invite-copy"><strong>{{invite.email}}</strong><small>{{invite.roleLabel}} · {{invite.sentLabel}}</small></div><div class="admin-invite-actions"><button sc-camel-on-click="{{invite.onResend}}">Resend</button><button sc-camel-on-click="{{invite.onRevoke}}">Revoke</button></div></div></sc-for><sc-if value="{{adminNoPendingInvites}}"><div class="admin-team-empty">No pending invitations.</div></sc-if></div>
+</aside>
 </div>
 </div>
 </sc-if>
@@ -1799,7 +1905,7 @@ Comments
 <div style="position:fixed;inset:0;z-index:55;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box">
 <div sc-camel-on-click="{{onCloseInvite}}" style="position:absolute;inset:0;background:rgba(16,16,20,.5);backdrop-filter:blur(4px)"></div>
 <div style="position:relative;background:#fff;border-radius:20px;width:100%;max-width:470px;box-shadow:0 30px 80px rgba(0,0,0,.3);font-family:'Inter',system-ui,sans-serif;overflow:hidden">
-<div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #f1f1f4"><div><h2 style="margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em">Invite a tester</h2><p style="margin:5px 0 0;color:#8a8a94;font-size:11.5px">Assign the workspace they should enter.</p></div><button sc-camel-on-click="{{onCloseInvite}}" style="border:none;background:#f1f1f4;border-radius:99px;color:#6f6f78;cursor:pointer;padding:7px;display:flex"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #f1f1f4"><div><h2 style="margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em">Invite a member</h2><p style="margin:5px 0 0;color:#8a8a94;font-size:11.5px">Assign the workspace they should enter.</p></div><button sc-camel-on-click="{{onCloseInvite}}" style="border:none;background:#f1f1f4;border-radius:99px;color:#6f6f78;cursor:pointer;padding:7px;display:flex"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></div>
 <div style="padding:22px 24px;display:flex;flex-direction:column;gap:14px">
 <sc-if value="{{inviteComplete}}"><div style="border:1px solid #b7e1c7;border-radius:14px;background:#effaf3;padding:17px"><span style="display:block;color:#1f7a43;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">Invitation ready</span><strong style="display:block;margin-top:7px;font-size:18px;letter-spacing:.04em">{{inviteAccessCode}}</strong><p style="margin:7px 0 0;color:#4d6b58;font-size:11.5px;line-height:1.5">Send this one access code to {{inviteResultEmail}}. Creating another invitation will replace it.</p></div></sc-if>
 <sc-if value="{{inviteFormShow}}">
@@ -1812,6 +1918,18 @@ Comments
 </div>
 </div>
 </div>
+</sc-if>
+
+<sc-if value="{{mDepartment}}">
+<div style="position:fixed;inset:0;z-index:56;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box"><div sc-camel-on-click="{{onClose}}" style="position:absolute;inset:0;background:rgba(16,16,20,.5);backdrop-filter:blur(4px)"></div><div style="position:relative;background:#fff;border-radius:20px;width:100%;max-width:430px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden"><div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #f1f1f4"><div><h2 style="margin:0;font-size:17px;font-weight:800">New department</h2><p style="margin:5px 0 0;color:#8a8a94;font-size:11.5px">Add a department to the team directory.</p></div><button sc-camel-on-click="{{onClose}}" style="border:0;background:#f1f1f4;border-radius:50%;width:30px;height:30px;cursor:pointer">×</button></div><div style="padding:22px 24px"><div class="admin-team-modal-grid"><div class="wide"><label>Department name</label><input sc-camel-value="{{departmentDraft}}" sc-camel-on-change="{{onDepartmentDraft}}" placeholder="e.g. Infection Prevention"></div></div><div style="display:flex;gap:10px;margin-top:18px"><button sc-camel-on-click="{{onClose}}" style="flex:1;padding:12px;border:1px solid #ececf1;border-radius:12px;background:#fff;font-weight:700;cursor:pointer">Cancel</button><button sc-camel-on-click="{{onSaveDepartment}}" style="flex:1;padding:12px;border:0;border-radius:12px;background:#c8102e;color:#fff;font-weight:800;cursor:pointer">Add department</button></div></div></div></div>
+</sc-if>
+
+<sc-if value="{{mMember}}">
+<div style="position:fixed;inset:0;z-index:56;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box"><div sc-camel-on-click="{{onClose}}" style="position:absolute;inset:0;background:rgba(16,16,20,.5);backdrop-filter:blur(4px)"></div><div style="position:relative;background:#fff;border-radius:20px;width:100%;max-width:490px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden"><div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #f1f1f4"><div><h2 style="margin:0;font-size:17px;font-weight:800">Edit member</h2><p style="margin:5px 0 0;color:#8a8a94;font-size:11.5px">Update {{memberEditName}}’s role and department.</p></div><button sc-camel-on-click="{{onClose}}" style="border:0;background:#f1f1f4;border-radius:50%;width:30px;height:30px;cursor:pointer">×</button></div><div style="padding:22px 24px"><div class="admin-team-modal-grid"><div><label>Role</label><sc-raw-select value="{{memberEditRole}}" sc-camel-on-change="{{onMemberEditRole}}"><option value="team">Project Team</option><option value="leadership">Leadership</option><option value="admin">Administrator</option></sc-raw-select></div><div><label>Department</label><sc-raw-select value="{{memberEditDept}}" sc-camel-on-change="{{onMemberEditDept}}"><option value="Activation Program">Activation Program</option><option value="IT & Low Voltage">IT &amp; Low Voltage</option><option value="Facilities">Facilities</option><option value="Clinical Operations">Clinical Operations</option><option value="Regulatory & Licensing">Regulatory &amp; Licensing</option><option value="Biomedical Engineering">Biomedical Engineering</option></sc-raw-select></div></div><div style="display:flex;gap:10px;margin-top:18px"><button sc-camel-on-click="{{onClose}}" style="flex:1;padding:12px;border:1px solid #ececf1;border-radius:12px;background:#fff;font-weight:700;cursor:pointer">Cancel</button><button sc-camel-on-click="{{onSaveMember}}" style="flex:1;padding:12px;border:0;border-radius:12px;background:#c8102e;color:#fff;font-weight:800;cursor:pointer">Save changes</button></div></div></div></div>
+</sc-if>
+
+<sc-if value="{{mDelMember}}">
+<div style="position:fixed;inset:0;z-index:56;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box"><div sc-camel-on-click="{{onClose}}" style="position:absolute;inset:0;background:rgba(16,16,20,.5);backdrop-filter:blur(4px)"></div><div style="position:relative;background:#fff;border-radius:20px;width:100%;max-width:420px;box-shadow:0 30px 80px rgba(0,0,0,.3);padding:26px"><h2 style="margin:0;font-size:18px;font-weight:800">Remove team member?</h2><p style="margin:8px 0 20px;color:#6f6f78;font-size:12.5px;line-height:1.55">{{memberDeleteName}} will be removed from the team directory. Existing tasks will remain unchanged.</p><div style="display:flex;gap:10px"><button sc-camel-on-click="{{onClose}}" style="flex:1;padding:12px;border:1px solid #ececf1;border-radius:12px;background:#fff;font-weight:700;cursor:pointer">Cancel</button><button sc-camel-on-click="{{onDeleteMember}}" style="flex:1;padding:12px;border:0;border-radius:12px;background:#c8102e;color:#fff;font-weight:800;cursor:pointer">Remove member</button></div></div></div>
 </sc-if>
 
 <sc-if value="{{mProject}}">
@@ -1961,7 +2079,7 @@ class Component extends DCLogic {
     const rmap = { admin: 'adash', team: 'twork', leadership: 'ldash' };
     const accountNames = { admin: 'Sandra Ortiz', team: 'Marcus Lee', leadership: 'Robert Chen' };
     const sr = props.startRole && props.startRole !== 'picker' ? props.startRole : null;
-    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginNotice: '', loginBusy: false, resetMode: false, recoveryEmail: '', recoveryCode: '', newAccessCode: '', confirmAccessCode: '', recoveryError: '', recoveryBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', lTaskProject: 'all', lTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, calOffset: 0, calSel: '', projects: P, tasks: T, notes: N };
+    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginNotice: '', loginBusy: false, resetMode: false, recoveryEmail: '', recoveryCode: '', newAccessCode: '', confirmAccessCode: '', recoveryError: '', recoveryBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, teamSearch: '', teamDeptFilter: 'all', users: this.USERS.slice(), departments: ['Activation Program', 'IT & Low Voltage', 'Facilities', 'Clinical Operations', 'Regulatory & Licensing', 'Biomedical Engineering'], pendingInvites: [{ id: 'i1', email: 'alex.rodriguez@nyp.org', role: 'team', sentLabel: 'Invited 2 days ago' }, { id: 'i2', email: 'samantha.kim@nyp.org', role: 'team', sentLabel: 'Invited 5 days ago' }], departmentDraft: '', memberEditIndex: null, memberEditRole: 'team', memberEditDept: '', pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', lTaskProject: 'all', lTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, calOffset: 0, calSel: '', projects: P, tasks: T, notes: N };
     this.draft = {};
   }
   componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; if (m !== this.state.isMobile) this.setState({ isMobile: m }); }; window.addEventListener('resize', this._rs); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); this._commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':'); if (this.state.role) this.loadPageComments(); }
@@ -2320,6 +2438,24 @@ class Component extends DCLogic {
       return { ...d, abbr: this.abbr(p.name), avatarBg: pmProjectColors[i % pmProjectColors.length], openLabel: open.length + ' open', nextDeadline: nextDue ? this.fmtD(nextDue.due) : this.fmtD(p.goLive) };
     });
     const badge = { admin: ['Administrator', 'rgba(200,16,46,.09)', '#c8102e'], leadership: ['Leadership', '#fdf1dc', '#b45309'], team: ['Project Team', '#e2f6ea', '#1f9d55'] };
+    const adminUsers = s.users || this.USERS;
+    const normalizeDepartment = dept => dept === 'Activation Program Admin' ? 'Activation Program' : dept === 'VP, Facilities' ? 'Facilities' : dept === 'Regulatory PM' ? 'Regulatory & Licensing' : dept;
+    const emailFor = name => name.toLowerCase().replace(/[^a-z0-9]+/g, '.').replace(/^\.|\.$/g, '') + '@nyp.org';
+    const teamNeedle = (s.teamSearch || '').trim().toLowerCase();
+    const adminMemberRows = adminUsers.map((u, index) => {
+      const b = badge[u.role] || badge.team;
+      const av = avatarColors[index % avatarColors.length];
+      const dept = normalizeDepartment(u.dept);
+      const email = u.email || emailFor(u.name);
+      const taskCount = rawTasks.filter(t => t.assignees.includes(u.name) && t.status !== 'completed').length;
+      return { index, name: u.name, email, initials: this.abbr(u.name), dept, role: u.role, roleLabel: b[0], badgeBg: b[1], badgeColor: b[2], avatarBg: av[0], avatarColor: av[1], taskCount, onEdit: () => this.setState({ modal: 'member', memberEditIndex: index, memberEditRole: u.role, memberEditDept: dept }), onRemove: () => this.setState({ modal: 'delMember', delId: index }) };
+    });
+    const adminMembers = adminMemberRows.filter(m => (s.teamDeptFilter === 'all' || m.dept === s.teamDeptFilter) && (!teamNeedle || (m.name + ' ' + m.email + ' ' + m.dept + ' ' + m.roleLabel).toLowerCase().includes(teamNeedle)));
+    const adminDepartments = (s.departments || []).map((name, index) => {
+      const deptMembers = adminMemberRows.filter(m => m.dept === name);
+      return { name, count: deptMembers.length, avatars: deptMembers.slice(0, 4).map((m, i) => ({ initials: m.initials, bg: avatarColors[(index + i) % avatarColors.length][0], color: avatarColors[(index + i) % avatarColors.length][1] })) };
+    });
+    const adminPendingInvites = (s.pendingInvites || []).map(invite => ({ ...invite, roleLabel: (badge[invite.role] || badge.team)[0], onResend: () => this.setState(st => ({ pendingInvites: st.pendingInvites.map(x => x.id === invite.id ? { ...x, sentLabel: 'Sent just now' } : x) })), onRevoke: () => this.setState(st => ({ pendingInvites: st.pendingInvites.filter(x => x.id !== invite.id) })) }));
     const upcoming = s.projects.filter(p => this.derSt(p) !== 'completed' && p.goLive).sort((a, b) => a.goLive.localeCompare(b.goLive));
     const next = upcoming[0];
     const nextDays = next ? Math.ceil((new Date(next.goLive + 'T12:00:00') - now) / 864e5) : null;
@@ -2504,6 +2640,10 @@ class Component extends DCLogic {
       feedbackEnabled: s.buildMode && s.feedbackEnabled,
       canInviteTesters: s.buildMode && s.accountRole === 'admin' && s.role === 'admin', onOpenInvite: () => this.setState({ modal: 'invite', inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null }),
       mInvite: s.modal === 'invite', inviteName: s.inviteName, inviteEmail: s.inviteEmail, inviteRole: s.inviteRole, onInviteName: (e) => this.setState({ inviteName: e.target.value }), onInviteEmail: (e) => this.setState({ inviteEmail: e.target.value }), onInviteRole: (e) => this.setState({ inviteRole: e.target.value }), inviteComplete: !!s.inviteResult, inviteFormShow: !s.inviteResult, inviteAccessCode: s.inviteResult ? s.inviteResult.accessCode : '', inviteResultEmail: s.inviteResult ? s.inviteResult.email : '', inviteError: s.inviteError, hasInviteError: !!s.inviteError, inviteButtonLabel: s.inviteBusy ? 'Creating invitation…' : 'Create invitation', onCreateInvite: () => this.createInvitation(), onCloseInvite: () => this.setState({ modal: null, inviteResult: null, inviteError: '' }),
+      adminMemberTotal: adminMemberRows.length, adminDepartmentTotal: adminDepartments.length, adminPendingInviteTotal: adminPendingInvites.length, adminActiveProjectTotal: s.projects.filter(p => this.derSt(p) !== 'completed').length,
+      adminMembers, adminMembersEmpty: adminMembers.length === 0, adminMembersShowing: 'Showing ' + adminMembers.length + ' of ' + adminMemberRows.length + ' members', teamSearch: s.teamSearch || '', teamDeptFilter: s.teamDeptFilter || 'all', onTeamSearch: e => this.setState({ teamSearch: e.target.value }), onTeamDeptFilter: e => this.setState({ teamDeptFilter: e.target.value }),
+      adminDepartments, adminPendingInvites, adminNoPendingInvites: adminPendingInvites.length === 0,
+      onNewDepartment: () => this.setState({ modal: 'department', departmentDraft: '' }),
       commentPanelOpen: s.commentPanelOpen, onOpenComments: () => this.setState({ commentPanelOpen: true }), onCloseComments: () => this.setState({ commentPanelOpen: false }),
       pageComments, commentCount: pageComments.length, hasCommentCount: pageComments.length > 0, commentsLoading: s.commentsLoading, commentsEmpty: !s.commentsLoading && pageComments.length === 0, commentPageLabel: this.commentPageLabel(), commentDraft: s.commentDraft, onCommentDraft: (e) => this.setState({ commentDraft: e.target.value }), onAddComment: () => this.addPageComment(), commentStorageLabel: s.commentsStorage === 'cloud' ? 'Shared with the review team' : 'Saved in this browser',
       pickAdmin: () => this.setState({ login: false, splash: false, demoLoader: false, role: 'admin', screen: 'adash', projectId: null, modal: null }),
@@ -2577,7 +2717,6 @@ class Component extends DCLogic {
       goTeamProjects: () => this.setState({ screen: 'tprojects', projectId: null }),
       onPMAddUpdate: () => { const task = pmFocusRaw[0]; if (task) this.setState({ modal: 'note', noteTaskId: task.id, noteDraft: '' }); },
       onNewTask: () => { if (role !== 'admin') return; this.draft = { title: '', projectId: s.projects[0] ? s.projects[0].id : '', phase: 'Regulatory & Licensing', priority: 'medium', status: 'not_started', due: '', pct: 0, assign: '', desc: '' }; this.setState({ modal: 'task', editId: null }); },
-      members: this.USERS.map((u, i) => { const b = badge[u.role]; const av = avatarColors[i % avatarColors.length]; const cnt = rawTasks.filter(t => t.assignees.includes(u.name) && t.status !== 'completed').length; return { name: u.name, initial: u.name.charAt(0), dept: u.dept, roleLabel: b[0], badgeBg: b[1], badgeColor: b[2], avatarBg: av[0], avatarColor: av[1], taskLabel: u.role === 'team' ? cnt + ' open task' + (cnt === 1 ? '' : 's') : '—' }; }),
       myInProg: myRaw.filter(t => t.status === 'in_progress').length, myDone: myRaw.filter(t => t.status === 'completed').length,
       tFilters: mkFilter([['all', 'All'], ['active', 'Active'], ['in_progress', 'In Progress'], ['on_hold', 'On Hold'], ['needs_review', 'Needs Review'], ['completed', 'Complete']], tf, 'tFilter'),
       myTasks,
@@ -2586,6 +2725,9 @@ class Component extends DCLogic {
       lNextDays: nextDays != null ? nextDays + 'd' : '—',
       lNotes: s.notes.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map(n => { const t = s.tasks.find(x => x.id === n.taskId); return { author: n.author, dateLabel: this.fmtD(n.date), content: n.content, taskTitle: t ? t.title : '' }; }),
       lGoLives: upcoming.map(p => { const date = new Date(p.goLive + 'T12:00:00'); const days = Math.ceil((date - now) / 864e5); return { name: p.name, dateLabel: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }), shortDate: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase(), daysLabel: days + 'd', daysNum: days, meterPct: Math.max(4, Math.min(100, Math.round((1 - days / 120) * 100))), chipColor: days <= 30 ? '#c8102e' : '#101014' }; }).slice(0, 3),
+      mDepartment: s.modal === 'department', departmentDraft: s.departmentDraft || '', onDepartmentDraft: e => this.setState({ departmentDraft: e.target.value }), onSaveDepartment: () => { const name = (s.departmentDraft || '').trim(); if (!name || (s.departments || []).some(d => d.toLowerCase() === name.toLowerCase())) return; this.setState(st => ({ departments: [...st.departments, name], modal: null, departmentDraft: '' })); },
+      mMember: s.modal === 'member', memberEditName: ((s.users || [])[s.memberEditIndex] || {}).name || 'this member', memberEditRole: s.memberEditRole || 'team', memberEditDept: s.memberEditDept || '', onMemberEditRole: e => this.setState({ memberEditRole: e.target.value }), onMemberEditDept: e => this.setState({ memberEditDept: e.target.value }), onSaveMember: () => this.setState(st => ({ users: st.users.map((u, i) => i === st.memberEditIndex ? { ...u, role: st.memberEditRole, dept: st.memberEditDept } : u), modal: null, memberEditIndex: null })),
+      mDelMember: s.modal === 'delMember', memberDeleteName: ((s.users || [])[s.delId] || {}).name || 'This member', onDeleteMember: () => this.setState(st => ({ users: st.users.filter((_, i) => i !== st.delId), modal: null, delId: null })),
       mProject: s.modal === 'project', mProjectTitle: s.editId ? 'Edit project' : 'New project', mProjectSave: s.editId ? 'Save changes' : 'Create project',
       mTask: s.modal === 'task', mTaskTitle: s.editId ? 'Edit task' : 'New task', mTaskSave: s.editId ? 'Save changes' : 'Create task',
       mDelP: s.modal === 'delP', mDelPName: (s.projects.find(p => p.id === s.delId) || {}).name || '',
