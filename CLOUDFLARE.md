@@ -29,6 +29,16 @@ The first three variables are committed in `wrangler.jsonc` while the platform i
 
 After the Admin signs in, the Team page can generate tester access codes and assign Admin, Project Team or Leadership roles.
 
+## Temporary Admin recovery
+
+During the prototype review period, the sign-in screen includes a temporary **Forgot access code?** flow. It is restricted to the configured Admin email and requires a high-entropy recovery key. Only the key's SHA-256 hash is version controlled. A successful reset:
+
+- replaces the Admin access-code hash;
+- invalidates all existing Admin sessions; and
+- permanently records the recovery key as used in D1, preventing reuse.
+
+Set `ADMIN_RECOVERY_ENABLED=false` and remove `ADMIN_RECOVERY_EMAIL` and `ADMIN_RECOVERY_TOKEN_HASH` before the final IT handoff. The recovery endpoint also rejects requests when recovery is disabled.
+
 `keep_vars` is enabled in `wrangler.jsonc` so Git-connected deployments preserve the bootstrap values managed in the Cloudflare dashboard.
 
 For first-time recovery, the Worker also contains a one-time bootstrap-code hash. It can create exactly one Admin only while the `users` table is empty; after the first Admin is created, this recovery path closes automatically. The access code itself is never stored in the repository.

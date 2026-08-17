@@ -23,7 +23,10 @@
     "FEEDBACK_ENABLED": "true",
     "ADMIN_ROLE_PREVIEW_ENABLED": "true",
     "BOOTSTRAP_ADMIN_NAME": "Rafael Morel",
-    "BOOTSTRAP_ADMIN_SETUP_HASH": "3353a8dbdd3404e808b7ed3cef17aeccd40414ad3341306c18dc825136d2766f"
+    "BOOTSTRAP_ADMIN_SETUP_HASH": "3353a8dbdd3404e808b7ed3cef17aeccd40414ad3341306c18dc825136d2766f",
+    "ADMIN_RECOVERY_ENABLED": "true",
+    "ADMIN_RECOVERY_EMAIL": "rafael@latchdesignstudio.com",
+    "ADMIN_RECOVERY_TOKEN_HASH": "5a9f150a4e253adc452eccd23650b09d912bc336df1e0326dad2d80c9e51f882"
   },
   "observability": {
     "enabled": true
