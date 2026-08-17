@@ -453,12 +453,20 @@
 }
 </style>
 <style>
-.task-page{width:min(1420px,calc(100vw - 304px));margin-left:50%;transform:translateX(-50%);padding-top:8px}
-.task-page-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:14px}
-.task-page-header h1{margin:0;font-size:25px;font-weight:800;letter-spacing:-.04em;line-height:1.1}
+.task-page{width:100%;min-width:0;padding-top:8px}
+.task-page-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:18px}
+.task-page-header h1{margin:0;font-size:27px;font-weight:800;letter-spacing:-.04em;line-height:1.1}
 .task-page-header p{margin:6px 0 0;color:#6f6f78;font-size:13px}
 .task-new-button{display:flex;align-items:center;gap:7px;padding:11px 18px;border:0;border-radius:12px;background:#c8102e;color:#fff;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 7px 18px rgba(200,16,46,.13)}
-.task-workspace{display:grid;grid-template-columns:244px minmax(0,1fr);min-height:666px;background:#fff;border:1px solid #dedee4;border-radius:15px;overflow:hidden}
+.task-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px;background:#fff;border:1px solid #efc2cb;border-radius:18px;overflow:hidden}
+.task-summary-item{min-height:92px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-right:1px solid #ececf1}
+.task-summary-item:last-child{border-right:0}
+.task-summary-copy strong{display:block;color:#14141a;font-size:24px;line-height:1;font-weight:800;font-variant-numeric:tabular-nums}
+.task-summary-copy span{display:block;margin-top:9px;color:#606672;font-size:11.5px;font-weight:600}
+.task-summary-icon{width:39px;height:39px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f1f2f5;color:#667085;font-size:17px;font-weight:800;flex:none}
+.task-summary-item.is-alert .task-summary-copy strong,.task-summary-item.is-alert .task-summary-icon{color:#c8102e}.task-summary-item.is-alert .task-summary-icon{background:#fde8ec}
+.task-summary-item.is-progress .task-summary-icon{background:#e8efff;color:#2563eb}.task-summary-item.is-review .task-summary-icon{background:#f1eafe;color:#7c3aed}
+.task-workspace{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:620px;background:#fff;border:1px solid #dedee4;border-radius:16px;overflow:hidden}
 .task-rail{display:flex;flex-direction:column;border-right:1px solid #e7e7ec;padding:17px 13px 16px}
 .task-rail h2{margin:0 9px 13px;font-size:14px;font-weight:800;letter-spacing:-.02em}
 .task-project-list{display:flex;flex-direction:column;gap:3px}
@@ -472,8 +480,8 @@
 .task-status-button i{width:8px;height:8px;border-radius:50%;flex:none}
 .task-status-button span:first-of-type{flex:1}
 .task-status-button span:last-child{color:#8b8b95;font-size:10.5px}
-.task-main{min-width:0;padding:14px 17px 16px}
-.task-main-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:21px}
+.task-main{min-width:0;padding:18px 18px 20px}
+.task-main-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
 .task-main-toolbar h2{margin:0;font-size:14px;font-weight:800;letter-spacing:-.02em}
 .task-toolbar-controls{display:flex;align-items:center;gap:10px}
 .task-search{position:relative}
@@ -487,7 +495,8 @@
 .task-section-heading span{display:inline-flex;align-items:center;justify-content:center;min-width:19px;height:19px;padding:0 5px;box-sizing:border-box;border-radius:99px;background:#f1f1f4;color:#6f6f78;font-size:9.5px}
 .task-section-heading.attention span{background:#fde8ec;color:#c8102e}
 .task-list{border:1px solid #e7e7ec;border-radius:11px;overflow:hidden}
-.task-item{display:grid;grid-template-columns:minmax(280px,1fr) 90px 62px 128px 58px;align-items:center;gap:12px;min-height:59px;padding:7px 10px;border-bottom:1px solid #ededf1;background:#fff}
+.task-list-head{display:grid;grid-template-columns:minmax(260px,1fr) 82px 60px minmax(125px,.62fr) 120px 58px;align-items:center;gap:12px;min-height:34px;padding:0 10px;border-bottom:1px solid #ececf1;background:#fafafa;color:#747b89;font-size:8.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.task-item{display:grid;grid-template-columns:minmax(260px,1fr) 82px 60px minmax(125px,.62fr) 120px 58px;align-items:center;gap:12px;min-height:62px;padding:8px 10px;border-bottom:1px solid #ededf1;background:#fff}
 .task-item:last-child{border-bottom:0}
 .task-item-attention{position:relative;min-height:66px}
 .task-item-attention:before{content:"";position:absolute;left:0;top:7px;bottom:7px;width:3px;border-radius:99px;background:#c8102e}
@@ -500,27 +509,34 @@
 .task-due strong{font-size:10.5px;font-weight:700;color:#4d4d55;white-space:nowrap}
 .task-due small{font-size:9.5px;color:#6f6f78}
 .task-priority{font-size:10.5px;font-weight:700;white-space:nowrap}
-.task-status-select{width:128px;height:34px;padding:0 26px 0 10px;border:1px solid #e2e2e8;border-radius:9px;background:#fafafd;color:#101014;font-size:10.5px;font-weight:650;cursor:pointer}
+.task-assignee{min-width:0;display:flex;align-items:center;gap:8px;color:#59606d;font-size:10.5px;white-space:nowrap}
+.task-assignee i{width:27px;height:27px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#eef0f4;color:#59606d;font-size:8.5px;font-style:normal;font-weight:800;flex:none}
+.task-assignee span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.task-status-select{width:120px;height:34px;padding:0 26px 0 10px;border:1px solid #e2e2e8;border-radius:9px;background:#fafafd;color:#101014;font-size:10.5px;font-weight:650;cursor:pointer}
+.task-status-readonly{display:inline-flex;align-items:center;width:max-content;max-width:120px;padding:7px 10px;border:1px solid #e2e2e8;border-radius:9px;background:#fafafd;color:#4d4d55;font-size:10.5px;font-weight:700;white-space:nowrap}
 .task-actions{display:flex;justify-content:flex-end;gap:2px}
 .task-action-button{width:27px;height:27px;display:flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:transparent;color:#a5a5ad;cursor:pointer}
 .task-note-button{min-width:31px;width:auto;padding:0 7px;gap:4px;font-size:9.5px;font-weight:700}
 .task-empty{padding:44px 20px;text-align:center;color:#8b8b95;font-size:12px}
+.task-page-readonly .task-list-head,.task-page-readonly .task-item{grid-template-columns:minmax(260px,1fr) 82px 60px minmax(125px,.62fr) 120px}
 .task-page-team .task-project-button{min-height:49px;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:start;justify-content:stretch;gap:2px}
 .task-page-team .task-project-button>strong{min-width:0;width:100%;display:block;grid-column:1;grid-row:1;justify-self:stretch;text-align:left;overflow-wrap:anywhere}
 .task-page-team .task-project-button>strong>span{display:inline;width:auto;margin:0;padding:0;color:inherit;font-size:inherit;line-height:inherit;white-space:normal}
 .task-page-team .task-project-button>span{grid-column:1;grid-row:2;display:block;width:max-content;justify-self:end;margin-left:auto;padding-top:0;line-height:1.35}
 @media(max-width:1180px){
-.task-page{width:min(1180px,calc(100vw - 276px))}
 .task-workspace{grid-template-columns:205px minmax(0,1fr)}
 .task-rail{padding-left:10px;padding-right:10px}
-.task-item{grid-template-columns:minmax(230px,1fr) 78px 52px 116px 54px;gap:8px}
+.task-list-head,.task-item{grid-template-columns:minmax(220px,1fr) 72px 52px minmax(110px,.55fr) 112px 52px;gap:8px}
+.task-page-readonly .task-list-head,.task-page-readonly .task-item{grid-template-columns:minmax(220px,1fr) 72px 52px minmax(110px,.55fr) 112px}
 .task-status-select{width:116px}.task-search input{width:190px}
 }
 @media(max-width:980px){
 .task-workspace{grid-template-columns:180px minmax(0,1fr)}
 .task-project-button span{display:none}
-.task-item{grid-template-columns:minmax(200px,1fr) 72px 108px 52px}
-.task-priority{display:none}.task-status-select{width:108px}
+.task-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.task-summary-item:nth-child(2){border-right:0}.task-summary-item:nth-child(-n+2){border-bottom:1px solid #ececf1}
+.task-list-head,.task-item{grid-template-columns:minmax(200px,1fr) 72px minmax(105px,.55fr) 108px 52px}.task-list-head>span:nth-child(3),.task-priority{display:none}
+.task-page-readonly .task-list-head,.task-page-readonly .task-item{grid-template-columns:minmax(200px,1fr) 72px minmax(105px,.55fr) 108px}
+.task-status-select{width:108px}
 .task-toolbar-controls{flex-wrap:wrap;justify-content:flex-end}.task-search input{width:165px}
 }
 @media(max-width:880px){
@@ -535,12 +551,13 @@
 .task-main{padding:14px 12px}
 }
 @media(max-width:650px){
+.task-summary{grid-template-columns:1fr 1fr}.task-summary-item{min-height:78px;padding:15px}.task-summary-copy strong{font-size:20px}.task-summary-icon{display:none}
 .task-page-header{align-items:flex-start}.task-page-header p{max-width:230px}.task-new-button{padding:10px 13px}
 .task-main-toolbar{align-items:flex-start;flex-direction:column}.task-toolbar-controls{width:100%;justify-content:stretch}
 .task-search{flex:1}.task-search input{width:100%}.task-sort{max-width:145px}
 .task-project-list{grid-template-columns:1fr}.task-status-list{grid-template-columns:repeat(2,minmax(0,1fr))}
-.task-item{grid-template-columns:minmax(0,1fr) 104px 38px;gap:7px;padding:9px 8px}
-.task-due{grid-column:1}.task-priority{display:block;grid-column:2;grid-row:2}.task-status-select{grid-column:2;grid-row:1;width:104px}.task-actions{grid-column:3;grid-row:1/3;flex-direction:column}
+.task-list-head{display:none}.task-item,.task-page-readonly .task-item{grid-template-columns:minmax(0,1fr) 104px 38px;gap:7px;padding:10px 8px}.task-page-readonly .task-item{grid-template-columns:minmax(0,1fr) 104px}
+.task-due{grid-column:1}.task-priority{display:block;grid-column:2;grid-row:2}.task-assignee{grid-column:1;grid-row:3}.task-status-select,.task-status-readonly{grid-column:2;grid-row:1;width:104px}.task-actions{grid-column:3;grid-row:1/3;flex-direction:column}
 }
 </style>
 <style>
@@ -1268,6 +1285,12 @@ New project
 <div><h1>Tasks</h1><p>All tasks across every project. Assign, edit or remove.</p></div>
 <button sc-camel-on-click="{{onNewTask}}" class="task-new-button" style-hover="background:#a50d26"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>New task</button>
 </div>
+<div class="task-summary">
+<div class="task-summary-item"><div class="task-summary-copy"><strong>{{adminTaskTotal}}</strong><span>Total Tasks</span></div></div>
+<div class="task-summary-item is-alert"><div class="task-summary-copy"><strong>{{adminTaskAttentionTotal}}</strong><span>Need Attention</span></div></div>
+<div class="task-summary-item is-progress"><div class="task-summary-copy"><strong>{{adminTaskProgressTotal}}</strong><span>In Progress</span></div></div>
+<div class="task-summary-item is-review"><div class="task-summary-copy"><strong>{{adminTaskReviewTotal}}</strong><span>Awaiting Review</span></div></div>
+</div>
 <div class="task-workspace">
 <aside class="task-rail">
 <h2>Projects</h2>
@@ -1294,11 +1317,13 @@ New project
 <div class="task-section">
 <h3 class="task-section-heading attention">Needs attention <span>{{adminAttentionCount}}</span></h3>
 <div class="task-list">
+<div class="task-list-head"><span>Task</span><span>Due Date</span><span>Priority</span><span>Assignee</span><span>Status</span><span>Actions</span></div>
 <sc-for list="{{adminAttentionTasks}}" as="t" hint-placeholder-count="1">
 <div class="task-item task-item-attention">
 <div class="task-info"><strong>{{t.title}}</strong><small><b>{{t.projectName}}</b> · {{t.phase}} · {{t.assignees}}</small></div>
 <div class="task-due"><strong style="color:#c8102e">{{t.dueDateLabel}}</strong><small>Overdue</small></div>
 <span class="task-priority" style="color:{{t.prioTextColor}}">{{t.prioLabel}}</span>
+<div class="task-assignee"><i>{{t.assigneeInitials}}</i><span>{{t.assigneeName}}</span></div>
 <sc-raw-select value="{{t.status}}" sc-camel-on-change="{{t.onStatusChange}}" class="task-status-select"><option value="not_started">Not Started</option><option value="in_progress">In Progress</option><option value="on_hold">On Hold</option><option value="needs_review">Needs Review</option><option value="completed">Complete</option></sc-raw-select>
 <div class="task-actions"><button sc-camel-on-click="{{t.onEdit}}" title="Edit" class="task-action-button" style-hover="color:#101014;background:#f1f1f4"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></button><button sc-camel-on-click="{{t.onDelete}}" title="Delete" class="task-action-button" style-hover="color:#c8102e;background:rgba(200,16,46,.08)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path></svg></button></div>
 </div>
@@ -1310,11 +1335,13 @@ New project
 <div class="task-section">
 <h3 class="task-section-heading">Upcoming <span>{{adminUpcomingCount}}</span></h3>
 <div class="task-list">
+<div class="task-list-head"><span>Task</span><span>Due Date</span><span>Priority</span><span>Assignee</span><span>Status</span><span>Actions</span></div>
 <sc-for list="{{adminUpcomingTasks}}" as="t" hint-placeholder-count="7">
 <div class="task-item">
 <div class="task-info"><strong>{{t.title}}</strong><small><b>{{t.projectName}}</b> · {{t.phase}} · {{t.assignees}}</small></div>
 <div class="task-due"><strong>{{t.dueDateLabel}}</strong></div>
 <span class="task-priority" style="color:{{t.prioTextColor}}">{{t.prioLabel}}</span>
+<div class="task-assignee"><i>{{t.assigneeInitials}}</i><span>{{t.assigneeName}}</span></div>
 <sc-raw-select value="{{t.status}}" sc-camel-on-change="{{t.onStatusChange}}" class="task-status-select"><option value="not_started">Not Started</option><option value="in_progress">In Progress</option><option value="on_hold">On Hold</option><option value="needs_review">Needs Review</option><option value="completed">Complete</option></sc-raw-select>
 <div class="task-actions"><button sc-camel-on-click="{{t.onEdit}}" title="Edit" class="task-action-button" style-hover="color:#101014;background:#f1f1f4"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path></svg></button><button sc-camel-on-click="{{t.onDelete}}" title="Delete" class="task-action-button" style-hover="color:#c8102e;background:rgba(200,16,46,.08)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path></svg></button></div>
 </div>
@@ -1406,6 +1433,12 @@ New project
 <div class="task-page-header">
 <div><h1>My tasks</h1><p>Tasks assigned to you across your active projects.</p></div>
 </div>
+<div class="task-summary">
+<div class="task-summary-item"><div class="task-summary-copy"><strong>{{teamTaskTotal}}</strong><span>Total Tasks</span></div></div>
+<div class="task-summary-item is-alert"><div class="task-summary-copy"><strong>{{teamTaskAttentionTotal}}</strong><span>Need Attention</span></div></div>
+<div class="task-summary-item is-progress"><div class="task-summary-copy"><strong>{{teamTaskProgressTotal}}</strong><span>In Progress</span></div></div>
+<div class="task-summary-item is-review"><div class="task-summary-copy"><strong>{{teamTaskReviewTotal}}</strong><span>Awaiting Review</span></div></div>
+</div>
 <div class="task-workspace">
 <aside class="task-rail">
 <h2>Projects</h2>
@@ -1432,11 +1465,13 @@ New project
 <div class="task-section">
 <h3 class="task-section-heading attention">Needs attention <span>{{teamAttentionCount}}</span></h3>
 <div class="task-list">
+<div class="task-list-head"><span>Task</span><span>Due Date</span><span>Priority</span><span>Assignee</span><span>Status</span><span>Notes</span></div>
 <sc-for list="{{teamAttentionTasks}}" as="t" hint-placeholder-count="1">
 <div class="task-item task-item-attention">
 <div class="task-info"><strong>{{t.title}}</strong><small><b>{{t.projectName}}</b> · {{t.phase}}</small></div>
 <div class="task-due"><strong style="color:#c8102e">{{t.dueDateLabel}}</strong><small>Overdue</small></div>
 <span class="task-priority" style="color:{{t.prioTextColor}}">{{t.prioLabel}}</span>
+<div class="task-assignee"><i>{{t.assigneeInitials}}</i><span>{{t.assigneeName}}</span></div>
 <sc-raw-select value="{{t.status}}" sc-camel-on-change="{{t.onStatusChange}}" class="task-status-select"><option value="not_started">Not Started</option><option value="in_progress">In Progress</option><option value="on_hold">On Hold</option><option value="needs_review">Needs Review</option><option value="completed">Complete</option></sc-raw-select>
 <div class="task-actions"><button sc-camel-on-click="{{t.onNote}}" title="Notes" class="task-action-button task-note-button" style-hover="color:#c8102e;background:rgba(200,16,46,.08)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>{{t.notesCount}}</button></div>
 </div>
@@ -1448,11 +1483,13 @@ New project
 <div class="task-section">
 <h3 class="task-section-heading">Upcoming <span>{{teamUpcomingCount}}</span></h3>
 <div class="task-list">
+<div class="task-list-head"><span>Task</span><span>Due Date</span><span>Priority</span><span>Assignee</span><span>Status</span><span>Notes</span></div>
 <sc-for list="{{teamUpcomingTasks}}" as="t" hint-placeholder-count="5">
 <div class="task-item">
 <div class="task-info"><strong>{{t.title}}</strong><small><b>{{t.projectName}}</b> · {{t.phase}}</small></div>
 <div class="task-due"><strong>{{t.dueDateLabel}}</strong></div>
 <span class="task-priority" style="color:{{t.prioTextColor}}">{{t.prioLabel}}</span>
+<div class="task-assignee"><i>{{t.assigneeInitials}}</i><span>{{t.assigneeName}}</span></div>
 <sc-raw-select value="{{t.status}}" sc-camel-on-change="{{t.onStatusChange}}" class="task-status-select"><option value="not_started">Not Started</option><option value="in_progress">In Progress</option><option value="on_hold">On Hold</option><option value="needs_review">Needs Review</option><option value="completed">Complete</option></sc-raw-select>
 <div class="task-actions"><button sc-camel-on-click="{{t.onNote}}" title="Notes" class="task-action-button task-note-button" style-hover="color:#c8102e;background:rgba(200,16,46,.08)"><svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12z"></path></svg>{{t.notesCount}}</button></div>
 </div>
@@ -1567,6 +1604,79 @@ New project
 <div class="lead-attention-list">
 <sc-for list="{{leadAttention}}" as="a" hint-placeholder-count="3"><div class="lead-attention-item"><span class="lead-attention-mark">{{a.mark}}</span><div><strong>{{a.value}}</strong><span>{{a.label}}</span></div></div></sc-for>
 </div>
+</section>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{sLTasks}}">
+<div data-screen-label="Leadership · Tasks" class="task-page task-page-readonly">
+<div class="task-page-header">
+<div><h1>Tasks</h1><p>Portfolio-wide task status and risk visibility.</p></div>
+</div>
+<div class="task-summary">
+<div class="task-summary-item"><div class="task-summary-copy"><strong>{{leadTaskTotal}}</strong><span>Total Tasks</span></div></div>
+<div class="task-summary-item is-alert"><div class="task-summary-copy"><strong>{{leadTaskAttentionTotal}}</strong><span>Need Attention</span></div></div>
+<div class="task-summary-item is-progress"><div class="task-summary-copy"><strong>{{leadTaskProgressTotal}}</strong><span>In Progress</span></div></div>
+<div class="task-summary-item is-review"><div class="task-summary-copy"><strong>{{leadTaskReviewTotal}}</strong><span>Awaiting Review</span></div></div>
+</div>
+<div class="task-workspace">
+<aside class="task-rail">
+<h2>Projects</h2>
+<div class="task-project-list">
+<sc-for list="{{leadTaskProjects}}" as="item" hint-placeholder-count="5">
+<button sc-camel-on-click="{{item.onClick}}" class="task-project-button" style="background:{{item.bg}};--task-bar:{{item.barColor}}"><strong>{{item.name}}</strong><span>{{item.countLabel}}</span></button>
+</sc-for>
+</div>
+<div class="task-status-list">
+<sc-for list="{{leadTaskStatuses}}" as="status" hint-placeholder-count="5">
+<button sc-camel-on-click="{{status.onClick}}" class="task-status-button" style="background:{{status.bg}};color:{{status.color}}"><i style="background:{{status.dot}}"></i><span>{{status.label}}</span><span>{{status.count}}</span></button>
+</sc-for>
+</div>
+</aside>
+<section class="task-main">
+<div class="task-main-toolbar">
+<h2>{{leadTaskTitle}}</h2>
+<div class="task-toolbar-controls">
+<div class="task-search"><svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg><input type="search" placeholder="Search tasks..." sc-camel-value="{{taskSearch}}" sc-camel-on-change="{{onTaskSearch}}"></div>
+<sc-raw-select value="{{taskSort}}" sc-camel-on-change="{{onTaskSort}}" class="task-sort"><option value="due">Sort by: Due date</option><option value="project">Sort by: Project</option><option value="priority">Sort by: Priority</option></sc-raw-select>
+</div>
+</div>
+<sc-if value="{{leadHasAttention}}">
+<div class="task-section">
+<h3 class="task-section-heading attention">Needs attention <span>{{leadAttentionTaskCount}}</span></h3>
+<div class="task-list">
+<div class="task-list-head"><span>Task</span><span>Due Date</span><span>Priority</span><span>Assignee</span><span>Status</span></div>
+<sc-for list="{{leadAttentionTasks}}" as="t" hint-placeholder-count="3">
+<div class="task-item task-item-attention">
+<div class="task-info"><strong>{{t.title}}</strong><small><b>{{t.projectName}}</b> · {{t.phase}}</small></div>
+<div class="task-due"><strong style="color:#c8102e">{{t.dueDateLabel}}</strong><small>Attention</small></div>
+<span class="task-priority" style="color:{{t.prioTextColor}}">{{t.prioLabel}}</span>
+<div class="task-assignee"><i>{{t.assigneeInitials}}</i><span>{{t.assigneeName}}</span></div>
+<span class="task-status-readonly" style="color:{{t.stColor}};background:{{t.stBg}}">{{t.statusLabel}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{leadHasUpcoming}}">
+<div class="task-section">
+<h3 class="task-section-heading">Upcoming <span>{{leadUpcomingTaskCount}}</span></h3>
+<div class="task-list">
+<div class="task-list-head"><span>Task</span><span>Due Date</span><span>Priority</span><span>Assignee</span><span>Status</span></div>
+<sc-for list="{{leadUpcomingTasks}}" as="t" hint-placeholder-count="7">
+<div class="task-item">
+<div class="task-info"><strong>{{t.title}}</strong><small><b>{{t.projectName}}</b> · {{t.phase}}</small></div>
+<div class="task-due"><strong>{{t.dueDateLabel}}</strong></div>
+<span class="task-priority" style="color:{{t.prioTextColor}}">{{t.prioLabel}}</span>
+<div class="task-assignee"><i>{{t.assigneeInitials}}</i><span>{{t.assigneeName}}</span></div>
+<span class="task-status-readonly" style="color:{{t.stColor}};background:{{t.stBg}}">{{t.statusLabel}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{leadNoTasks}}"><div class="task-empty">No tasks match the selected project, status, or search.</div></sc-if>
 </section>
 </div>
 </div>
@@ -1847,7 +1957,7 @@ class Component extends DCLogic {
     const rmap = { admin: 'adash', team: 'twork', leadership: 'ldash' };
     const accountNames = { admin: 'Sandra Ortiz', team: 'Marcus Lee', leadership: 'Robert Chen' };
     const sr = props.startRole && props.startRole !== 'picker' ? props.startRole : null;
-    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginNotice: '', loginBusy: false, resetMode: false, recoveryEmail: '', recoveryCode: '', newAccessCode: '', confirmAccessCode: '', recoveryError: '', recoveryBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, calOffset: 0, calSel: '', projects: P, tasks: T, notes: N };
+    this.state = { splash: !sr, splashLeaving: false, demoLoader: false, login: !sr, loginEmail: '', loginPassword: '', loginError: '', loginNotice: '', loginBusy: false, resetMode: false, recoveryEmail: '', recoveryCode: '', newAccessCode: '', confirmAccessCode: '', recoveryError: '', recoveryBusy: false, accountRole: sr, accountUserName: sr ? accountNames[sr] : '', accountCanPreviewRoles: sr === 'admin', role: sr, screen: sr ? rmap[sr] : 'adash', buildMode: true, feedbackEnabled: true, rolePreviewEnabled: true, inviteName: '', inviteEmail: '', inviteRole: 'team', inviteBusy: false, inviteError: '', inviteResult: null, pFilter: 'all', tFilter: 'all', aTaskProject: 'all', aTaskStatus: 'all', tTaskProject: 'all', tTaskStatus: 'all', lTaskProject: 'all', lTaskStatus: 'all', taskSearch: '', taskSort: 'due', chartRange: 'week', projectId: null, modal: null, editId: null, delId: null, noteTaskId: null, noteDraft: '', commentPanelOpen: false, commentDraft: '', pageComments: [], commentsLoading: false, commentsStorage: 'local', isMobile: false, calOffset: 0, calSel: '', projects: P, tasks: T, notes: N };
     this.draft = {};
   }
   componentDidMount() { this._rs = () => { const m = window.innerWidth < 880; if (m !== this.state.isMobile) this.setState({ isMobile: m }); }; window.addEventListener('resize', this._rs); this._rs(); this.loadAppConfig(); this.restoreSession(); if (this.state.splash) this.scheduleSplashExit(); this._commentContext = [this.state.role, this.state.screen, this.state.projectId].join(':'); if (this.state.role) this.loadPageComments(); }
@@ -1986,7 +2096,7 @@ class Component extends DCLogic {
   }
   commentPageLabel() {
     const s = this.state;
-    const labels = { adash: 'Admin Dashboard', build: 'Build Dashboard', aprojects: 'Admin Projects', adetail: 'Admin Project Detail', atasks: 'Admin Tasks', ateam: 'Admin Team', twork: 'My Work', ttasks: 'My Tasks', tprojects: 'My Projects', tdetail: 'Project Detail', ldash: 'Leadership Eagle View', lprojects: 'Leadership Projects', ldetail: 'Leadership Project Detail' };
+    const labels = { adash: 'Admin Dashboard', build: 'Build Dashboard', aprojects: 'Admin Projects', adetail: 'Admin Project Detail', atasks: 'Admin Tasks', ateam: 'Admin Team', twork: 'My Work', ttasks: 'My Tasks', tprojects: 'My Projects', tdetail: 'Project Detail', ldash: 'Leadership Eagle View', lprojects: 'Leadership Projects', ltasks: 'Leadership Tasks', ldetail: 'Leadership Project Detail' };
     if ((s.screen === 'adetail' || s.screen === 'tdetail' || s.screen === 'ldetail') && s.projectId) {
       const project = s.projects.find(p => p.id === s.projectId);
       return project ? project.name : (labels[s.screen] || 'Project Detail');
@@ -2043,7 +2153,7 @@ class Component extends DCLogic {
       const created = comment.createdAt ? new Date(comment.createdAt) : new Date();
       return { ...comment, author, initials: initials || 'R', dateLabel: created.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' · ' + created.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) };
     });
-    const navDefs = { admin: [['adash', 'Dashboard', 'dash'], ['aprojects', 'Projects', 'folder'], ['atasks', 'Tasks', 'check'], ['ateam', 'Team', 'users']], team: [['twork', 'My Work', 'clip'], ['tprojects', 'Projects', 'folder'], ['ttasks', 'Tasks', 'check']], leadership: [['ldash', 'Eagle View', 'chart'], ['lprojects', 'Projects', 'folder']] };
+    const navDefs = { admin: [['adash', 'Dashboard', 'dash'], ['aprojects', 'Projects', 'folder'], ['atasks', 'Tasks', 'check'], ['ateam', 'Team', 'users']], team: [['twork', 'My Work', 'clip'], ['tprojects', 'Projects', 'folder'], ['ttasks', 'Tasks', 'check']], leadership: [['ldash', 'Eagle View', 'chart'], ['lprojects', 'Projects', 'folder'], ['ltasks', 'Tasks', 'check']] };
     const navItems = (navDefs[role] || []).map(([id, label, ic]) => {
       const active = s.screen === id || (id === 'aprojects' && s.screen === 'adetail') || (id === 'tprojects' && s.screen === 'tdetail') || (id === 'lprojects' && s.screen === 'ldetail');
       return { label, d: this.IC[ic], bg: active ? '#c8102e' : 'transparent', color: active ? '#fff' : '#6f6f78', mColor: active ? '#c8102e' : '#a5a5ad', onClick: () => this.setState({ screen: id, projectId: null }) };
@@ -2099,9 +2209,13 @@ class Component extends DCLogic {
     const decorateTask = t => {
       const d = this.decT(t);
       const overdue = !!(t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < new Date());
-      return { ...d, dueDateLabel: t.due ? 'Due ' + this.fmtD(t.due) : 'No due date', overdue };
+      const assigneeName = t.assignees[0] || 'Unassigned';
+      const assigneeInitials = assigneeName === 'Unassigned' ? '—' : assigneeName.split(' ').filter(Boolean).slice(0, 2).map(part => part.charAt(0)).join('').toUpperCase();
+      return { ...d, dueDateLabel: t.due ? 'Due ' + this.fmtD(t.due) : 'No due date', overdue, assigneeName, assigneeInitials };
     };
     const buildTaskWorkspace = (baseRaw, projectKey, statusKey, roleKey) => {
+      const projectStateKey = roleKey === 'team' ? 'tTaskProject' : roleKey === 'leadership' ? 'lTaskProject' : 'aTaskProject';
+      const statusStateKey = roleKey === 'team' ? 'tTaskStatus' : roleKey === 'leadership' ? 'lTaskStatus' : 'aTaskStatus';
       const roleProject = projectKey || 'all';
       const roleStatus = statusKey || 'all';
       const query = (s.taskSearch || '').trim().toLowerCase();
@@ -2117,30 +2231,37 @@ class Component extends DCLogic {
         if (s.taskSort === 'priority') return (priorityRank[a.priority] ?? 9) - (priorityRank[b.priority] ?? 9) || (a.due || '9999').localeCompare(b.due || '9999');
         return (a.due || '9999').localeCompare(b.due || '9999');
       });
-      const attention = visible.filter(t => t.status === 'needs_review' || (t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < new Date()));
+      const attention = visible.filter(t => t.status === 'on_hold' || t.status === 'needs_review' || (t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < new Date()));
       const upcomingList = visible.filter(t => !attention.includes(t));
-      const openCount = baseRaw.filter(t => t.status !== 'completed').length;
       const projectItems = [{
-        name: roleKey === 'team' ? 'All my tasks' : 'All tasks',
-        countLabel: openCount + ' open',
+        name: roleKey === 'team' ? 'All assigned projects' : 'All Projects',
+        countLabel: String(baseRaw.length),
         bg: roleProject === 'all' ? '#fff0f2' : 'transparent',
         barColor: roleProject === 'all' ? '#c8102e' : 'transparent',
-        onClick: () => this.setState({ [roleKey === 'team' ? 'tTaskProject' : 'aTaskProject']: 'all' })
+        onClick: () => this.setState({ [projectStateKey]: 'all' })
       }, ...s.projects.filter(p => baseRaw.some(t => t.projectId === p.id)).map(p => {
         const count = baseRaw.filter(t => t.projectId === p.id && t.status !== 'completed').length;
         const active = roleProject === p.id;
-        return { name: p.name, countLabel: count + ' open', bg: active ? '#fff0f2' : 'transparent', barColor: active ? '#c8102e' : 'transparent', onClick: () => this.setState({ [roleKey === 'team' ? 'tTaskProject' : 'aTaskProject']: p.id }) };
+        return { name: p.name, countLabel: String(count), bg: active ? '#fff0f2' : 'transparent', barColor: active ? '#c8102e' : 'transparent', onClick: () => this.setState({ [projectStateKey]: p.id }) };
       })];
-      const statusDefs = [['needs_review', 'Needs review', '#f59e0b'], ['in_progress', 'In progress', '#2563eb'], ['on_hold', 'On hold', '#8b5cf6'], ['not_started', 'Not started', '#6f6f78'], ['completed', 'Complete', '#1f9d55']];
+      const statusDefs = [['all', 'All Tasks', '#c8102e'], ['not_started', 'Not Started', '#94a3b8'], ['in_progress', 'In Progress', '#2563eb'], ['on_hold', 'On Hold', '#f59e0b'], ['needs_review', 'Needs Review', '#c8102e'], ['completed', 'Complete', '#119b72']];
       const statusItems = statusDefs.map(([key, label, dot]) => {
         const active = roleStatus === key;
-        return { label, dot, count: projectScoped.filter(t => t.status === key).length, bg: active ? '#f6f6f9' : 'transparent', color: active ? '#101014' : '#4d4d55', onClick: () => this.setState({ [roleKey === 'team' ? 'tTaskStatus' : 'aTaskStatus']: active ? 'all' : key }) };
+        return { label, dot, count: key === 'all' ? projectScoped.length : projectScoped.filter(t => t.status === key).length, bg: active ? '#fff0f2' : 'transparent', color: active ? '#101014' : '#4d4d55', onClick: () => this.setState({ [statusStateKey]: key }) };
       });
-      const projectName = roleProject === 'all' ? (roleKey === 'team' ? 'My tasks' : 'All tasks') : ((s.projects.find(p => p.id === roleProject) || {}).name || 'Tasks');
-      return { projectItems, statusItems, title: projectName, attention: attention.map(decorateTask), upcoming: upcomingList.map(decorateTask), empty: visible.length === 0 };
+      const projectName = roleProject === 'all' ? (roleKey === 'team' ? 'My Tasks' : 'All Tasks') : ((s.projects.find(p => p.id === roleProject) || {}).name || 'Tasks');
+      const roleAttention = baseRaw.filter(t => t.status === 'on_hold' || t.status === 'needs_review' || (t.due && t.status !== 'completed' && new Date(t.due + 'T23:59:59') < new Date()));
+      return {
+        projectItems, statusItems, title: projectName + ' · ' + visible.length,
+        attention: attention.map(decorateTask), upcoming: upcomingList.map(decorateTask), empty: visible.length === 0,
+        total: baseRaw.length, attentionTotal: roleAttention.length,
+        progressTotal: baseRaw.filter(t => t.status === 'in_progress').length,
+        reviewTotal: baseRaw.filter(t => t.status === 'needs_review').length
+      };
     };
     const adminTaskWorkspace = buildTaskWorkspace(rawTasks, s.aTaskProject, s.aTaskStatus, 'admin');
     const teamTaskWorkspace = buildTaskWorkspace(myRaw, s.tTaskProject, s.tTaskStatus, 'team');
+    const leadTaskWorkspace = buildTaskWorkspace(rawTasks, s.lTaskProject, s.lTaskStatus, 'leadership');
     const dpRaw = s.projects.find(p => p.id === s.projectId);
     const noteTask = s.tasks.find(t => t.id === s.noteTaskId);
     const noteNotes = s.notes.filter(n => n.taskId === s.noteTaskId).map(n => ({ author: n.author, initial: n.author.charAt(0), dateLabel: this.fmtD(n.date), content: n.content }));
@@ -2387,7 +2508,7 @@ class Component extends DCLogic {
       sBuild: s.buildMode && s.screen === 'build',
       sADash: role === 'admin' && s.screen === 'adash', sAProjects: role === 'admin' && s.screen === 'aprojects', sADetail: role === 'admin' && s.screen === 'adetail' && !!dpRaw, sATasks: role === 'admin' && s.screen === 'atasks', sATeam: role === 'admin' && s.screen === 'ateam',
       sTWork: role === 'team' && s.screen === 'twork', sTTasks: role === 'team' && s.screen === 'ttasks', sTProjects: role === 'team' && s.screen === 'tprojects', sTDetail: role === 'team' && s.screen === 'tdetail' && !!dpRaw,
-      sLDash: role === 'leadership' && s.screen === 'ldash', sLProjects: role === 'leadership' && s.screen === 'lprojects', sLDetail: role === 'leadership' && s.screen === 'ldetail' && !!dpRaw,
+      sLDash: role === 'leadership' && s.screen === 'ldash', sLProjects: role === 'leadership' && s.screen === 'lprojects', sLTasks: role === 'leadership' && s.screen === 'ltasks', sLDetail: role === 'leadership' && s.screen === 'ldetail' && !!dpRaw,
       sProjectsRegister: (role === 'admin' && s.screen === 'aprojects') || (role === 'team' && s.screen === 'tprojects') || (role === 'leadership' && s.screen === 'lprojects'),
       projectScreenLabel: role === 'admin' ? 'Admin · Projects' : role === 'team' ? 'Project Manager · Projects' : 'Leadership · Projects',
       projectSubtitle: role === 'admin' ? 'Plan and track every facility activation through go-live.' : role === 'team' ? 'Track the facility activations assigned to you through go-live.' : 'Review portfolio progress and go-live readiness across every activation.',
@@ -2437,8 +2558,13 @@ class Component extends DCLogic {
       taskSearch: s.taskSearch || '', taskSort: s.taskSort || 'due', onTaskSearch: (e) => this.setState({ taskSearch: e.target.value }), onTaskSort: (e) => this.setState({ taskSort: e.target.value }),
       adminTaskProjects: adminTaskWorkspace.projectItems, adminTaskStatuses: adminTaskWorkspace.statusItems, adminTaskTitle: adminTaskWorkspace.title,
       adminAttentionTasks: adminTaskWorkspace.attention, adminUpcomingTasks: adminTaskWorkspace.upcoming, adminAttentionCount: adminTaskWorkspace.attention.length, adminUpcomingCount: adminTaskWorkspace.upcoming.length, adminHasAttention: adminTaskWorkspace.attention.length > 0, adminHasUpcoming: adminTaskWorkspace.upcoming.length > 0, adminNoTasks: adminTaskWorkspace.empty,
+      adminTaskTotal: adminTaskWorkspace.total, adminTaskAttentionTotal: adminTaskWorkspace.attentionTotal, adminTaskProgressTotal: adminTaskWorkspace.progressTotal, adminTaskReviewTotal: adminTaskWorkspace.reviewTotal,
       teamTaskProjects: teamTaskWorkspace.projectItems, teamTaskStatuses: teamTaskWorkspace.statusItems, teamTaskTitle: teamTaskWorkspace.title,
       teamAttentionTasks: teamTaskWorkspace.attention, teamUpcomingTasks: teamTaskWorkspace.upcoming, teamAttentionCount: teamTaskWorkspace.attention.length, teamUpcomingCount: teamTaskWorkspace.upcoming.length, teamHasAttention: teamTaskWorkspace.attention.length > 0, teamHasUpcoming: teamTaskWorkspace.upcoming.length > 0, teamNoTasks: teamTaskWorkspace.empty,
+      teamTaskTotal: teamTaskWorkspace.total, teamTaskAttentionTotal: teamTaskWorkspace.attentionTotal, teamTaskProgressTotal: teamTaskWorkspace.progressTotal, teamTaskReviewTotal: teamTaskWorkspace.reviewTotal,
+      leadTaskProjects: leadTaskWorkspace.projectItems, leadTaskStatuses: leadTaskWorkspace.statusItems, leadTaskTitle: leadTaskWorkspace.title,
+      leadAttentionTasks: leadTaskWorkspace.attention, leadUpcomingTasks: leadTaskWorkspace.upcoming, leadAttentionTaskCount: leadTaskWorkspace.attention.length, leadUpcomingTaskCount: leadTaskWorkspace.upcoming.length, leadHasAttention: leadTaskWorkspace.attention.length > 0, leadHasUpcoming: leadTaskWorkspace.upcoming.length > 0, leadNoTasks: leadTaskWorkspace.empty,
+      leadTaskTotal: leadTaskWorkspace.total, leadTaskAttentionTotal: leadTaskWorkspace.attentionTotal, leadTaskProgressTotal: leadTaskWorkspace.progressTotal, leadTaskReviewTotal: leadTaskWorkspace.reviewTotal,
       pmFirstName: displayUserName ? displayUserName.split(' ')[0] : 'Daniella',
       pmToday: now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
       pmUpdates, pmFocusTasks, pmNoFocus: pmFocusTasks.length === 0,
@@ -2446,7 +2572,7 @@ class Component extends DCLogic {
       pmUpNext, pmProjects,
       goTeamProjects: () => this.setState({ screen: 'tprojects', projectId: null }),
       onPMAddUpdate: () => { const task = pmFocusRaw[0]; if (task) this.setState({ modal: 'note', noteTaskId: task.id, noteDraft: '' }); },
-      onNewTask: () => { this.draft = { title: '', projectId: s.projects[0] ? s.projects[0].id : '', phase: 'Regulatory & Licensing', priority: 'medium', status: 'not_started', due: '', pct: 0, assign: '', desc: '' }; this.setState({ modal: 'task', editId: null }); },
+      onNewTask: () => { if (role !== 'admin') return; this.draft = { title: '', projectId: s.projects[0] ? s.projects[0].id : '', phase: 'Regulatory & Licensing', priority: 'medium', status: 'not_started', due: '', pct: 0, assign: '', desc: '' }; this.setState({ modal: 'task', editId: null }); },
       members: this.USERS.map((u, i) => { const b = badge[u.role]; const av = avatarColors[i % avatarColors.length]; const cnt = rawTasks.filter(t => t.assignees.includes(u.name) && t.status !== 'completed').length; return { name: u.name, initial: u.name.charAt(0), dept: u.dept, roleLabel: b[0], badgeBg: b[1], badgeColor: b[2], avatarBg: av[0], avatarColor: av[1], taskLabel: u.role === 'team' ? cnt + ' open task' + (cnt === 1 ? '' : 's') : '—' }; }),
       myInProg: myRaw.filter(t => t.status === 'in_progress').length, myDone: myRaw.filter(t => t.status === 'completed').length,
       tFilters: mkFilter([['all', 'All'], ['active', 'Active'], ['in_progress', 'In Progress'], ['on_hold', 'On Hold'], ['needs_review', 'Needs Review'], ['completed', 'Complete']], tf, 'tFilter'),

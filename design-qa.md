@@ -1,49 +1,50 @@
-# Admin Projects design QA
+# Tasks across roles design QA
 
-- Source visual truth: `/workspace/scratch/7da795c3cf26/generated_images/exec-2d4e328e-74be-4924-abd6-18fd01351804.png`
-- Implementation evidence: Cloud Browser session `-f5e5-452d-b9a9-911771fdd569`, FACT preview, Admin > Projects viewport capture
-- Viewport: 1344 × 928 CSS px, desktop, device scale factor 1
-- Source pixels: 1568 × 1003
-- Implementation pixels: 1344 × 928
-- Normalization: compared as full desktop application views with the same light theme and all-projects state; differences caused by the narrower verification viewport were treated as responsive scaling rather than fidelity defects.
-- State: Admin role, Projects navigation selected, All 5 filter selected, no search query
+- Source visual truth: `/workspace/scratch/7da795c3cf26/generated_images/exec-2b70bb09-6a59-4df8-88e3-a7033c12c5c2.png`
+- Implementation screenshot: unavailable; Cloud Browser access to `terminal.local:4173` was denied by the workspace browser security policy.
+- Intended viewport: 1584 × 992 desktop reference, light theme.
+- Source pixels: 1584 × 992.
+- Implementation pixels: unavailable.
+- CSS size and density normalization: unavailable because the rendered implementation could not be captured.
+- State: Admin Tasks, PM Tasks, and Leadership Tasks using the all-projects/all-status filter state.
 
 ## Full-view comparison evidence
 
-The implementation preserves the approved visual hierarchy: left role-aware navigation, Projects header, right-aligned search and Admin-only creation control, five-part status strip, underline filters, and a single restrained project register. The table uses the real FACT project names, locations, task rollups, go-live dates, budgets, and computed statuses. NYP red `#C8102E` is the only accent; neutral gray is used for completed state.
+The source render was available and used as the implementation target. A browser-rendered implementation image could not be obtained, so a valid side-by-side full-view comparison was not possible.
 
 ## Focused region comparison evidence
 
-The table and header were readable at the captured viewport, so a separate crop was not required. Focused browser inspection confirmed both Admin row controls fit inside the table surface after the responsive grid correction: edit bounds 1232–1261 px and delete bounds 1262–1291 px, within the surface bounds 270–1314 px.
+Blocked for the same reason. Code-level checks confirm the expected summary strip, project/status filter rail, task table columns, role-specific actions, and responsive rules are present, but code inspection is not a substitute for visual comparison.
 
 ## Findings
 
-- No actionable P0, P1, or P2 visual differences remain.
-- P3: Admin retains explicit edit and delete icons instead of the mockup's ellipsis. This intentional deviation preserves the prototype's existing direct management actions and remains visually restrained.
-- P3: The live data currently computes three Active projects and zero Planning projects, while the conceptual render illustrated two Active and one Planning. The implementation correctly uses live task-derived status rather than hard-coded mock values.
+- [P1] Browser-rendered visual evidence is unavailable.
+  Location: Admin, PM, and Leadership Tasks screens.
+  Evidence: the cloud browser denied access to the local preview before any viewport capture or interaction test could run.
+  Impact: layout fidelity, wrapping, and responsive behavior cannot be certified visually.
+  Fix: open the local preview in an allowed Cloud Browser session and compare all three role states against the source render.
 
 ## Required fidelity surfaces
 
-- Fonts and typography: Inter is retained across headings, controls, summary values, tabs, and table copy; weights and hierarchy closely match the source.
-- Spacing and layout rhythm: full-width content, summary dividers, filter rhythm, 86 px rows, subtle 9 px radii, and table padding match the approved density. Responsive grid clipping was fixed.
-- Colors and visual tokens: white/cool-gray surfaces, charcoal text, `#C8102E` accent, subtle gray borders, and red/gray status dots match the requested palette. No orange or coral remains on this screen.
-- Image quality and asset fidelity: the screen contains no raster artwork or custom imagery. Existing product icons remain crisp and consistent.
-- Copy and content: role-specific subtitles and project scope are accurate. PM shows assigned projects and “My tasks”; Leadership is portfolio-wide and read-only; Admin alone sees budget and management controls.
+- Fonts and typography: implemented with the existing FACT Inter typography system; visual confirmation blocked.
+- Spacing and layout rhythm: the approved full-width layout, four-part summary, filter rail, table columns, and responsive breakpoints are implemented; visual confirmation blocked.
+- Colors and visual tokens: FACT red `#C8102E`, white/cool-gray surfaces, pale-red borders, and semantic state colors are implemented; visual confirmation blocked.
+- Image quality and asset fidelity: no raster or decorative image assets are required by this screen. Existing product icons are retained.
+- Copy and content: Admin, PM, and Leadership task labels, counts, filters, assignees, due dates, priorities, and statuses are wired to the existing task data.
 
 ## Interaction verification
 
-- Admin: New project visible; edit and delete visible; project rows open detail.
-- Project Manager: only three assigned projects displayed; New project, budget, edit, and delete absent.
-- Leadership: all five projects displayed read-only; New project, budget, edit, and delete absent.
-- Search: “Lakewood” reduced the register to one row.
-- Status filter: “On hold 1” reduced the register to one row.
-- Console: no new Projects-screen runtime errors. The static preview reports a pre-existing embedded-font decode warning and browser-extension metadata noise, neither introduced by this change nor visible in the UI.
+- Static checks passed: Leadership Tasks navigation and screen exist.
+- Static checks passed: exactly one New task button exists, inside the Admin screen.
+- Static checks passed: the create-task handler rejects non-Admin roles.
+- Static checks passed: Leadership uses read-only status labels; PM retains status updates and notes; Admin retains create/edit/delete.
+- Template build and JavaScript parse checks passed.
+- Browser interaction and console checks: blocked by browser security policy.
 
 ## Comparison history
 
-1. Initial pass found a P2 responsive issue: the Admin delete control extended beyond the table surface at 1344 px.
-2. Reduced column minimums and gaps while preserving the approved proportions.
-3. Post-fix browser evidence confirmed both controls remain fully inside the table surface and PM/Leadership layouts remain unclipped.
-4. Replaced inherited green/orange project status dots with approved red/neutral tokens to maintain the current FACT palette.
+1. Implemented the selected Admin Tasks render across all three roles.
+2. Added role-specific permissions and data scopes.
+3. Attempted Cloud Browser verification; local preview access was denied before capture.
 
-final result: passed
+final result: blocked
