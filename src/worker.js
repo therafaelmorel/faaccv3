@@ -35,6 +35,23 @@ export default {
       return json({ error: 'API route not found.' }, 404);
     }
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    const contentType = response.headers.get('content-type') || '';
+
+    if (contentType.includes('text/html')) {
+      const headers = new Headers(response.headers);
+      headers.set('cache-control', 'no-store, max-age=0');
+      headers.set('cdn-cache-control', 'no-store');
+      headers.set('cloudflare-cdn-cache-control', 'no-store');
+      headers.set('x-fact-build', 'task-kpi-36');
+
+      return new Response(request.method === 'HEAD' ? null : response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers
+      });
+    }
+
+    return response;
   }
 };
