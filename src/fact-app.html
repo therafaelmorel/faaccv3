@@ -772,7 +772,7 @@
 .app-main{flex:1;width:100%;max-width:1920px;margin:0 auto;padding:30px clamp(24px,2.5vw,48px) 120px;box-sizing:border-box}
 
 /* Leadership · Eagle View */
-.lead-dash{width:100%;padding-top:2px;color:#202636;letter-spacing:-.01em}
+.lead-dash{width:100%;min-width:0;padding-top:2px;color:#202636;letter-spacing:-.01em;overflow-x:clip}
 .lead-dash *{box-sizing:border-box}
 .lead-dash button{font:inherit;cursor:pointer}
 .lead-top{display:flex;align-items:flex-start;gap:18px;margin-bottom:20px}
@@ -816,22 +816,22 @@
 .lead-health{min-width:0}
 .lead-health-head,.lead-health-row{display:grid;grid-template-columns:minmax(220px,1.7fr) minmax(150px,.9fr) 88px 86px 92px;gap:12px;align-items:center;padding-left:22px;padding-right:22px}
 .lead-health-head{height:36px;margin-top:14px;border-top:1px solid #ececf1;border-bottom:1px solid #ececf1;background:#fafafa;color:#757b87;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-.lead-health-row{min-height:57px;border-bottom:1px solid #ececf1;background:transparent;cursor:pointer}
-.lead-health-row:last-child{border-bottom:0}.lead-health-row:hover{background:#fffafa}
+.lead-health-row{width:100%;min-height:57px;padding-top:0;padding-bottom:0;border:0;border-bottom:1px solid #ececf1;border-radius:0;-webkit-appearance:none;appearance:none;background:transparent;color:inherit;text-align:left;outline:none;cursor:pointer}
+.lead-health-row:last-child{border-bottom:0}.lead-health-row:hover{background:#fffafa}.lead-health-row:focus-visible{position:relative;z-index:1;outline:2px solid rgba(200,16,46,.35);outline-offset:-2px}
 .lead-health-name{display:flex;align-items:center;gap:11px;min-width:0}
 .lead-health-name i{width:27px;height:27px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8.5px;font-style:normal;font-weight:800;flex:none}
 .lead-health-name strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:#171b27}
 .lead-health-progress{display:flex;align-items:center;gap:9px;min-width:0;color:#525865;font-size:11.5px;font-variant-numeric:tabular-nums}
-.lead-health-progress b{width:29px;flex:none}.lead-health-progress span{height:6px;flex:1;min-width:56px;border-radius:99px;background:#e8e9ed;overflow:hidden}.lead-health-progress i{display:block;height:100%;border-radius:99px;background:#12ad83}
+.lead-health-progress b{display:block;width:34px;flex:none;background:transparent;text-align:right;line-height:1}.lead-health-progress>span{height:6px;flex:1;min-width:56px;border-radius:99px;background:#e8e9ed;overflow:hidden}.lead-health-progress>span>i{display:block;height:100%;border-radius:99px;background:#12ad83}
 .lead-cell{color:#4d5360;font-size:11.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .lead-status{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;white-space:nowrap}.lead-status i{width:7px;height:7px;border-radius:50%;flex:none}
 .lead-attention{padding-bottom:4px}
 .lead-attention-list{padding:9px 22px 0}
 .lead-attention-item{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:center;min-height:64px;border-bottom:1px solid #ececf1}
 .lead-attention-item:last-child{border-bottom:0}
-.lead-attention-mark{width:27px;height:27px;border:1.5px solid #ff4b3e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ff4b3e;font-size:13px;font-weight:800}
+.lead-attention-mark{width:27px;height:27px;margin:0;border:1.5px solid #ff4b3e;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ff4b3e;font-size:13px;font-weight:800;line-height:1;flex:none}
 .lead-attention-item strong{display:block;color:#11141d;font-size:20px;line-height:1;font-weight:800;font-variant-numeric:tabular-nums}
-.lead-attention-item span{display:block;margin-top:4px;color:#656c79;font-size:11.5px}
+.lead-attention-item>div>span{display:block;margin-top:4px;color:#656c79;font-size:11.5px}
 
 @media(max-width:1040px){.crm-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:1120px){.pm-primary{grid-template-columns:1fr}.pm-next{min-height:0}.pm-timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pm-next-item{padding-bottom:0}.pm-next-item:before{display:none}}
