@@ -61,19 +61,19 @@ export async function onRequestPost({ request, env }) {
     return json({ error: 'This recovery key has already been used.' }, 409);
   }
 
-  const user = await env.DB.prepare(
-    "SELECT id FROM users WHERE email = ? AND role = 'admin' AND status = 'active'"
-  ).bind(email).first();
-  if (!user) {
-    return json({ error: 'The recovery details are incorrect or no longer valid.' }, 401);
-  }
-
   const now = new Date().toISOString();
+  const existingUser = await env.DB.prepare('SELECT id FROM users WHERE email = ?').bind(email).first();
+  const userId = existingUser?.id || crypto.randomUUID();
   const newAccessCodeHash = await sha256(newAccessCode);
   await env.DB.batch([
-    env.DB.prepare('UPDATE users SET access_code_hash = ?, updated_at = ? WHERE id = ?')
-      .bind(newAccessCodeHash, now, user.id),
-    env.DB.prepare('DELETE FROM sessions WHERE user_id = ?').bind(user.id),
+    env.DB.prepare(`
+      INSERT INTO users (id, email, name, role, access_code_hash, can_preview_roles, status, created_at, updated_at)
+      VALUES (?, ?, ?, 'admin', ?, 1, 'active', ?, ?)
+      ON CONFLICT(email) DO UPDATE SET name = excluded.name, role = 'admin',
+        access_code_hash = excluded.access_code_hash, can_preview_roles = 1,
+        status = 'active', updated_at = excluded.updated_at
+    `).bind(userId, email, env.BOOTSTRAP_ADMIN_NAME || 'Rafael Morel', newAccessCodeHash, now, now),
+    env.DB.prepare('DELETE FROM sessions WHERE user_id = ?').bind(userId),
     env.DB.prepare('INSERT INTO used_recovery_tokens (token_hash, email, used_at) VALUES (?, ?, ?)')
       .bind(recoveryHash, email, now)
   ]);
